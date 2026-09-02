@@ -1,0 +1,583 @@
+/* =========================
+   ABOUT SECTION
+========================= */
+
+.about {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  min-height: 500px;
+  overflow: hidden;
+}
+
+
+/* =========================
+   LEFT CONTENT
+========================= */
+
+.about-content {
+  padding: 35px 45px;
+
+  background: #fff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.about-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: #333;
+
+  border-left: 30px solid #4b7d35;
+  padding-left: 8px;
+
+  margin-bottom: 8px;
+}
+
+.about-content h2 {
+  margin: 0;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 38px;
+  line-height: 1.1;
+  font-weight: 700;
+
+  color: #222;
+}
+
+.about-content h2 span {
+  color: #d62c22;
+}
+
+.about-line {
+  width: 45px;
+  height: 3px;
+
+  background: #4b7d35;
+
+  margin: 14px 0 18px;
+}
+
+.about-content p {
+  max-width: 700px;
+
+  margin: 0 0 14px;
+
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.45;
+
+  color: #444;
+}
+
+
+/* =========================
+   ABOUT FEATURES
+========================= */
+
+.about-features {
+  display: flex;
+
+  margin-top: 10px;
+  margin-bottom: 22px;
+}
+
+.about-features div {
+  display: flex;
+  align-items: center;
+
+  padding: 0 40px;
+
+  border-right: 2px solid #ddd;
+}
+
+.about-features div:first-child {
+  padding-left: 0;
+}
+
+.about-features div:last-child {
+  border-right: none;
+}
+
+.about-features strong {
+  font-size: 28px;
+
+  color: #6a9b45;
+
+  margin-right: 7px;
+}
+
+.about-features span {
+  font-size: 13px;
+  font-weight: 700;
+
+  color: #555;
+}
+
+
+/* =========================
+   OUR TEAM BUTTON
+========================= */
+
+.about-link {
+  width: fit-content;
+
+  color: #d62c22;
+
+  font-size: 14px;
+  font-weight: 750;
+
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+.team-button {
+  border: none;
+  background: transparent;
+
+  padding: 0;
+
+  font-family: Arial, sans-serif;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.team-button:hover {
+  color: #a91f18;
+  transform: translateX(3px);
+}
+
+
+/* =========================
+   RIGHT IMAGE
+========================= */
+
+.about-image {
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: right center;
+
+  display: block;
+}
+
+
+/* =========================
+   TEAM SMOOTH DROPDOWN
+========================= */
+
+.team-wrapper {
+  max-height: 0;
+
+  opacity: 0;
+
+  overflow: hidden;
+
+  transform: translateY(-15px);
+
+  transition:
+    max-height 0.8s ease,
+    opacity 0.5s ease,
+    transform 0.6s ease;
+}
+
+.team-wrapper.team-open {
+  max-height: 1000px;
+
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* =========================
+   TEAM SECTION
+========================= */
+
+.team-section {
+  margin-top: 0;
+
+  padding: 25px 40px 40px;
+
+  background: #fff;
+}
+
+.team-section h2 {
+  text-align: center;
+
+  margin: 0 0 30px;
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 28px;
+  font-weight: 700;
+
+  color: #333;
+}
+
+
+/* =========================
+   TEAM GRID
+========================= */
+
+.team-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 15px;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================
+   TEAM CARD
+========================= */
+
+.team-card {
+  background: #fff;
+
+  border: 1px solid #e5e5e5;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  text-align: center;
+
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.08);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================
+   TEAM IMAGE
+========================= */
+
+.team-card img {
+  width: 100%;
+
+  height: 180px;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+
+/* =========================
+   TEAM NAME
+========================= */
+
+.team-card h3 {
+  margin: 10px 5px 3px;
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  color: #333;
+}
+
+
+/* =========================
+   TEAM POSITION
+========================= */
+
+.team-card h4 {
+  margin: 0 5px 7px;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  color: #d62c22;
+}
+
+
+/* =========================
+   TEAM DESCRIPTION
+========================= */
+
+.team-card p {
+  margin: 0 8px 12px;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 10px;
+  line-height: 1.35;
+
+  color: #555;
+}
+
+
+/* =========================
+   CORE VALUES SECTION
+========================= */
+
+.values-section {
+  width: 100%;
+
+  padding: 55px 30px 45px;
+
+  background: #fff;
+}
+
+
+/* =========================
+   CORE VALUES HEADING
+========================= */
+
+.values-heading {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+
+  margin-bottom: 22px;
+}
+
+.values-heading span {
+  width: 22px;
+  height: 2px;
+
+  background: #4b7d35;
+}
+
+.values-heading h2 {
+  margin: 0;
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 23px;
+  font-weight: 750;
+
+  color: #333;
+}
+
+
+/* =========================
+   VALUES GRID
+========================= */
+
+.values-grid {
+  display: grid;
+
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 20px;
+
+  max-width: 1400px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================
+   VALUE CARD
+========================= */
+
+.value-card {
+  min-height: 140px;
+
+  padding: 15px 18px;
+
+  border: 1px solid #e5e5e5;
+
+  border-radius: 6px;
+
+  text-align: center;
+
+  background: #fff;
+
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.04);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 7px 18px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================
+   VALUE ICON
+========================= */
+
+.value-icon {
+  font-size: 30px;
+
+  color: #4b7d35;
+
+  height: 38px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 5px;
+}
+
+
+/* =========================
+   VALUE TITLE
+========================= */
+
+.value-card h3 {
+  margin: 0 0 7px;
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  color: #4b7d35;
+}
+
+
+/* =========================
+   VALUE DESCRIPTION
+========================= */
+
+.value-card p {
+  margin: 0;
+
+  max-width: 190px;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+
+  color: #555;
+}
+
+
+/* =========================
+   VALUE RED LINE
+========================= */
+
+.value-line {
+  width: 30px;
+
+  height: 3px;
+
+  background: #e32620;
+
+  margin-top: auto;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image {
+    min-height: 400px;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .about-content {
+    padding: 30px 25px;
+  }
+
+  .about-content h2 {
+    font-size: 30px;
+  }
+
+  .about-features {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .about-features div {
+    padding: 0 15px;
+  }
+
+  .about-features div:first-child {
+    padding-left: 0;
+  }
+
+  .team-section {
+    padding: 25px 20px 35px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .values-section {
+    padding: 40px 20px;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+}

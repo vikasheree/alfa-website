@@ -1,0 +1,418 @@
+/* =========================
+   CONTACT SECTION
+========================= */
+
+.contact-section {
+  width: 100%;
+  background: #10401a;
+  padding: 30px 5% 0;
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.contact-heading {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+.contact-heading h2 {
+  margin: 0 0 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.contact-heading p {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  opacity: 0.9;
+}
+
+
+/* =========================
+   MAIN CARDS
+========================= */
+
+.contact-container {
+  max-width: 1300px;
+  margin: 0 auto 50px;
+
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 12px;
+}
+
+
+/* =========================
+   COMMON CARD
+========================= */
+
+.contact-form-box,
+.contact-info-box {
+  background: #fff;
+  border-radius: 7px;
+  padding: 14px;
+  box-sizing: border-box;
+
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================
+   CARD TITLE
+========================= */
+
+.contact-box-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 10px;
+}
+
+.contact-box-title > span {
+  width: 27px;
+  height: 27px;
+
+  border-radius: 50%;
+  background: #00665f;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+}
+
+.contact-box-title h3 {
+  margin: 0;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #333;
+}
+
+.contact-title-line {
+  width: 28px;
+  height: 3px;
+  background: #f31111;
+  margin-top: 3px;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #555;
+  margin-bottom: 3px;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+
+  border: 1px solid #e4e8e8;
+  border-radius: 4px;
+
+  background: #fcfdfd;
+
+  padding: 8px;
+
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+
+  outline: none;
+
+  transition: 0.2s ease;
+}
+
+.form-field input {
+  height: 40px;
+}
+
+.form-field textarea {
+  height: 80px;
+  resize: none;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: #00877c;
+  box-shadow: 0 0 0 2px rgba(0, 135, 124, 0.08);
+}
+
+.message-field {
+  grid-row: span 2;
+}
+
+
+/* =========================
+   SUBMIT BUTTON
+========================= */
+
+.submit-button {
+  display: block;
+
+  margin: 14px auto 8px;
+
+  padding: 8px 25px;
+
+  border: none;
+  border-radius: 4px;
+
+  background: #005c55;
+  color: #fff;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.submit-button:hover {
+  background: #00776d;
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   FORM NOTE
+========================= */
+
+.form-note {
+  text-align: center;
+
+  margin: 8px 0 0;
+
+  font-size: 10px;
+  color: #777;
+}
+
+
+/* =========================
+   COMPANY INFORMATION
+========================= */
+
+.contact-info-box h3 {
+  margin: 1px 0 9px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+
+  color: #333;
+}
+
+.contact-detail {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 8px;
+
+  padding: 5px 0;
+
+  border-bottom: 1px solid #e5e9e9;
+}
+
+.contact-detail span {
+  flex-shrink: 0;
+
+  width: 24px;
+  height: 24px;
+
+  border-radius: 50%;
+
+  background: #00665f;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 11px;
+}
+
+.contact-detail p {
+  margin: 2px 0 0;
+
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  line-height: 1.35;
+
+  color: #444;
+}
+
+
+/* =========================
+   MAP
+========================= */
+
+.contact-map {
+  width: 100%;
+  height: 105px;
+
+  margin-top: 9px;
+
+  overflow: hidden;
+
+  border-radius: 5px;
+
+  border: 1px solid #e1e5e5;
+}
+
+.contact-map iframe {
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+}
+
+
+/* =========================
+   BOTTOM FEATURES
+========================= */
+
+.contact-features {
+  max-width: 1300px;
+
+  margin: 0 auto;
+
+  background: #f2f9f8;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  padding: 10px 15px;
+
+  box-sizing: border-box;
+}
+
+.contact-features > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  border-right: 1px solid #d7dfde;
+}
+
+.contact-features > div:last-child {
+  border-right: none;
+}
+
+.contact-features > div > span {
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+
+  background: #dcefed;
+
+  color: #00665f;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+}
+
+.contact-features strong {
+  display: block;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+
+  color: #333;
+}
+
+.contact-features p {
+  margin: 2px 0 0;
+
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+
+  line-height: 1.3;
+  color: #777;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-features {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-features > div:nth-child(2) {
+    border-right: none;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .contact-section {
+    padding: 30px 12px 0;
+  }
+
+  .contact-heading h2 {
+    font-size: 27px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .message-field {
+    grid-row: auto;
+  }
+
+  .contact-features {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-features > div {
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    padding: 9px;
+  }
+
+  .contact-features > div:last-child {
+    border-bottom: none;
+  }
+}

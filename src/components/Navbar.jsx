@@ -1,35 +1,39 @@
-import { useState } from 'react'
 import './Navbar.css'
+import logo from '../assets/Alfa Logo.png'
+import serviceLogo from '../assets/24 year service png.png'
 
 function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false)
-
   return (
-    <nav className="navbar">
+    <header className="navbar">
       <div className="navbar-container">
 
-        <a href="#" className="navbar-logo">
-          ALFA
+        <a href="/" className="navbar-logo">
+          <img src={logo} alt="Alfa Control Systems" />
         </a>
 
-        <button
-          className="menu-button"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle navigation menu"
-        >
-          {menuOpen ? '✕' : '☰'}
-        </button>
+        <nav className="navbar-menu">
 
-        <ul className={`navbar-links ${menuOpen ? 'mobile-open' : ''}`}>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#industrial">Industrial</a></li>
-          <li><a href="#duro-mats">Duro Mats</a></li>
-          <li><a href="#heaters">Heaters</a></li>
-          <li><a href="#why-alfa">Why Alfa</a></li>
-        </ul>
+  <a href="/" className="active">HOME</a>
+  <a href="/industrial">INDUSTRIAL AUTOMATION</a>
+  <a href="/heating">HEATING SOLUTIONS</a>
+  <a href="/duro-mats">DURO MATS</a>
+  <a href="/solar">SOLAR EQUIPMENTS</a>
+
+</nav>
+
+        <div className="navbar-search">
+          <input
+            type="text"
+            placeholder="I am looking for..."
+          />
+          <button type="button">⌕</button>
+        </div>
+        <div className="navbar-service">
+    <img src={serviceLogo} alt="24 Years in Business" />
+  </div>
 
       </div>
-    </nav>
+    </header>
   )
 }
 

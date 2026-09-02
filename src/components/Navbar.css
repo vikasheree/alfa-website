@@ -1,92 +1,99 @@
 .navbar {
   width: 100%;
+  background: #ffffff;
   border-bottom: 1px solid #e5e5e5;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 1000;
 }
 
 .navbar-container {
-  max-width: 1200px;
+  width: min(100% - 40px, 1440px);
+  min-height: 80px;
   margin: 0 auto;
-  padding: 20px 24px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  gap: 30px;
 }
 
 .navbar-logo {
-  font-size: 24px;
-  font-weight: 700;
-}
-
-.navbar-links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  flex-shrink: 0;
 }
 
-.navbar-links a {
+.navbar-logo img {
+  width: 190px;
+  height: auto;
+  display: block;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex: 1;
+}
+
+.navbar-menu a {
+ font-family: 'Poppins', sans-serif;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 550;
+  text-decoration: none;
+  color: #000000;
+
   transition: color 0.2s ease;
 }
 
-.navbar-links a:hover {
-  color: #666666;
+/* Home / active page */
+.navbar-menu a.active {
+  color: #b40000;
 }
 
-@media (max-width: 768px) {
-  .navbar-links {
-    display: none;
-  }
-
-  .navbar-container {
-    padding: 16px 20px;
-  }
+/* Hover */
+.navbar-menu a:hover {
+  color: #b40000;
 }
 
-.menu-button {
-  display: none;
+.navbar-search {
+  display: flex;
+  align-items: center;
+  border: 1px solid #dddddd;
+  height: 30px;
+  flex-shrink: 0;
+}
+
+.navbar-search input {
+  width: 155px;
   border: none;
-  background: transparent;
-  font-size: 24px;
+  outline: none;
+  padding: 0 8px;
+  font-size: 13px;
+}
+
+.navbar-search button {
+  width: 35px;
+  height: 100%;
+  border: none;
+  background: white;
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
-  .navbar-container {
-    position: relative;
-    padding: 16px 20px;
-  }
+.navbar-service {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
 
-  .menu-button {
-    display: block;
-  }
-
-  .navbar-links {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-    padding: 20px;
-    background: #ffffff;
-    border-bottom: 1px solid #e5e5e5;
-  }
-
-  .navbar-links.mobile-open {
-    display: flex;
-  }
-
-  .navbar-links li {
-    width: 100%;
-  }
-
-  .navbar-links a {
-    display: block;
-    width: 100%;
-    padding: 12px 0;
-  }
+.navbar-service img {
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
 }

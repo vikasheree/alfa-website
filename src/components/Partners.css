@@ -1,0 +1,77 @@
+.partners {
+  width: 100%;
+  padding: 45px 0 50px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.partners h2 {
+  text-align: center;
+
+  margin: 0 0 30px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+
+  color: #263238;
+}
+
+.partners h2 span {
+  color: #65bfa7;
+}
+
+
+/* SLIDER */
+
+.partners-slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+.partners-track {
+  display: flex;
+  width: max-content;
+
+  animation: partnersScroll 30s linear infinite;
+}
+
+
+/* LOGO BOX */
+
+.partner-logo {
+  width: 180px;
+  height: 65px;
+
+  margin: 0 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+
+  flex-shrink: 0;
+}
+
+.partner-logo img {
+  max-width: 80%;
+  max-height: 70%;
+
+  object-fit: contain;
+}
+
+
+/* CONTINUOUS MOVEMENT */
+
+@keyframes partnersScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
