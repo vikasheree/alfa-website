@@ -1,0 +1,17 @@
+.solar-page {
+  min-height: 600px;
+  padding: 100px 40px;
+  text-align: center;
+  background: #fffbea;
+}
+
+.solar-page h1 {
+  margin: 0 0 20px;
+  font-size: 52px;
+  color: #e5a900;
+}
+
+.solar-page p {
+  font-size: 22px;
+  color: #333;
+}

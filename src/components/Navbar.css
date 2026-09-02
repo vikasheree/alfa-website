@@ -54,12 +54,62 @@
 
 /* Home / active page */
 .navbar-menu a.active {
-  color: #b40000;
+  font-weight: 700;
+}
+
+/* HOME */
+.navbar-menu a.nav-home.active {
+  color: #d92716;
+}
+
+/* INDUSTRIAL AUTOMATION */
+.navbar-menu a.nav-industrial.active {
+  color: #3f7f45;
+}
+
+/* HEATING SOLUTIONS */
+.navbar-menu a.nav-heating.active {
+  color: #ff6812;
+}
+
+/* DURO MATS */
+.navbar-menu a.nav-duro.active {
+  color: #3488d1;
+}
+
+/* SOLAR EQUIPMENTS */
+.navbar-menu a.nav-solar.active {
+  color: #f5c400;
 }
 
 /* Hover */
-.navbar-menu a:hover {
-  color: #b40000;
+/* =========================
+   HOVER COLORS
+========================= */
+
+/* HOME */
+.navbar-menu a.nav-home:hover {
+  color: #d92716;
+}
+
+/* INDUSTRIAL AUTOMATION */
+.navbar-menu a.nav-industrial:hover {
+  color: #3f7f45;
+}
+
+/* HEATING SOLUTIONS */
+.navbar-menu a.nav-heating:hover {
+  color: #ff6812;
+}
+
+/* DURO MATS */
+.navbar-menu a.nav-duro:hover {
+  color: #3488d1;
+}
+
+/* SOLAR EQUIPMENTS */
+.navbar-menu a.nav-solar:hover {
+  color: #f5c400;
 }
 
 .navbar-search {

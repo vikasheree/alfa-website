@@ -34,7 +34,8 @@
   background: white;
   border: 2px solid;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
-
+text-decoration: none;
+  color: inherit;
   height: 350px;
 
   display: flex;

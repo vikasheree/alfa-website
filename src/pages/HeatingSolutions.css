@@ -1,0 +1,24 @@
+.heating-page {
+  min-height: 600px;
+  padding: 70px 8%;
+  text-align: center;
+  background: #ffffff;
+}
+
+.heating-page h1 {
+  margin: 0 0 25px;
+  font-size: 48px;
+  color: #ff6812;
+}
+
+.heating-page h2 {
+  margin-top: 180px;
+  font-size: 36px;
+  color: #111;
+}
+
+.heating-page p {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+}
