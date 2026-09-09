@@ -1,17 +1,564 @@
+/* =========================
+   DURO MATS PAGE
+========================= */
+
 .duro-page {
-  min-height: 600px;
-  padding: 100px 40px;
-  text-align: center;
-  background: #eef6ff;
+  width: 100%;
 }
 
-.duro-page h1 {
-  margin: 0 0 20px;
-  font-size: 52px;
-  color: #3488d1;
+
+/* =========================
+   DURO MATS BANNER
+========================= */
+
+.duro-banner {
+  width: 100%;
+  overflow: hidden;
 }
 
-.duro-page p {
+.duro-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* =========================
+   DURO MATS CATEGORIES
+========================= */
+
+.duro-categories {
+  width: 100%;
+  padding: 28px 30px 10px;
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   PRODUCTS TITLE
+========================= */
+
+.duro-products-title {
+  margin: 0 0 26px;
+
+  font-size: 36px;
+  font-weight: 700;
+  color: #111111;
+}
+
+
+/* =========================
+   CATEGORY TABS
+========================= */
+
+.duro-category-tabs {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.duro-category-tab {
+  height: 44px;
+  padding: 0 26px;
+
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 600;
+  color: #111111;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.duro-category-tab:hover {
+  border-color: #003cff;
+}
+
+.duro-category-tab.active {
+  background: #2d2de4;
+  border-color: #144add;
+  color: #ffffff;
+}
+
+
+/* =========================
+   CATEGORY TITLE
+========================= */
+
+.duro-category-title {
+  margin: 34px 0 0;
+
+  font-size: 28px;
+  font-weight: 700;
+  color: #111111;
+}
+
+
+/* =========================
+   DURO PRODUCT GRID
+========================= */
+
+.duro-product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+
+  margin-top: 20px;
+}
+
+
+/* =========================
+   PRODUCT CARD
+========================= */
+
+.duro-product-card {
+  background: #ffffff;
+
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.duro-product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   PRODUCT IMAGE
+========================= */
+
+.duro-product-image {
+  width: 100%;
+  height: 180px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f7f7f7;
+}
+
+.duro-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+/* =========================
+   PRODUCT INFORMATION
+========================= */
+
+.duro-product-info {
+  padding: 14px 16px 16px;
+}
+
+.duro-product-info h3 {
+  margin: 0 0 7px;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  color: #111111;
+}
+
+.duro-product-description {
+  margin: 0 0 8px;
+
+  font-size: 13px;
+  color: #666666;
+}
+
+.duro-product-price {
+  margin: 0;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  color: #111111;
+}
+
+/* =========================
+   DURO PRODUCT DETAIL
+========================= */
+
+.duro-product-card {
+  cursor: pointer;
+}
+
+.duro-product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+
+/* BACK BUTTON */
+
+.duro-back-button {
+  background: none;
+  border: none;
+
+  padding: 0;
+  margin: 0 0 18px;
+
+  color: #2440e8;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.duro-back-button:hover {
+  text-decoration: underline;
+}
+
+
+/* DETAIL CONTAINER */
+
+.duro-detail-container {
+  display: grid;
+
+  grid-template-columns: 1fr 1.15fr;
+
+  gap: 30px;
+
+  padding: 22px;
+
+  background: #ffffff;
+
+  border: 1px solid #dddddd;
+
+  border-radius: 8px;
+
+  box-sizing: border-box;
+}
+
+
+/* LEFT */
+
+.duro-detail-left {
+  width: 100%;
+}
+
+
+/* MAIN IMAGE */
+
+.duro-detail-image {
+  width: 100%;
+
+  height: 440px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid #eeeeee;
+
+  border-radius: 7px;
+
+  background: #fafafa;
+
+  overflow: hidden;
+}
+
+.duro-detail-image img {
+  width: 90%;
+
+  height: 90%;
+
+  object-fit: contain;
+}
+
+
+/* THUMBNAILS */
+
+.duro-image-thumbnails {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 12px;
+
+  overflow-x: auto;
+
+  padding-bottom: 5px;
+}
+
+.duro-thumbnail {
+  flex: 0 0 75px;
+
+  width: 75px;
+
+  height: 60px;
+
+  padding: 3px;
+
+  background: #ffffff;
+
+  border: 1px solid #dddddd;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+.duro-thumbnail.active {
+  border: 2px solid #2440e8;
+}
+
+.duro-thumbnail img {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+}
+
+
+/* RIGHT */
+
+.duro-detail-info {
+  padding: 4px 0;
+
+  min-width: 0;
+}
+
+.duro-detail-info h2 {
+  margin: 0 0 6px;
+
+  font-size: 26px;
+
+  font-weight: 700;
+
+  color: #111111;
+}
+
+
+/* PRODUCT CODE */
+
+.duro-product-code {
+  margin: 0 0 12px;
+
+  font-size: 12px;
+
+  color: #777777;
+}
+
+
+/* AVAILABILITY */
+
+.duro-availability {
+  display: inline-block;
+
+  margin-bottom: 15px;
+
+  padding: 5px 10px;
+
+  background: #eef1ff;
+
+  border-radius: 4px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  color: #2440e8;
+}
+
+
+/* DESCRIPTION */
+
+.duro-detail-description {
+  margin: 0 0 16px;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  color: #555555;
+}
+
+
+/* PRICE */
+
+.duro-detail-price {
+  margin-bottom: 20px;
+
   font-size: 22px;
-  color: #333;
+
+  font-weight: 700;
+
+  color: #111111;
+}
+
+
+/* BUTTONS */
+
+.duro-detail-buttons {
+  display: flex;
+
+  gap: 10px;
+
+  margin-bottom: 24px;
+}
+
+.duro-quote-button,
+.duro-enquiry-button {
+  padding: 11px 18px;
+
+  border-radius: 5px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+/* REQUEST QUOTE */
+
+.duro-quote-button {
+  background: #ffffff;
+
+  color: #2440e8;
+
+  border: 1px solid #2440e8;
+}
+
+.duro-quote-button:hover {
+  background: #eef1ff;
+}
+
+
+/* ADD TO ENQUIRY */
+
+.duro-enquiry-button {
+  background: #2440e8;
+
+  color: #ffffff;
+
+  border: 1px solid #2440e8;
+}
+
+.duro-enquiry-button:hover {
+  background: #1d35c5;
+}
+
+
+/* SPECIFICATIONS */
+
+.duro-specifications {
+  width: 100%;
+
+  border: 1px solid #dddddd;
+
+  border-radius: 6px;
+
+  overflow: hidden;
+}
+
+.duro-specifications h3 {
+  margin: 0;
+
+  padding: 11px 13px;
+
+  background: #eef1ff;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  color: #111111;
+}
+
+
+/* SPECIFICATION ROW */
+
+.duro-spec-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1.5fr;
+
+  border-top: 1px solid #dddddd;
+
+  font-size: 12px;
+}
+
+.duro-spec-row span {
+  padding: 8px 10px;
+
+  color: #555555;
+}
+
+.duro-spec-row span:first-child {
+  font-weight: 600;
+
+  color: #444444;
+
+  border-right: 1px solid #dddddd;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+  .duro-product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .duro-detail-container {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .duro-categories {
+    padding: 20px 15px 10px;
+  }
+
+  .duro-products-title {
+    font-size: 28px;
+  }
+
+  .duro-product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .duro-detail-image {
+    height: 320px;
+  }
+
+  .duro-detail-buttons {
+    flex-direction: column;
+  }
+
+  .duro-quote-button,
+  .duro-enquiry-button {
+    width: 100%;
+  }
+
 }

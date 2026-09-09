@@ -1,24 +1,612 @@
+/* =========================
+   HEATING SOLUTIONS PAGE
+========================= */
+
 .heating-page {
-  min-height: 600px;
-  padding: 70px 8%;
-  text-align: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* =========================
+   BANNER
+========================= */
+
+.heating-banner {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.heating-banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* =========================
+   HEATING CATEGORIES
+========================= */
+
+.heating-categories {
+  width: 100%;
+  padding: 28px 30px 10px;
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   CATEGORY TABS
+========================= */
+
+.heating-category-tabs {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.heating-category-tab {
+  height: 44px;
+  padding: 0 26px;
+
   background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 600;
+  color: #111111;
+
+  cursor: pointer;
+
+  transition: 
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
-.heating-page h1 {
-  margin: 0 0 25px;
-  font-size: 48px;
-  color: #ff6812;
+.heating-category-tab:hover {
+  border-color: #ff5a00;
 }
 
-.heating-page h2 {
-  margin-top: 180px;
+.heating-category-tab.active {
+  background: #ff5a00;
+  border-color: #ff5a00;
+  color: #ffffff;
+}
+
+
+/* =========================
+   CATEGORY TITLE
+========================= */
+
+.heating-category-title {
+  margin: 34px 0 0;
+
+  font-size: 28px;
+  font-weight: 700;
+  color: #111111;
+}
+
+
+
+.heating-products-title {
+  margin: 0 0 26px;
   font-size: 36px;
-  color: #111;
+  font-weight: 700;
+  color: #111111;
 }
 
-.heating-page p {
-  font-size: 18px;
-  color: #333;
+
+/* =========================
+   HEATING PRODUCT GRID
+========================= */
+
+.heating-product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+
+  margin-top: 20px;
+}
+
+
+/* =========================
+   PRODUCT CARD
+========================= */
+
+.heating-product-card {
+  background: #ffffff;
+
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.heating-product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   PRODUCT IMAGE
+========================= */
+
+.heating-product-image {
+  width: 100%;
+  height: 180px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f7f7f7;
+}
+
+.heating-product-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+
+/* =========================
+   PRODUCT INFORMATION
+========================= */
+
+.heating-product-info {
+  padding: 14px 16px 16px;
+}
+
+.heating-product-info h3 {
+  margin: 0 0 7px;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  color: #111111;
+}
+
+.heating-product-description {
+  margin: 0 0 8px;
+
+  font-size: 13px;
+  color: #666666;
+}
+
+.heating-product-price {
+  margin: 0;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  color: #111111;
+}
+
+
+/* =========================
+   HEATING PRODUCT DETAIL
+========================= */
+
+.heating-product-detail {
+  margin-top: 30px;
+}
+
+
+/* =========================
+   BACK TO PRODUCTS
+========================= */
+
+.heating-back-button {
+  background: none;
+  border: none;
+
+  padding: 0;
+  margin: 0 0 18px;
+
+  color: #ff5a00;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.heating-back-button:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================
+   DETAIL CONTAINER
+========================= */
+
+.heating-detail-container {
+  display: grid;
+
+  grid-template-columns: 1fr 1.15fr;
+
+  gap: 30px;
+
+  padding: 22px;
+
+  background: #ffffff;
+
+  border: 1px solid #dddddd;
+
+  border-radius: 8px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   LEFT SIDE
+========================= */
+
+.heating-detail-left {
+  width: 100%;
+}
+
+
+/* =========================
+   MAIN PRODUCT IMAGE
+========================= */
+
+.heating-detail-image {
+  width: 100%;
+
+  height: 440px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid #eeeeee;
+
+  border-radius: 7px;
+
+  background: #fafafa;
+
+  overflow: hidden;
+}
+
+.heating-detail-image img {
+  width: 90%;
+
+  height: 90%;
+
+  object-fit: contain;
+}
+
+
+/* =========================
+   IMAGE THUMBNAILS
+========================= */
+
+.heating-image-thumbnails {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 12px;
+
+  overflow-x: auto;
+
+  padding-bottom: 5px;
+}
+
+
+/* Individual Thumbnail */
+
+.heating-thumbnail {
+  flex: 0 0 75px;
+
+  width: 75px;
+
+  height: 60px;
+
+  padding: 3px;
+
+  background: #ffffff;
+
+  border: 1px solid #dddddd;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  transition: border-color 0.2s ease;
+}
+
+
+/* Selected Thumbnail */
+
+.heating-thumbnail.active {
+  border: 2px solid #ff5a00;
+}
+
+
+/* Thumbnail Image */
+
+.heating-thumbnail img {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+}
+
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.heating-detail-info {
+  padding: 4px 0;
+
+  min-width: 0;
+}
+
+
+/* Product Name */
+
+.heating-detail-info h2 {
+  margin: 0 0 6px;
+
+  font-size: 26px;
+
+  font-weight: 700;
+
+  color: #111111;
+}
+
+
+/* =========================
+   PRODUCT CODE
+========================= */
+
+.heating-product-code {
+  margin: 0 0 12px;
+
+  font-size: 12px;
+
+  color: #777777;
+}
+
+
+/* =========================
+   AVAILABILITY
+========================= */
+
+.heating-availability {
+  display: inline-block;
+
+  margin-bottom: 15px;
+
+  padding: 5px 10px;
+
+  background: #fff3e8;
+
+  border-radius: 4px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  color: #ff5a00;
+}
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.heating-detail-description {
+  margin: 0 0 16px;
+
+  font-size: 14px;
+
   line-height: 1.6;
+
+  color: #555555;
+}
+
+
+/* =========================
+   PRICE
+========================= */
+
+.heating-detail-price {
+  margin-bottom: 20px;
+
+  font-size: 22px;
+
+  font-weight: 700;
+
+  color: #111111;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.heating-detail-buttons {
+  display: flex;
+
+  gap: 10px;
+
+  margin-bottom: 24px;
+}
+
+
+.heating-quote-button,
+.heating-enquiry-button {
+  padding: 11px 18px;
+
+  border-radius: 5px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+
+/* Request Quote */
+
+.heating-quote-button {
+  background: #ffffff;
+
+  color: #ff5a00;
+
+  border: 1px solid #ff5a00;
+}
+
+.heating-quote-button:hover {
+  background: #fff3e8;
+}
+
+
+/* Add To Enquiry */
+
+.heating-enquiry-button {
+  background: #ff5a00;
+
+  color: #ffffff;
+
+  border: 1px solid #ff5a00;
+}
+
+.heating-enquiry-button:hover {
+  background: #e54f00;
+}
+
+
+/* =========================
+   TECHNICAL SPECIFICATIONS
+========================= */
+
+.heating-specifications {
+  width: 100%;
+
+  border: 1px solid #dddddd;
+
+  border-radius: 6px;
+
+  overflow: hidden;
+}
+
+
+/* Specification Header */
+
+.heating-specifications h3 {
+  margin: 0;
+
+  padding: 11px 13px;
+
+  background: #fff3e8;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  color: #111111;
+}
+
+
+/* Specification Row */
+
+.heating-spec-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1.5fr;
+
+  border-top: 1px solid #dddddd;
+
+  font-size: 12px;
+}
+
+
+/* Specification Cells */
+
+.heating-spec-row span {
+  padding: 8px 10px;
+
+  color: #555555;
+}
+
+
+/* Specification Label */
+
+.heating-spec-row span:first-child {
+  font-weight: 600;
+
+  color: #444444;
+
+  border-right: 1px solid #dddddd;
+}
+
+
+/* =========================
+   MOBILE / SMALL SCREEN
+========================= */
+
+@media (max-width: 900px) {
+
+  .heating-product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .heating-detail-container {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .heating-categories {
+    padding: 20px 15px 10px;
+  }
+
+  .heating-products-title {
+    font-size: 28px;
+  }
+
+  .heating-product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .heating-detail-image {
+    height: 320px;
+  }
+
+  .heating-detail-buttons {
+    flex-direction: column;
+  }
+
+  .heating-quote-button,
+  .heating-enquiry-button {
+    width: 100%;
+  }
+
 }

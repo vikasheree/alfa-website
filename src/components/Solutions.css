@@ -179,3 +179,27 @@ text-decoration: none;
 .solar .solution-bottom {
   background: #f2bd00;
 }
+
+/* =========================
+   SOLUTIONS BANNER
+========================= */
+
+/* =========================
+   SOLUTIONS BANNER - THIN STRIP
+========================= */
+
+.solutions-banner {
+  width: 100%;
+  height: 75px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.solutions-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}

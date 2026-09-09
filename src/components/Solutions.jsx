@@ -5,15 +5,24 @@ import industrialImage from '../assets/Industrial banner image.png'
 import heaterImage from '../assets/Heater banner image.png'
 import duroImage from '../assets/Duro banner image.png'
 import solarImage from '../assets/Solar banner image.png'
+import solutionsBanner from '../assets/our solutions.png'
+
 
 
 function Solutions() {
-  return (
-    <section className="solutions">
+ return (
+  <section className="solutions">
 
-      <h1>OUR SOLUTIONS</h1>
+    <div className="solutions-banner">
+      <img
+        src={solutionsBanner}
+        alt="Our Solutions"
+      />
+    </div>
 
-      <div className="solutions-grid">
+    <h3></h3>
+
+    <div className="solutions-grid">
 
         <Link to="/industrial-automation" className="solution-card industrial">
           <div className="solution-image">
