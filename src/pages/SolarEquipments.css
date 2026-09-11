@@ -213,7 +213,7 @@
   font-size: 15px;
   font-weight: 700;
 
-  color: #111111;
+  color: #029b02;
 }
 
 
@@ -223,6 +223,7 @@
 
 .solar-product-detail {
   margin-top: 30px;
+  
 }
 
 
@@ -423,7 +424,7 @@
   margin: 0 0 16px;
 
   font-size: 14px;
-
+margin-top: 16px;
   line-height: 1.6;
 
   color: #555555;
@@ -558,15 +559,43 @@
    RESPONSIVE
 ========================= */
 
-@media (max-width: 1100px) {
+/* TABLET */
+@media (max-width: 1024px) {
+
+  .solar-categories {
+    padding: 26px 24px 10px;
+  }
+
+  .solar-products-title {
+    font-size: 32px;
+  }
 
   .solar-product-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
   }
 
+  .solar-product-image {
+    height: 170px;
+  }
+
+  .solar-detail-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    padding: 18px;
+  }
+
+  .solar-detail-image {
+    height: 380px;
+  }
+
+  .solar-detail-info h2 {
+    font-size: 24px;
+  }
 }
 
 
+/* SMALL TABLET */
 @media (max-width: 900px) {
 
   .solar-product-grid {
@@ -577,29 +606,117 @@
     grid-template-columns: 1fr;
   }
 
+  .solar-detail-image {
+    height: 400px;
+  }
 }
 
-
+ /* MOBILE */
 @media (max-width: 600px) {
 
-  .solar-categories {
-    padding: 20px 15px 10px;
+  .solar-page {
+    padding-top: 80px;
   }
 
-  .solar-products-title {
-    font-size: 28px;
+  
+
+  /* CATEGORY TABS */
+  .solar-category-tabs {
+    gap: 8px;
   }
 
+  .solar-category-tab {
+    height: 42px;
+    padding: 0 16px;
+    font-size: 13px;
+  }
+
+  /* CATEGORY TITLE */
+  .solar-category-title {
+    margin-top: 26px;
+    font-size: 23px;
+  }
+
+  /* PRODUCT GRID */
   .solar-product-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 16px;
   }
 
+  /* PRODUCT IMAGE */
+  .solar-product-image {
+    height: 210px;
+  }
+
+  /* PRODUCT INFO */
+  .solar-product-info {
+    padding: 13px 14px 15px;
+  }
+
+  .solar-product-info h3 {
+    font-size: 16px;
+  }
+
+  .solar-product-description {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* BACK BUTTON */
+  .solar-back-button {
+    margin-top: 16px;
+    margin-bottom: 14px;
+  }
+
+  /* PRODUCT DETAIL */
+  .solar-detail-container {
+    gap: 20px;
+    padding: 12px;
+    border-radius: 7px;
+  }
+
+  /* MAIN IMAGE */
   .solar-detail-image {
-    height: 320px;
+    height: 300px;
   }
 
+  .solar-detail-image img {
+    width: 95%;
+    height: 95%;
+  }
+
+  /* THUMBNAILS */
+  .solar-image-thumbnails {
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .solar-thumbnail {
+    flex: 0 0 65px;
+    width: 65px;
+    height: 55px;
+  }
+
+  /* PRODUCT INFORMATION */
+  .solar-detail-info h2 {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  .solar-detail-price {
+    font-size: 20px;
+  }
+
+  .solar-detail-description {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  /* BUTTONS */
   .solar-detail-buttons {
     flex-direction: column;
+    gap: 8px;
   }
 
   .solar-quote-button,
@@ -607,4 +724,78 @@
     width: 100%;
   }
 
+  /* SPECIFICATIONS */
+  .solar-spec-row {
+    grid-template-columns: 0.9fr 1.1fr;
+    font-size: 12px;
+  }
+
+  .solar-spec-row span {
+    padding: 8px;
+    overflow-wrap: anywhere;
+  }
 }
+
+
+/* VERY SMALL PHONES */
+@media (max-width: 380px) {
+
+  .solar-categories {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .solar-products-title {
+    font-size: 25px;
+  }
+
+  .solar-category-tab {
+    padding: 0 13px;
+    font-size: 12px;
+  }
+
+  .solar-product-image {
+    height: 190px;
+  }
+
+  .solar-detail-container {
+    padding: 10px;
+  }
+
+  .solar-detail-image {
+    height: 260px;
+  }
+
+  .solar-detail-info h2 {
+    font-size: 20px;
+  }
+
+  .solar-spec-row {
+    grid-template-columns: 1fr 1.2fr;
+  }
+}
+
+
+
+
+
+
+.Solar-read-more {
+ display: inline-block;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 2px;
+  color: rgb(102, 102, 235);
+
+  
+}
+
+.Solar-read-more:hover {
+  color: #fa7878;
+}
+
+/* existing CSS below */
+  
+  .solar-categories {
+    padding: 20px 15px 10px;
+  }

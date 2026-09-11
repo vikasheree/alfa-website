@@ -147,3 +147,331 @@
   height: 75px;
   object-fit: contain;
 }
+
+/* =========================
+   RESPONSIVE NAVBAR
+========================= */
+
+/* TABLET */
+@media (max-width: 1100px) {
+
+  .navbar-container {
+    width: min(100% - 30px, 1440px);
+    gap: 20px;
+  }
+
+  .navbar-logo img {
+    width: 165px;
+  }
+
+  .navbar-menu {
+    gap: 18px;
+  }
+
+  .navbar-menu a {
+    font-size: 14px;
+  }
+
+  .navbar-search input {
+    width: 120px;
+  }
+
+  .navbar-service img {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+
+/* SMALL TABLET */
+@media (max-width: 900px) {
+
+  .navbar-container {
+    min-height: 70px;
+  }
+
+  .navbar-logo img {
+    width: 155px;
+  }
+
+  .navbar-menu,
+  .navbar-search,
+  .navbar-service {
+    display: none;
+  }
+
+  .navbar-menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    background: none;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+
+    font-size: 24px;
+    cursor: pointer;
+  }
+}
+
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+  .navbar-container {
+    width: calc(100% - 30px);
+    min-height: 65px;
+  }
+
+  .navbar-logo img {
+    width: 140px;
+  }
+
+  .navbar-menu-toggle {
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+  }
+}
+
+
+/* VERY SMALL PHONES */
+@media (max-width: 380px) {
+
+  .navbar-container {
+    width: calc(100% - 24px);
+  }
+
+  .navbar-logo img {
+    width: 125px;
+  }
+
+  .navbar-menu-toggle {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+  }
+}
+
+
+
+/* =========================
+   MOBILE MENU BUTTON
+========================= */
+
+.navbar-menu-toggle {
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  padding: 0;
+
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 6px;
+
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+.navbar-mobile-menu {
+  display: none;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1100px) {
+
+  .navbar-container {
+    width: min(100% - 30px, 1440px);
+    gap: 20px;
+  }
+
+  .navbar-logo img {
+    width: 165px;
+  }
+
+  .navbar-menu {
+    gap: 18px;
+  }
+
+  .navbar-menu a {
+    font-size: 14px;
+  }
+
+  .navbar-search input {
+    width: 120px;
+  }
+
+  .navbar-service img {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+
+/* =========================
+   MOBILE / SMALL TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .navbar-container {
+    width: calc(100% - 30px);
+    min-height: 70px;
+  }
+
+  .navbar-logo img {
+    width: 155px;
+  }
+
+  /* Hide desktop items */
+  .navbar-menu,
+  .navbar-search,
+  .navbar-service {
+    display: none;
+  }
+
+  /* Show hamburger */
+  .navbar-menu-toggle {
+    display: flex;
+  }
+
+
+  /* MOBILE DROPDOWN */
+
+  .navbar-mobile-menu {
+    display: none;
+
+    flex-direction: column;
+
+    width: 100%;
+
+    background: #ffffff;
+
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #dddddd;
+
+    box-sizing: border-box;
+  }
+
+  .navbar-mobile-menu.open {
+    display: flex;
+  }
+
+
+  /* MOBILE LINKS */
+
+  .navbar-mobile-menu a {
+    display: block;
+
+    width: 100%;
+
+    padding: 15px 20px;
+
+    box-sizing: border-box;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    color: #000000;
+
+    border-bottom: 1px solid #eeeeee;
+  }
+
+
+  .navbar-mobile-menu a:last-child {
+    border-bottom: none;
+  }
+
+
+  /* MOBILE ACTIVE COLORS */
+
+  .navbar-mobile-menu a.nav-home.active {
+    color: #d92716;
+  }
+
+  .navbar-mobile-menu a.nav-industrial.active {
+    color: #3f7f45;
+  }
+
+  .navbar-mobile-menu a.nav-heating.active {
+    color: #ff6812;
+  }
+
+  .navbar-mobile-menu a.nav-duro.active {
+    color: #3488d1;
+  }
+
+  .navbar-mobile-menu a.nav-solar.active {
+    color: #f5c400;
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .navbar-container {
+    width: calc(100% - 30px);
+    min-height: 65px;
+  }
+
+  .navbar-logo img {
+    width: 140px;
+  }
+
+  .navbar-menu-toggle {
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+  }
+
+  .navbar-mobile-menu a {
+    padding: 14px 16px;
+    font-size: 13px;
+  }
+}
+
+
+/* =========================
+   VERY SMALL PHONES
+========================= */
+
+@media (max-width: 380px) {
+
+  .navbar-container {
+    width: calc(100% - 24px);
+  }
+
+  .navbar-logo img {
+    width: 125px;
+  }
+
+  .navbar-menu-toggle {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+  }
+}

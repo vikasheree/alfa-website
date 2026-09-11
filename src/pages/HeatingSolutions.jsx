@@ -1,22 +1,50 @@
 import { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import './HeatingSolutions.css'
-import heatingBanner from '../assets/Heating Banner.png'
+import heatingBanner from '../assets/HEATER/Heating Banner.png'
+import heatingBannerMobile from '../assets/HEATER/Heating Banner R.png'
 
-import heatingProduct1 from '../assets/Heater banner image.png'
-import heatingProduct2 from '../assets/Heater banner image.png'
-import heatingProduct3 from '../assets/Heater banner image.png'
+import heatingProduct1 from '../assets/HEATER/C1 -- Ceramic Band Heater/180mm Industrial Ceramic Band Heater/180mm Industrial Ceramic Band Heater 2.webp'
+import heatingProduct2 from '../assets/HEATER/C1 -- Ceramic Band Heater/180mm Industrial Ceramic Band Heater/180mm Industrial Ceramic Band Heater 3.webp'
+import heatingProduct3 from '../assets/HEATER/C1 -- Ceramic Band Heater/180mm Industrial Ceramic Band Heater/180mm Industrial Ceramic Band Heater1.webp'
 
+import heatingProduct4 from '../assets/HEATER/C1 -- Ceramic Band Heater/250mm Industrial Ceramic Band Heater/250mm Industrial Ceramic Band Heater 1.webp'
+
+import heatingProduct5 from '../assets/HEATER/C1 -- Ceramic Band Heater/Ceramic Barrel Heater/Ceramic Barrel Heater 1.webp'
+
+
+
+
+import heatingProduct6 from '../assets/HEATER/C2 -- Immersion Heaters/1000W Copper Water Immersion Heater/1000W Copper Water Immersion Heater 1.webp'
+import heatingProduct7 from '../assets/HEATER/C2 -- Immersion Heaters/1000W Copper Water Immersion Heater/1000W Copper Water Immersion Heater 2.webp'
+import heatingProduct8 from '../assets/HEATER/C2 -- Immersion Heaters/1000W Copper Water Immersion Heater/1000W Copper Water Immersion Heater 3.webp'
+
+import heatingProduct9 from '../assets/HEATER/C2 -- Immersion Heaters/Immersion Heater/Immersion Heater 1.webp'
+import heatingProduct10 from '../assets/HEATER/C2 -- Immersion Heaters/Immersion Heater/Immersion Heater 2.webp'
+
+
+
+import heatingProduct11 from '../assets/HEATER/C3 -- One Product/Bobbin Heater/Bobbin Heater 1.webp'
+import heatingProduct12 from '../assets/HEATER/C3 -- One Product/Bobbin Heater/Bobbin Heater 2.webp'
+import heatingProduct13 from '../assets/HEATER/C3 -- One Product/Bobbin Heater/Bobbin Heater 3.webp'
+
+import heatingProduct14 from '../assets/HEATER/C3 -- One Product/Finned Heater/Finned Heater 1.webp'
+import heatingProduct15 from '../assets/HEATER/C3 -- One Product/Finned Heater/Finned Heater 2.webp'
+import heatingProduct16 from '../assets/HEATER/C3 -- One Product/Finned Heater/Finned Heater 3.webp'
 
 function HeatingSolutions() {
 
-  const [selectedCategory, setSelectedCategory] = useState('Category 1')
+  const [selectedCategory, setSelectedCategory] = useState('CERAMIC BAND HEATER')
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [selectedImage, setSelectedImage] = useState(0)
 
+  const [searchParams, setSearchParams] = useSearchParams()
+
 
   const categories = [
-    'Category 1',
-    'Category 2',
+    'CERAMIC BAND HEATER',
+    'IMMERSION HEATERS',
+     'ONE PRODUCT',
   ]
 
 
@@ -26,10 +54,10 @@ function HeatingSolutions() {
        CATEGORY 1
     ========================= */
 
-    'Category 1': [
+    'CERAMIC BAND HEATER': [
 
       {
-        name: 'Heating Product 1',
+        name: '180mm Industrial Ceramic Band Heater',
 
         images: [
           heatingProduct1,
@@ -37,110 +65,122 @@ function HeatingSolutions() {
           heatingProduct3,
         ],
 
-        productCode: 'HS-001',
+        productCode: 'HS-IC',
 
         availability: 'In Stock',
 
         description:
-          'High quality heating solution designed for reliable and efficient operation.',
+          '180mm Industrial Ceramic Band Heater',
 
-        price: '₹ 650 / Piece',
+        price: '₹ 320/ Piece',
 
         specifications: [
           {
-            label: 'Model',
-            value: 'H-100',
-          },
+  label: 'Voltage',
+  value: '220V',
+},
+{
+  label: 'Power',
+  value: '320W',
+},
+{
+  label: 'Size',
+  value: '180mm (Dia)',
+},
+{
+  label: 'Heater Type',
+  value: 'Ceramic Heater',
+},
+{
+  label: 'Max Operating Temperature',
+  value: '300 Degree Celsius',
+},
+{
+  label: 'Heater Material',
+  value: 'Ceramic',
+},
+{
+  label: 'Shape',
+  value: 'Round',
+},
+          
+        ],
+      },
+
+
+    {
+        name: '250mm Industrial Ceramic Band Heater',
+
+        images: [
+          heatingProduct4,
+      
+        ],
+
+        productCode: 'HS-IC',
+
+        availability: 'In Stock',
+
+        description:
+          '250mm Industrial Ceramic Band Heater',
+
+        price: '₹ 500/ Piece',
+
+        specifications: [
           {
-            label: 'Voltage',
-            value: '230 VAC',
-          },
-          {
-            label: 'Power',
-            value: '1000 W',
-          },
-          {
-            label: 'Material',
-            value: 'Stainless Steel',
-          },
+  label: 'Voltage',
+  value: '440V',
+},
+{
+  label: 'Power',
+  value: '450W',
+},
+{
+  label: 'Size',
+  value: '250 mm (Dia)',
+},
+{
+  label: 'Heater Type',
+  value: 'Ceramic Heater',
+},
+{
+  label: 'Max Operating Temperature',
+  value: '300 Degree Celsius',
+},
+{
+  label: 'Heater Material',
+  value: 'Ceramic',
+},
+{
+  label: 'Shape',
+  value: 'Round',
+},
+          
         ],
       },
 
 
       {
-        name: 'Heating Product 2',
+        name: 'Ceramic Barrel Heater',
 
         images: [
-          heatingProduct1,
-          heatingProduct2,
-          heatingProduct3,
+          heatingProduct5,
         ],
 
-        productCode: 'HS-002',
+        productCode: 'HS-IC',
 
         availability: 'In Stock',
 
         description:
-          'Reliable industrial heating product suitable for various heating applications.',
+          'Ceramic Barrel Heater',
 
-        price: '₹ 850 / Piece',
-
-        specifications: [
-          {
-            label: 'Model',
-            value: 'H-200',
-          },
-          {
-            label: 'Voltage',
-            value: '230 VAC',
-          },
-          {
-            label: 'Power',
-            value: '1500 W',
-          },
-          {
-            label: 'Material',
-            value: 'Stainless Steel',
-          },
-        ],
-      },
-
-
-      {
-        name: 'Heating Product 3',
-
-        images: [
-          heatingProduct1,
-          heatingProduct2,
-          heatingProduct3,
-        ],
-
-        productCode: 'HS-003',
-
-        availability: 'In Stock',
-
-        description:
-          'Industrial heating equipment designed for consistent performance and durability.',
-
-        price: '₹ 1,200 / Piece',
+        price: '₹ 20/ Square inch',
 
         specifications: [
           {
             label: 'Model',
-            value: 'H-300',
+            value: 'C-Barrel Heater',
           },
-          {
-            label: 'Voltage',
-            value: '230 VAC',
-          },
-          {
-            label: 'Power',
-            value: '2000 W',
-          },
-          {
-            label: 'Material',
-            value: 'Stainless Steel',
-          },
+          
         ],
       },
 
@@ -151,43 +191,176 @@ function HeatingSolutions() {
        CATEGORY 2
     ========================= */
 
-    'Category 2': [
+    'IMMERSION HEATERS': [
 
       {
-        name: 'Heating Product 4',
+        name: '1000W Copper Water Immersion Heater',
 
         images: [
-          heatingProduct1,
-          heatingProduct2,
-          heatingProduct3,
+          heatingProduct6,
+          heatingProduct7,
+          heatingProduct8,
         ],
 
-        productCode: 'HS-004',
+        productCode: 'IH-C',
+
+        availability: 'In Stock',
+
+        description: '1000W Copper Water Immersion Heater',
+
+        price: '₹ 350/ Piece',
+
+        specifications: [
+          {
+  label: 'Power (Watt)',
+  value: '1000 W',
+},
+{
+  label: 'Material',
+  value: 'Copper',
+},
+{
+  label: 'Heating Element',
+  value: 'Copper',
+},
+{
+  label: 'Max Water Heater Tank Capacity',
+  value: '10 L',
+},
+{
+  label: 'Corrosion Resistance',
+  value: 'Yes',
+},
+          
+        ],
+      },
+
+      {
+        name: 'Immersion Heater',
+
+        images: [
+          heatingProduct9,
+          heatingProduct10,
+        ],
+
+        productCode: 'HS-IC',
 
         availability: 'In Stock',
 
         description:
-          'Efficient heating solution designed for industrial applications.',
+          'Water Immersion Heater',
 
-        price: '₹ 950 / Piece',
+        price: '₹ 500/ Piece',
 
         specifications: [
           {
-            label: 'Model',
-            value: 'H-400',
-          },
+  label: 'Material',
+  value: 'Stainless Steel',
+},
+{
+  label: 'Wattage',
+  value: '3000 W',
+},
+          
+        ],
+      },
+
+    ],
+
+
+     'ONE PRODUCT': [
+
+      {
+        name: '460V Ceramic Bobbin Heater',
+
+        images: [
+          heatingProduct11,
+          heatingProduct12,
+          heatingProduct13,
+        ],
+
+        productCode: 'OP-C',
+
+        availability: 'In Stock',
+
+        description:
+          '460V Ceramic Bobbin Heater',
+
+        price: '₹ 2500/ Piece',
+
+        specifications: [
           {
-            label: 'Voltage',
-            value: '230 VAC',
-          },
+  label: 'Voltage',
+  value: '460 V',
+},
+{
+  label: 'Heater Material',
+  value: 'Ceramic',
+},
+{
+  label: 'Power',
+  value: '10 KW',
+},
+{
+  label: 'Power Source',
+  value: 'Electric',
+},
+{
+  label: 'Usage/Application',
+  value: 'Used for heating gases, liquids',
+},
+{
+  label: 'Water Proof',
+  value: 'Yes',
+},
+          
+        ],
+      },
+
+      {
+        name: '440V Stainless Steel Spiral Fined Heater',
+
+        images: [
+          heatingProduct14,
+          heatingProduct15,
+          heatingProduct16,
+        ],
+
+        productCode: 'HS-IC',
+
+        availability: 'In Stock',
+
+        description:
+          '440V Stainless Steel Spiral Fined Heater',
+
+        price: '₹ 1500/ Piece',
+
+        specifications: [
           {
-            label: 'Power',
-            value: '1200 W',
-          },
-          {
-            label: 'Material',
-            value: 'Stainless Steel',
-          },
+  label: 'Voltage',
+  value: '440V',
+},
+{
+  label: 'Type',
+  value: 'Finned Heater',
+},
+{
+  label: 'Frequency',
+  value: '50 Hz',
+},
+{
+  label: 'Phase',
+  value: 'Single Phase',
+},
+{
+  label: 'Watts',
+  value: '1500 W',
+},
+{
+  label: 'Material',
+  value: 'Stainless Steel',
+},
+          
         ],
       },
 
@@ -196,8 +369,39 @@ function HeatingSolutions() {
   }
 
 
-  return (
 
+
+  // Create URL-friendly product slug
+  const createSlug = (name) => {
+    return name
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '')
+  }
+
+
+  // Get product from URL
+  const productSlug = searchParams.get('product')
+
+  let urlProduct = null
+  let urlCategory = null
+
+  Object.entries(products).forEach(([category, categoryProducts]) => {
+
+    const product = categoryProducts.find(
+      item => createSlug(item.name) === productSlug
+    )
+
+    if (product) {
+      urlProduct = product
+      urlCategory = category
+    }
+
+  })
+
+  const currentProduct = selectedProduct || urlProduct
+
+  return (
     <div className="heating-page">
 
 
@@ -206,13 +410,18 @@ function HeatingSolutions() {
       ========================= */}
 
       <section className="heating-banner">
+  <picture>
+    <source
+      media="(max-width: 768px)"
+      srcSet={heatingBannerMobile}
+    />
 
-        <img
-          src={heatingBanner}
-          alt="Heating Solutions"
-        />
-
-      </section>
+    <img
+      src={heatingBanner}
+      alt="Heating Solutions"
+    />
+  </picture>
+</section>
 
 
 
@@ -252,6 +461,8 @@ function HeatingSolutions() {
 
                 setSelectedProduct(null)
 
+                setSearchParams({})
+
               }}
 
             >
@@ -269,7 +480,7 @@ function HeatingSolutions() {
             PRODUCT LIST
         ========================= */}
 
-        {!selectedProduct && (
+        {!currentProduct && (
 
           <>
 
@@ -289,7 +500,9 @@ function HeatingSolutions() {
 
                   onClick={() => {
 
-                    setSelectedProduct(product)
+                    setSearchParams({
+                      product: createSlug(product.name)
+                    })
 
                     setSelectedImage(0)
 
@@ -319,15 +532,17 @@ function HeatingSolutions() {
                       {product.name}
                     </h3>
 
-
+<p className="heating-product-price">
+                      {product.price}
+                    </p>
                     <p className="heating-product-description">
                       {product.description}
                     </p>
 
-
-                    <p className="heating-product-price">
-                      {product.price}
-                    </p>
+<span className="Solar-read-more">
+  Read More →
+</span>
+                    
 
                   </div>
 
@@ -348,7 +563,7 @@ function HeatingSolutions() {
             PRODUCT DETAIL
         ========================= */}
 
-        {selectedProduct && (
+        {currentProduct && (
 
           <div className="heating-product-detail">
 
@@ -358,9 +573,14 @@ function HeatingSolutions() {
             <button
               className="heating-back-button"
 
-              onClick={() =>
+              onClick={() => {
+                if (urlCategory) {
+                  setSelectedCategory(urlCategory)
+                }
+
+                setSearchParams({})
                 setSelectedProduct(null)
-              }
+              }}
 
             >
               ← Back to Products
@@ -384,12 +604,12 @@ function HeatingSolutions() {
 
                   <img
                     src={
-                      selectedProduct.images[
+                      currentProduct.images[
                         selectedImage
                       ]
                     }
 
-                    alt={selectedProduct.name}
+                    alt={currentProduct.name}
                   />
 
                 </div>
@@ -400,7 +620,7 @@ function HeatingSolutions() {
 
                 <div className="heating-image-thumbnails">
 
-                  {selectedProduct.images.map(
+                  {currentProduct.images.map(
                     (image, index) => (
 
                       <button
@@ -420,7 +640,7 @@ function HeatingSolutions() {
 
                         <img
                           src={image}
-                          alt={`${selectedProduct.name} ${
+                          alt={`${currentProduct.name} ${
                             index + 1
                           }`}
                         />
@@ -447,7 +667,7 @@ function HeatingSolutions() {
                 {/* PRODUCT NAME */}
 
                 <h2>
-                  {selectedProduct.name}
+                  {currentProduct.name}
                 </h2>
 
 
@@ -458,7 +678,7 @@ function HeatingSolutions() {
 
                   Product Code:{' '}
 
-                  {selectedProduct.productCode}
+                  {currentProduct.productCode}
 
                 </p>
 
@@ -468,29 +688,23 @@ function HeatingSolutions() {
 
                 <div className="heating-availability">
 
-                  ● {selectedProduct.availability}
+                  ● {currentProduct.availability}
 
                 </div>
 
-
-
-                {/* DESCRIPTION */}
-
-                <p className="heating-detail-description">
-
-                  {selectedProduct.description}
-
-                </p>
-
-
-
-                {/* PRICE */}
+ {/* PRICE */}
 
                 <div className="heating-detail-price">
 
-                  {selectedProduct.price}
+                  {currentProduct.price}
 
                 </div>
+
+                
+
+
+
+               
 
 
 
@@ -533,7 +747,7 @@ function HeatingSolutions() {
 
 
 
-                  {selectedProduct.specifications?.map(
+                  {currentProduct.specifications?.map(
                     (spec) => (
 
                       <div
@@ -558,7 +772,13 @@ function HeatingSolutions() {
 
 
                 </div>
+{/* DESCRIPTION */}
 
+                <p className="heating-detail-description">
+
+                  {currentProduct.description}
+
+                </p>
 
               </div>
 

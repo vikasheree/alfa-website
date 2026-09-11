@@ -167,3 +167,9 @@ input {
   }
 
 }
+
+
+
+html {
+  scroll-behavior: smooth;
+}

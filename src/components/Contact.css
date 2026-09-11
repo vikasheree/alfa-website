@@ -2,11 +2,13 @@
    CONTACT SECTION
 ========================= */
 
-.contact-section {
+.contact {
   width: 100%;
-  background: #10401a;
+  background: #0a3b14;
   padding: 30px 5% 0;
   box-sizing: border-box;
+  margin-top: 60px;
+  margin-bottom: 0px;
 }
 
 
@@ -416,3 +418,90 @@
     border-bottom: none;
   }
 }
+
+
+
+
+
+/* =========================
+   FEATURES RESPONSIVE
+========================= */
+
+/* DESKTOP - 4 IN ONE ROW */
+.features {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+
+/* TABLET - 2 IN ONE ROW */
+@media (max-width: 1000px) {
+
+  .features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================
+   FEATURES - MOBILE 2 x 2
+========================= */
+
+@media (max-width: 600px) {
+
+  .features {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    width: 100%;
+    gap: 0;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    width: 100%;
+    min-height: 100px;
+    padding: 15px 10px;
+    box-sizing: border-box;
+  }
+
+}
+
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 380px) {
+
+  .features {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .feature-item {
+    min-height: 95px;
+    padding: 12px 8px;
+  }
+
+}
+
+/* VERY SMALL PHONES */
+@media (max-width: 380px) {
+
+  .features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .feature-item {
+    min-height: 95px;
+    padding: 12px 8px;
+  }
+
+}
+
+
+
+

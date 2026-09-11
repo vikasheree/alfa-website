@@ -1,24 +1,22 @@
 import './Solutions.css'
 import { Link } from 'react-router-dom'
 
-import industrialImage from '../assets/Industrial banner image.png'
-import heaterImage from '../assets/Heater banner image.png'
-import duroImage from '../assets/Duro banner image.png'
-import solarImage from '../assets/Solar banner image.png'
-import solutionsBanner from '../assets/our solutions.png'
+import industrialImage from '../assets/INDUSTRIAL/industrial product card.png'
+import heaterImage from '../assets/HEATER/heating product card.png'
+import duroImage from '../assets/DURO/duro product card.png'
+import solarImage from '../assets/SOLAR/solar product card.png'
 
 
 
 function Solutions() {
  return (
-  <section className="solutions">
+  <section id="solutions" className="solutions">
 
-    <div className="solutions-banner">
-      <img
-        src={solutionsBanner}
-        alt="Our Solutions"
-      />
-    </div>
+  <div className="solutions-heading">
+  <h2>
+    OUR <span>SOLUTIONS</span>
+  </h2>
+</div>
 
     <h3></h3>
 

@@ -1,13 +1,23 @@
+import { useState } from 'react'
 import './Contact.css'
 
 function Contact() {
+  const [submitted, setSubmitted] = useState(false)
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setSubmitted(true)
+  }
+
   return (
-    <section className="contact-section">
+    <section id="contact" className="contact">
 
       {/* HEADING */}
       <div className="contact-heading">
         <h2>Contact Us</h2>
-        <p>We're here to help! Reach out to us for any queries or assistance.</p>
+        <p>
+          We're here to help! Reach out to us for any queries or assistance.
+        </p>
       </div>
 
       {/* MAIN CONTACT AREA */}
@@ -24,7 +34,7 @@ function Contact() {
             </div>
           </div>
 
-          <form>
+          <form onSubmit={handleSubmit}>
 
             <div className="form-row">
 
@@ -33,6 +43,7 @@ function Contact() {
                 <input
                   type="text"
                   placeholder="Your full name"
+                  required
                 />
               </div>
 
@@ -53,6 +64,7 @@ function Contact() {
                 <input
                   type="tel"
                   placeholder="Your mobile number"
+                  required
                 />
               </div>
 
@@ -60,6 +72,7 @@ function Contact() {
                 <label>Type Your Message Here... *</label>
                 <textarea
                   placeholder="Write your message..."
+                  required
                 ></textarea>
               </div>
 
@@ -72,6 +85,7 @@ function Contact() {
                 <input
                   type="email"
                   placeholder="Your email address"
+                  required
                 />
               </div>
 
@@ -82,6 +96,13 @@ function Contact() {
             </button>
 
           </form>
+
+          {/* SUCCESS MESSAGE */}
+          {submitted && (
+            <p className="success-message">
+              ✓ Thank you! Your message has been submitted successfully.
+            </p>
+          )}
 
           <p className="form-note">
             🔒 Your information is safe with us. We never share your details.
@@ -121,7 +142,7 @@ function Contact() {
             </p>
           </div>
 
-          {/* MAP PLACEHOLDER */}
+          {/* MAP */}
           <div className="contact-map">
             <iframe
               title="Alfa Control Systems Location"
@@ -142,7 +163,10 @@ function Contact() {
           <span>◷</span>
           <div>
             <strong>Quick Response</strong>
-            <p>We reply to all inquiries<br />within 24 hours.</p>
+            <p>
+              We reply to all inquiries<br />
+              within 24 hours.
+            </p>
           </div>
         </div>
 
@@ -150,7 +174,10 @@ function Contact() {
           <span>✓</span>
           <div>
             <strong>Trusted Support</strong>
-            <p>Our team is here to<br />assist you.</p>
+            <p>
+              Our team is here to<br />
+              assist you.
+            </p>
           </div>
         </div>
 
@@ -158,7 +185,10 @@ function Contact() {
           <span>🤝</span>
           <div>
             <strong>Reliable Solutions</strong>
-            <p>Quality products and<br />dependable service.</p>
+            <p>
+              Quality products and<br />
+              dependable service.
+            </p>
           </div>
         </div>
 
@@ -166,7 +196,10 @@ function Contact() {
           <span>👥</span>
           <div>
             <strong>Customer First</strong>
-            <p>Your satisfaction is<br />our priority.</p>
+            <p>
+              Your satisfaction is<br />
+              our priority.
+            </p>
           </div>
         </div>
 

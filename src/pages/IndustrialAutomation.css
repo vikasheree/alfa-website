@@ -16,6 +16,11 @@
   overflow: hidden;
 }
 
+.industrial-banner picture {
+  display: block;
+  width: 100%;
+}
+
 .industrial-banner img {
   width: 100%;
   height: auto;
@@ -185,7 +190,7 @@
 
   font-size: 15px;
   font-weight: 700;
-  color: #111111;
+  color: #029b02;
 }
 
 
@@ -332,7 +337,7 @@
 
 .industrial-detail-description {
   margin: 0 0 16px;
-
+margin-top: 16px;
   font-size: 14px;
   line-height: 1.6;
 
@@ -499,3 +504,251 @@
 
   object-fit: contain;
 }
+
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* TABLET */
+@media (max-width: 1024px) {
+
+  .industrial-categories {
+    padding: 26px 24px 10px;
+  }
+
+  .industrial-products-title {
+    font-size: 32px;
+  }
+
+  .industrial-product-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .industrial-product-image {
+    height: 170px;
+  }
+
+  .industrial-detail-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    padding: 18px;
+  }
+
+  .industrial-detail-image {
+    height: 380px;
+  }
+
+  .industrial-detail-info h2 {
+    font-size: 24px;
+  }
+}
+
+
+/* SMALL TABLET */
+@media (max-width: 900px) {
+
+  .industrial-product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .industrial-detail-container {
+    grid-template-columns: 1fr;
+  }
+
+  .industrial-detail-image {
+    height: 400px;
+  }
+}
+
+
+/* MOBILE */
+/* MOBILE */
+@media (max-width: 600px) {
+
+  .industrial-page {
+    padding-top: 60px;
+  }
+
+  .industrial-banner {
+    margin-top: 0;
+  }
+
+  .industrial-banner picture {
+    display: block;
+    width: 100%;
+  }
+
+  .industrial-banner img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .industrial-categories {
+    padding: 20px 15px 10px;
+  }
+
+  .industrial-products-title {
+    margin-bottom: 20px;
+    font-size: 28px;
+  }
+
+  /* CATEGORY TABS */
+  .industrial-category-tabs {
+    gap: 8px;
+  }
+
+  .industrial-category-tab {
+    height: 42px;
+    padding: 0 16px;
+    font-size: 13px;
+  }
+
+  /* CATEGORY TITLE */
+  .industrial-category-title {
+    margin-top: 26px;
+    font-size: 23px;
+  }
+
+  /* PRODUCT GRID */
+  .industrial-product-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  /* PRODUCT IMAGE */
+  .industrial-product-image {
+    height: 210px;
+  }
+
+  /* PRODUCT INFO */
+  .industrial-product-info {
+    padding: 13px 14px 15px;
+  }
+
+  .industrial-product-info h3 {
+    font-size: 16px;
+  }
+
+  .industrial-product-description {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* BACK BUTTON */
+  .industrial-back-button {
+    margin-top: 16px;
+    margin-bottom: 14px;
+  }
+
+  /* PRODUCT DETAIL */
+  .industrial-detail-container {
+    gap: 20px;
+    padding: 12px;
+    border-radius: 7px;
+  }
+
+  /* MAIN IMAGE */
+  .industrial-detail-image {
+    height: 300px;
+  }
+
+  .industrial-detail-image img {
+    width: 95%;
+    height: 95%;
+  }
+
+  /* THUMBNAILS */
+  .industrial-image-thumbnails {
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .industrial-thumbnail {
+    flex: 0 0 65px;
+    width: 65px;
+    height: 55px;
+  }
+
+  /* PRODUCT INFORMATION */
+  .industrial-detail-info h2 {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  .industrial-detail-price {
+    font-size: 20px;
+  }
+
+  .industrial-detail-description {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  /* BUTTONS */
+  .industrial-detail-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .industrial-quote-button,
+  .industrial-enquiry-button {
+    width: 100%;
+  }
+
+  /* SPECIFICATIONS */
+  .spec-row {
+    grid-template-columns: 0.9fr 1.1fr;
+    font-size: 12px;
+  }
+
+  .spec-row span {
+    padding: 8px;
+    overflow-wrap: anywhere;
+  }
+}
+
+
+/* VERY SMALL PHONES */
+@media (max-width: 380px) {
+
+  .industrial-categories {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .industrial-products-title {
+    font-size: 25px;
+  }
+
+  .industrial-category-tab {
+    padding: 0 13px;
+    font-size: 12px;
+  }
+
+  .industrial-product-image {
+    height: 190px;
+  }
+
+  .industrial-detail-container {
+    padding: 10px;
+  }
+
+  .industrial-detail-image {
+    height: 260px;
+  }
+
+  .industrial-detail-info h2 {
+    font-size: 20px;
+  }
+
+  .spec-row {
+    grid-template-columns: 1fr 1.2fr;
+  }
+}
+
+

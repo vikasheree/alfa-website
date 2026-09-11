@@ -180,26 +180,337 @@ text-decoration: none;
   background: #f2bd00;
 }
 
-/* =========================
-   SOLUTIONS BANNER
-========================= */
 
-/* =========================
-   SOLUTIONS BANNER - THIN STRIP
-========================= */
 
-.solutions-banner {
+
+
+
+/* ================================
+   OUR SOLUTIONS HEADING
+================================ */
+
+/* ================================
+   OUR SOLUTIONS HEADING
+================================ */
+
+.solutions-heading {
   width: 100%;
-  height: 75px;
+  height: 120px;
+  margin: 5px 0 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
   overflow: hidden;
-  margin: 0;
-  padding: 0;
+
+
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #eef4ef 50%,
+    #ffffff 100%
+  );
 }
 
-.solutions-banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
+.solutions-heading::before {
+  content: "";
+  position: absolute;
+  width: 550px;
+  height: 150px;
+  left: -80px;
+  top: -75px;
+
+  border: 3px solid rgba(63, 125, 68, 0.25);
+  border-radius: 50%;
+  transform: rotate(-8deg);
 }
+
+.solutions-heading::after {
+  content: "";
+  position: absolute;
+  width: 850px;
+  height: 170px;
+  right: -160px;
+  bottom: -100px;
+
+  border: 3px solid rgba(230, 51, 35, 0.22);
+  border-radius: 50%;
+  transform: rotate(-8deg);
+}
+
+.solutions-heading h2 {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+
+  font-family: Arial, sans-serif;
+  font-size: 46px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #172b3a;
+}
+
+.solutions-heading h2 span {
+  color: #e63323;
+}
+
+.solutions-heading h2::before {
+  content: "";
+  display: inline-block;
+  width: 45px;
+  height: 3px;
+  background: #3f7d44;
+  margin-right: 18px;
+  vertical-align: middle;
+}
+
+.solutions-heading h2::after {
+  content: "";
+  display: inline-block;
+  width: 45px;
+  height: 3px;
+  background: #e63323;
+  margin-left: 18px;
+  vertical-align: middle;
+}
+
+
+
+
+
+
+
+/* ================================
+   RESPONSIVE - OUR SOLUTIONS
+================================ */
+
+
+/* TABLET */
+@media (max-width: 1024px) {
+
+  .solutions {
+    padding: 40px 24px;
+  }
+
+  .solutions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .solution-card {
+    height: 350px;
+  }
+
+  .solutions-heading {
+    height: 110px;
+  }
+
+  .solutions-heading h2 {
+    font-size: 40px;
+  }
+}
+
+
+/* ================================
+   MOBILE - 2 CARDS PER ROW
+================================ */
+
+@media (max-width: 600px) {
+
+  .solutions {
+    padding: 25px 12px 35px;
+  }
+
+  /* =========================
+     HEADING
+  ========================= */
+
+  .solutions-heading {
+    height: 120px;
+    margin: 0 0 20px;
+    justify-content: center;
+  }
+
+  .solutions-heading h2 {
+    font-size: 38px;
+    line-height: 1;
+    letter-spacing: 0;
+    text-align: center;
+  }
+
+  .solutions-heading h2::before {
+    width: 25px;
+    margin-right: 8px;
+  }
+
+  .solutions-heading h2::after {
+    width: 25px;
+    margin-left: 8px;
+  }
+
+
+  /* =========================
+     2 CARDS PER ROW
+  ========================= */
+
+  .solutions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+
+  /* =========================
+     CARD
+  ========================= */
+
+  .solution-card {
+    width: 100%;
+    height: 280px;
+    min-height: 0;
+    border-radius: 14px;
+  }
+
+
+  /* =========================
+     IMAGE
+  ========================= */
+
+  .solution-image {
+    height: 135px;
+  }
+
+
+  /* =========================
+     CONTENT
+  ========================= */
+
+  .solution-content {
+    height: 100px;
+    min-height: 0;
+    padding: 10px 12px;
+  }
+
+  .solution-content h3 {
+    font-size: 16px;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .solution-content p {
+    font-size: 10px;
+    line-height: 1.3;
+  }
+
+
+  /* =========================
+     EXPLORE
+  ========================= */
+
+  .solution-bottom {
+    height: 45px;
+    padding: 0 12px;
+    font-size: 12px;
+  }
+}
+
+
+/* ================================
+   VERY SMALL PHONES
+================================ */
+
+@media (max-width: 380px) {
+
+  .solutions {
+    padding: 20px 10px 30px;
+  }
+
+  .solutions-heading {
+    height: 105px;
+    margin-bottom: 18px;
+  }
+
+  .solutions-heading h2 {
+    font-size: 34px;
+  }
+
+  .solutions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .solution-card {
+    height: 255px;
+    border-radius: 12px;
+  }
+
+  .solution-image {
+    height: 120px;
+  }
+
+  .solution-content {
+    height: 90px;
+    padding: 8px 10px;
+  }
+
+  .solution-content h3 {
+    font-size: 14px;
+  }
+
+  .solution-content p {
+    font-size: 9px;
+  }
+
+  .solution-bottom {
+    height: 45px;
+    font-size: 11px;
+    padding: 0 10px;
+  }
+}
+
+  /* HEADING */
+
+  .solutions-heading {
+    height: 135px;
+    margin-bottom: 25px;
+  }
+
+  .solutions-heading h2 {
+    font-size: 36px;
+  }
+
+  .solutions-heading h2::before {
+    width: 30px;
+    margin-right: 10px;
+  }
+
+  .solutions-heading h2::after {
+    width: 30px;
+    margin-left: 10px;
+  }
+
+
+  /* CARDS */
+
+  .solutions-grid {
+    gap: 16px;
+  }
+
+  .solution-card {
+    min-height: 330px;
+  }
+
+  .solution-image {
+    height: 180px;
+  }
+
+  .solution-content {
+    padding: 14px;
+  }
+
+  .solution-content h3 {
+    font-size: 19px;
+  }
+
+  .solution-content p {
+    font-size: 12px;
+  }

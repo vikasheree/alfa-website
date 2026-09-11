@@ -1,28 +1,42 @@
 import { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import './SolarEquipments.css'
-import solarBanner from '../assets/Solar Banner.png'
+import solarBanner from '../assets/SOLAR/Solar Banner.png'
+import solarBannerMobile from '../assets/SOLAR/Solar Banner R.png'
 
-import solarProduct1 from '../assets/Solar banner image.png'
-import solarProduct2 from '../assets/Solar banner image.png'
-import solarProduct3 from '../assets/Solar banner image.png'
+
+import solarProduct1 from '../assets/SOLAR/C1 -- Led Flood Light/50W Portable LED Solar Lamp/50W Portable LED Solar Lamp 1.webp'
+import solarProduct2 from '../assets/SOLAR/C1 -- Led Flood Light/50W Portable LED Solar Lamp/50W Portable LED Solar Lamp 2.webp'
+import solarProduct3 from '../assets/SOLAR/C1 -- Led Flood Light/50W Portable LED Solar Lamp/50W Portable LED Solar Lamp 3.webp'
+import solarProduct4 from '../assets/SOLAR/C1 -- Led Flood Light/50W Portable LED Solar Lamp/50W Portable LED Solar Lamp 4.webp'
+
+
+
+
+
+import solarProduct5 from '../assets/SOLAR/C2 -- LED Solar Lamp/30W Solar Flood Light/30W Solar Flood Light 1.webp'
+import solarProduct6 from '../assets/SOLAR/C2 -- LED Solar Lamp/30W Solar Flood Light/30W Solar Flood Light 2.webp'
+import solarProduct7 from '../assets/SOLAR/C2 -- LED Solar Lamp/30W Solar Flood Light/30W Solar Flood Light 3.webp'
+import solarProduct8 from '../assets/SOLAR/C2 -- LED Solar Lamp/30W Solar Flood Light/30W Solar Flood Light 4.webp'
+
+import solarProduct9 from '../assets/SOLAR/C2 -- LED Solar Lamp/40W Solar Flood Light/40W Solar Flood Light 1.webp'
+import solarProduct10 from '../assets/SOLAR/C2 -- LED Solar Lamp/40W Solar Flood Light/40W Solar Flood Light 2.webp'
+import solarProduct11 from '../assets/SOLAR/C2 -- LED Solar Lamp/40W Solar Flood Light/40W Solar Flood Light 3.webp'
+import solarProduct12 from '../assets/SOLAR/C2 -- LED Solar Lamp/40W Solar Flood Light/40W Solar Flood Light 4.webp'
 
 
 function SolarEquipments() {
 
-  const [selectedCategory, setSelectedCategory] = useState('Category 1')
+  const [selectedCategory, setSelectedCategory] = useState('LED Flood Light')
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [selectedImage, setSelectedImage] = useState(0)
 
+  const [searchParams, setSearchParams] = useSearchParams()
+
 
   const categories = [
-    'Category 1',
-    'Category 2',
-    'Category 3',
-    'Category 4',
-    'Category 5',
-    'Category 6',
-    'Category 7',
-    'Category 8',
+    'LED Flood Light',
+    'LED SOLAR LAMP',
   ]
 
 
@@ -32,121 +46,100 @@ function SolarEquipments() {
        CATEGORY 1
     ========================= */
 
-    'Category 1': [
+    'LED Flood Light': [
 
       {
-        name: 'Solar Product 1',
+        name: '30W Solar Flood Light',
 
         images: [
-          solarProduct1,
-          solarProduct2,
-          solarProduct3,
+          solarProduct5,
+          solarProduct6,
+          solarProduct7,
+          solarProduct8,
         ],
 
-        productCode: 'SE-001',
+        productCode: 'SE-L',
 
         availability: 'In Stock',
 
         description:
           'High quality solar equipment designed for reliable and efficient solar applications.',
 
-        price: '₹ 650 / Piece',
+        price: '₹ 3,550/ Piece',
 
         specifications: [
           {
-            label: 'Model',
-            value: 'SE-100',
-          },
-          {
-            label: 'Power',
-            value: '1000 W',
-          },
-          {
-            label: 'Voltage',
-            value: '230 VAC',
-          },
-          {
-            label: 'Material',
-            value: 'Aluminium',
-          },
+  label: 'Power',
+  value: '30 Watt',
+},
+{
+  label: 'Weight',
+  value: '1.5 kg',
+},
+{
+  label: 'Light Color',
+  value: 'White',
+},
+{
+  label: 'Light Type',
+  value: 'Flood Light',
+},
+{
+  label: 'Power Source',
+  value: 'Solar',
+},
+{
+  label: 'Brand Name',
+  value: 'Alfa',
+},
         ],
       },
 
 
       {
-        name: 'Solar Product 2',
+        name: '40W Solar Flood Light',
 
         images: [
-          solarProduct1,
-          solarProduct2,
-          solarProduct3,
+          solarProduct9,
+          solarProduct10,
+          solarProduct11,
+          solarProduct12,
         ],
 
-        productCode: 'SE-002',
+        productCode: 'SE-SF',
 
         availability: 'In Stock',
 
         description:
           'Reliable solar equipment suitable for residential and commercial applications.',
 
-        price: '₹ 850 / Piece',
+        price: '₹ 4,200/ Piece',
 
         specifications: [
           {
-            label: 'Model',
-            value: 'SE-200',
-          },
-          {
-            label: 'Power',
-            value: '1500 W',
-          },
-          {
-            label: 'Voltage',
-            value: '230 VAC',
-          },
-          {
-            label: 'Material',
-            value: 'Aluminium',
-          },
-        ],
-      },
-
-
-      {
-        name: 'Solar Product 3',
-
-        images: [
-          solarProduct1,
-          solarProduct2,
-          solarProduct3,
-        ],
-
-        productCode: 'SE-003',
-
-        availability: 'In Stock',
-
-        description:
-          'Efficient solar equipment designed for dependable performance and long-term use.',
-
-        price: '₹ 1,200 / Piece',
-
-        specifications: [
-          {
-            label: 'Model',
-            value: 'SE-300',
-          },
-          {
-            label: 'Power',
-            value: '2000 W',
-          },
-          {
-            label: 'Voltage',
-            value: '230 VAC',
-          },
-          {
-            label: 'Material',
-            value: 'Aluminium',
-          },
+  label: 'Power',
+  value: '40 Watt',
+},
+{
+  label: 'Light Color',
+  value: 'White',
+},
+{
+  label: 'Weight',
+  value: '1.8 Kg',
+},
+{
+  label: 'Power Source',
+  value: 'Solar',
+},
+{
+  label: 'Light Type',
+  value: 'Flood Light',
+},
+{
+  label: 'Brand Name',
+  value: 'Alfa',
+},
         ],
       },
 
@@ -157,49 +150,83 @@ function SolarEquipments() {
        CATEGORY 2
     ========================= */
 
-    'Category 2': [
+    'LED SOLAR LAMP': [
 
       {
-        name: 'Solar Product 4',
+        name: '50W Portable LED Solar Lamp',
 
         images: [
           solarProduct1,
           solarProduct2,
           solarProduct3,
+          solarProduct4,
         ],
 
-        productCode: 'SE-004',
+        productCode: 'SE-P',
 
         availability: 'In Stock',
 
         description:
           'High quality solar solution designed for efficient energy applications.',
 
-        price: '₹ 950 / Piece',
+        price: '₹ 2,250/ Piece',
 
         specifications: [
           {
-            label: 'Model',
-            value: 'SE-400',
-          },
-          {
-            label: 'Power',
-            value: '1200 W',
-          },
-          {
-            label: 'Voltage',
-            value: '230 VAC',
-          },
-          {
-            label: 'Material',
-            value: 'Aluminium',
-          },
+  label: 'Power Rating',
+  value: '50W',
+},
+{
+  label: 'Usage/Application',
+  value: 'Outdoor',
+},
+{
+  label: 'Lighting Type',
+  value: 'LED',
+},
+{
+  label: 'IP Rating',
+  value: 'IP65',
+},
+{
+  label: 'Body Material',
+  value: 'Stainless Steel',
+},
         ],
       },
 
     ],
 
   }
+
+
+  // Create URL-friendly product slug
+  const createSlug = (name) => {
+    return name
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '')
+  }
+
+
+  // Get product from URL
+  const productSlug = searchParams.get('product')
+
+  let urlProduct = null
+
+ Object.values(products).forEach((categoryProducts) => {
+
+  const product = categoryProducts.find(
+    item => createSlug(item.name) === productSlug
+  )
+
+  if (product) {
+    urlProduct = product
+  }
+
+})
+
+  const currentProduct = selectedProduct || urlProduct
 
 
   return (
@@ -212,13 +239,18 @@ function SolarEquipments() {
       ========================= */}
 
       <section className="solar-banner">
+  <picture>
+    <source
+      media="(max-width: 768px)"
+      srcSet={solarBannerMobile}
+    />
 
-        <img
-          src={solarBanner}
-          alt="Solar Equipment"
-        />
-
-      </section>
+    <img
+      src={solarBanner}
+      alt="Solar Equipment"
+    />
+  </picture>
+</section>
 
 
 
@@ -258,6 +290,8 @@ function SolarEquipments() {
 
                 setSelectedProduct(null)
 
+                setSearchParams({})
+
               }}
 
             >
@@ -275,7 +309,7 @@ function SolarEquipments() {
             PRODUCT LIST
         ========================= */}
 
-        {!selectedProduct && (
+        {!currentProduct && (
 
           <>
 
@@ -295,7 +329,9 @@ function SolarEquipments() {
 
                   onClick={() => {
 
-                    setSelectedProduct(product)
+                    setSearchParams({
+                      product: createSlug(product.name)
+                    })
 
                     setSelectedImage(0)
 
@@ -324,16 +360,20 @@ function SolarEquipments() {
                     <h3>
                       {product.name}
                     </h3>
-
-
-                    <p className="solar-product-description">
-                      {product.description}
-                    </p>
-
-
-                    <p className="solar-product-price">
+<p className="solar-product-price">
                       {product.price}
                     </p>
+
+                    <p className="Solar-product-description">
+  {product.description}
+</p>
+
+<span className="Solar-read-more">
+  Read More →
+</span>
+
+
+                    
 
                   </div>
 
@@ -354,7 +394,7 @@ function SolarEquipments() {
             PRODUCT DETAIL
         ========================= */}
 
-        {selectedProduct && (
+        {currentProduct && (
 
           <div className="solar-product-detail">
 
@@ -364,9 +404,10 @@ function SolarEquipments() {
             <button
               className="solar-back-button"
 
-              onClick={() =>
+              onClick={() => {
+                setSearchParams({})
                 setSelectedProduct(null)
-              }
+              }}
 
             >
               ← Back to Products
@@ -390,12 +431,12 @@ function SolarEquipments() {
 
                   <img
                     src={
-                      selectedProduct.images[
+                      currentProduct.images[
                         selectedImage
                       ]
                     }
 
-                    alt={selectedProduct.name}
+                    alt={currentProduct.name}
                   />
 
                 </div>
@@ -406,7 +447,7 @@ function SolarEquipments() {
 
                 <div className="solar-image-thumbnails">
 
-                  {selectedProduct.images.map(
+                  {currentProduct.images.map(
                     (image, index) => (
 
                       <button
@@ -426,7 +467,7 @@ function SolarEquipments() {
 
                         <img
                           src={image}
-                          alt={`${selectedProduct.name} ${
+                          alt={`${currentProduct.name} ${
                             index + 1
                           }`}
                         />
@@ -453,7 +494,7 @@ function SolarEquipments() {
                 {/* PRODUCT NAME */}
 
                 <h2>
-                  {selectedProduct.name}
+                  {currentProduct.name}
                 </h2>
 
 
@@ -464,7 +505,7 @@ function SolarEquipments() {
 
                   Product Code:{' '}
 
-                  {selectedProduct.productCode}
+                  {currentProduct.productCode}
 
                 </p>
 
@@ -474,29 +515,23 @@ function SolarEquipments() {
 
                 <div className="solar-availability">
 
-                  ● {selectedProduct.availability}
+                  ● {currentProduct.availability}
 
                 </div>
 
-
-
-                {/* DESCRIPTION */}
-
-                <p className="solar-detail-description">
-
-                  {selectedProduct.description}
-
-                </p>
-
-
-
-                {/* PRICE */}
+{/* PRICE */}
 
                 <div className="solar-detail-price">
 
-                  {selectedProduct.price}
+                  {currentProduct.price}
 
                 </div>
+
+                
+
+
+
+                
 
 
 
@@ -539,7 +574,7 @@ function SolarEquipments() {
 
 
 
-                  {selectedProduct.specifications?.map(
+                  {currentProduct.specifications?.map(
                     (spec) => (
 
                       <div
@@ -564,7 +599,13 @@ function SolarEquipments() {
 
 
                 </div>
+{/* DESCRIPTION */}
 
+                <p className="solar-detail-description">
+
+                  {currentProduct.description}
+
+                </p>
 
               </div>
 

@@ -4,17 +4,30 @@ import Solutions from './components/Solutions'
 import Partners from './components/Partners'
 import About from './components/About'
 import Contact from './components/Contact'
+import CoreValues from './components/CoreValues'
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { FaWhatsapp } from 'react-icons/fa'
+
+
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import IndustrialAutomation from './pages/IndustrialAutomation'
 import HeatingSolutions from './pages/HeatingSolutions'
-import DuroMats from "./pages/DuroMats";
-import SolarEquipments from "./pages/SolarEquipments";
+import DuroMats from "./pages/DuroMats"
+import SolarEquipments from "./pages/SolarEquipments"
 
 function App() {
   return (
     <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
+  )
+}
 
+function AppContent() {
+  const location = useLocation()
+
+  return (
+    <>
       <Navbar />
 
       <Routes>
@@ -28,11 +41,9 @@ function App() {
               <Solutions />
               <Partners />
               <About />
-              <Contact />
             </>
           }
         />
-
 
         {/* INDUSTRIAL AUTOMATION */}
         <Route
@@ -40,37 +51,53 @@ function App() {
           element={<IndustrialAutomation />}
         />
 
+        {/* HEATING */}
         <Route
-  path="/heating"
-  element={<HeatingSolutions />}
-/>
+          path="/heating"
+          element={<HeatingSolutions />}
+        />
 
-<Route
-  path="/duro-mats"
-  element={<DuroMats />}
-/>
+        {/* DURO MATS */}
+        <Route
+          path="/duro-mats"
+          element={<DuroMats />}
+        />
 
-<Route
-  path="/solar"
-  element={<SolarEquipments />}
-/>
+        {/* SOLAR */}
+        <Route
+          path="/solar"
+          element={<SolarEquipments />}
+        />
 
       </Routes>
 
-      <a href="/request-quote" className="quote-button">
-        Enquire Now
-      </a>
+      {/* Partners on all pages except Home */}
+{location.pathname !== '/' && <Partners />}
+
+{/* Core Values on every page */}
+<CoreValues />
+
+{/* Contact */}
+<Contact />
+
+      
+
+      <a href="#contact" className="quote-button">
+  Enquire Now
+</a>
 
       <a
-        href="#"
-        className="whatsapp-button"
-        aria-label="Let's Chat"
-      >
-        <span className="whatsapp-icon">●</span>
-        Let's Chat!
-      </a>
+  href="https://wa.me/919877665644"
+  className="whatsapp-button"
+  aria-label="Let's Chat"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <FaWhatsapp className="whatsapp-icon" />
+  Let's Chat!
+</a>
 
-    </BrowserRouter>
+    </>
   )
 }
 

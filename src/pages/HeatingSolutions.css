@@ -178,7 +178,7 @@
 }
 
 .heating-product-description {
-  margin: 0 0 8px;
+  margin: 1 0 8px;
 
   font-size: 13px;
   color: #666666;
@@ -190,7 +190,7 @@
   font-size: 15px;
   font-weight: 700;
 
-  color: #111111;
+  color: #029b02;
 }
 
 
@@ -414,10 +414,10 @@
 ========================= */
 
 .heating-detail-description {
-  margin: 0 0 16px;
+  margin: 0 0 8px;
 
-  font-size: 14px;
-
+  font-size: 13px;
+margin-top: 16px;
   line-height: 1.6;
 
   color: #555555;
@@ -566,9 +566,46 @@
 
 
 /* =========================
-   MOBILE / SMALL SCREEN
+   RESPONSIVE
 ========================= */
 
+/* TABLET */
+@media (max-width: 1024px) {
+
+  .heating-categories {
+    padding: 26px 24px 10px;
+  }
+
+  .heating-products-title {
+    font-size: 32px;
+  }
+
+  .heating-product-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .heating-product-image {
+    height: 170px;
+  }
+
+  .heating-detail-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    padding: 18px;
+  }
+
+  .heating-detail-image {
+    height: 380px;
+  }
+
+  .heating-detail-info h2 {
+    font-size: 24px;
+  }
+}
+
+
+/* SMALL TABLET */
 @media (max-width: 900px) {
 
   .heating-product-grid {
@@ -579,9 +616,13 @@
     grid-template-columns: 1fr;
   }
 
+  .heating-detail-image {
+    height: 400px;
+  }
 }
 
 
+/* MOBILE */
 @media (max-width: 600px) {
 
   .heating-categories {
@@ -589,19 +630,115 @@
   }
 
   .heating-products-title {
+    margin-bottom: 20px;
     font-size: 28px;
   }
 
+  .heating-page {
+    padding-top: 80px;
+  }
+
+  .heating-categories {
+    padding: 20px 15px 10px;
+  }
+
+  /* CATEGORY TABS */
+  .heating-category-tabs {
+    gap: 8px;
+  }
+
+  .heating-category-tab {
+    height: 42px;
+    padding: 0 16px;
+    font-size: 13px;
+  }
+
+  /* CATEGORY TITLE */
+  .heating-category-title {
+    margin-top: 26px;
+    font-size: 23px;
+  }
+
+  /* PRODUCT GRID */
   .heating-product-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 16px;
   }
 
+  /* PRODUCT IMAGE */
+  .heating-product-image {
+    height: 210px;
+  }
+
+  /* PRODUCT INFO */
+  .heating-product-info {
+    padding: 13px 14px 15px;
+  }
+
+  .heating-product-info h3 {
+    font-size: 16px;
+  }
+
+  .heating-product-description {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* BACK BUTTON */
+  .heating-back-button {
+    margin-top: 16px;
+    margin-bottom: 14px;
+  }
+
+  /* PRODUCT DETAIL */
+  .heating-detail-container {
+    gap: 20px;
+    padding: 12px;
+    border-radius: 7px;
+  }
+
+  /* MAIN DETAIL IMAGE */
   .heating-detail-image {
-    height: 320px;
+    height: 300px;
   }
 
+  .heating-detail-image img {
+    width: 95%;
+    height: 95%;
+  }
+
+  /* THUMBNAILS */
+  .heating-image-thumbnails {
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .heating-thumbnail {
+    flex: 0 0 65px;
+    width: 65px;
+    height: 55px;
+  }
+
+  /* PRODUCT INFORMATION */
+  .heating-detail-info h2 {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  .heating-detail-price {
+    font-size: 20px;
+  }
+
+  .heating-detail-description {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  /* BUTTONS */
   .heating-detail-buttons {
     flex-direction: column;
+    gap: 8px;
   }
 
   .heating-quote-button,
@@ -609,4 +746,55 @@
     width: 100%;
   }
 
+  /* SPECIFICATIONS */
+  .heating-spec-row {
+    grid-template-columns: 0.9fr 1.1fr;
+    font-size: 12px;
+  }
+
+  .heating-spec-row span {
+    padding: 8px;
+    overflow-wrap: anywhere;
+  }
 }
+
+
+/* VERY SMALL PHONES */
+@media (max-width: 380px) {
+
+  .heating-categories {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .heating-products-title {
+    font-size: 25px;
+  }
+
+  .heating-category-tab {
+    padding: 0 13px;
+    font-size: 12px;
+  }
+
+  .heating-product-image {
+    height: 190px;
+  }
+
+  .heating-detail-container {
+    padding: 10px;
+  }
+
+  .heating-detail-image {
+    height: 260px;
+  }
+
+  .heating-detail-info h2 {
+    font-size: 20px;
+  }
+
+  .heating-spec-row {
+    grid-template-columns: 1fr 1.2fr;
+  }
+}
+
+

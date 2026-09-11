@@ -190,7 +190,7 @@
   font-size: 15px;
   font-weight: 700;
 
-  color: #111111;
+  color: #029b02;
 }
 
 /* =========================
@@ -213,9 +213,11 @@
   background: none;
   border: none;
 
+  
+
   padding: 0;
   margin: 0 0 18px;
-
+margin-top: 20px;
   color: #2440e8;
   font-size: 14px;
   font-weight: 600;
@@ -389,6 +391,7 @@
   margin: 0 0 16px;
 
   font-size: 14px;
+   margin-top: 16px;
 
   line-height: 1.6;
 
@@ -521,6 +524,43 @@
    RESPONSIVE
 ========================= */
 
+/* TABLET */
+@media (max-width: 1024px) {
+
+  .duro-categories {
+    padding: 26px 24px 10px;
+  }
+
+  .duro-products-title {
+    font-size: 32px;
+  }
+
+  .duro-product-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .duro-product-image {
+    height: 170px;
+  }
+
+  .duro-detail-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    padding: 18px;
+  }
+
+  .duro-detail-image {
+    height: 380px;
+  }
+
+  .duro-detail-info h2 {
+    font-size: 24px;
+  }
+}
+
+
+/* SMALL TABLET */
 @media (max-width: 900px) {
 
   .duro-product-grid {
@@ -531,9 +571,13 @@
     grid-template-columns: 1fr;
   }
 
+  .duro-detail-image {
+    height: 400px;
+  }
 }
 
 
+/* MOBILE */
 @media (max-width: 600px) {
 
   .duro-categories {
@@ -541,19 +585,115 @@
   }
 
   .duro-products-title {
+    margin-bottom: 20px;
     font-size: 28px;
   }
 
+  /* CATEGORY TABS */
+  .duro-category-tabs {
+    gap: 8px;
+  }
+
+  .duro-category-tab {
+    height: 42px;
+    padding: 0 16px;
+    font-size: 13px;
+  }
+
+  .duro-page {
+    padding-top: 80px;
+  }
+
+  .duro-categories {
+    padding: 20px 15px 10px;
+  }
+
+  /* CATEGORY TITLE */
+  .duro-category-title {
+    margin-top: 26px;
+    font-size: 23px;
+  }
+
+  /* PRODUCT GRID */
   .duro-product-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 16px;
   }
 
+  /* PRODUCT IMAGE */
+  .duro-product-image {
+    height: 210px;
+  }
+
+  /* PRODUCT INFO */
+  .duro-product-info {
+    padding: 13px 14px 15px;
+  }
+
+  .duro-product-info h3 {
+    font-size: 16px;
+  }
+
+  .duro-product-description {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* BACK BUTTON */
+  .duro-back-button {
+    margin-top: 16px;
+    margin-bottom: 14px;
+  }
+
+  /* PRODUCT DETAIL */
+  .duro-detail-container {
+    gap: 20px;
+    padding: 12px;
+    border-radius: 7px;
+  }
+
+  /* MAIN DETAIL IMAGE */
   .duro-detail-image {
-    height: 320px;
+    height: 300px;
   }
 
+  .duro-detail-image img {
+    width: 95%;
+    height: 95%;
+  }
+
+  /* THUMBNAILS */
+  .duro-image-thumbnails {
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .duro-thumbnail {
+    flex: 0 0 65px;
+    width: 65px;
+    height: 55px;
+  }
+
+  /* PRODUCT INFORMATION */
+  .duro-detail-info h2 {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  .duro-detail-price {
+    font-size: 20px;
+  }
+
+  .duro-detail-description {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  /* BUTTONS */
   .duro-detail-buttons {
     flex-direction: column;
+    gap: 8px;
   }
 
   .duro-quote-button,
@@ -561,4 +701,95 @@
     width: 100%;
   }
 
+  /* SPECIFICATIONS */
+  .duro-spec-row {
+    grid-template-columns: 0.9fr 1.1fr;
+    font-size: 12px;
+  }
+
+  .duro-spec-row span {
+    padding: 8px;
+    overflow-wrap: anywhere;
+  }
+}
+
+
+/* VERY SMALL PHONES */
+@media (max-width: 380px) {
+
+  .duro-categories {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .duro-products-title {
+    font-size: 25px;
+  }
+
+  .duro-category-tab {
+    padding: 0 13px;
+    font-size: 12px;
+  }
+
+  .duro-product-image {
+    height: 190px;
+  }
+
+  .duro-detail-container {
+    padding: 10px;
+  }
+
+  .duro-detail-image {
+    height: 260px;
+  }
+
+  .duro-detail-info h2 {
+    font-size: 20px;
+  }
+
+  .duro-spec-row {
+    grid-template-columns: 1fr 1.2fr;
+  }
+}
+
+
+
+
+
+
+.duro-product-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.duro-read-more {
+  display: inline-block;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 2px;
+  color: rgb(102, 102, 235);
+}
+
+.duro-read-more:hover {
+  color: #fa7878;
+}
+
+
+.duro-banner {
+  width: 100%;
+  overflow: hidden;
+}
+
+.duro-banner picture {
+  display: block;
+  width: 100%;
+}
+
+.duro-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
 }

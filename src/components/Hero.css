@@ -1,6 +1,11 @@
+/* =========================
+   HERO
+========================= */
+
 .hero {
+  position: relative;
   width: 100%;
-  height: 450px;
+  height: 550px;
   overflow: hidden;
 }
 
@@ -11,69 +16,248 @@
 }
 
 .hero-track img {
+  flex: 0 0 100%;
   width: 100%;
   height: 100%;
-  flex: 0 0 100%;
   object-fit: cover;
   display: block;
 }
 
 
+/* =========================
+   HERO OVERLAY
+========================= */
 
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
 
-.product-strip {
-  width: 100%;
-  overflow: hidden;
-  background: #ffffff;
-  padding: 18px 0;
+  background: linear-gradient(
+    90deg,
+    rgba(4, 27, 36, 0.94) 0%,
+    rgba(4, 27, 36, 0.82) 25%,
+    rgba(4, 27, 36, 0.55) 45%,
+    rgba(4, 27, 36, 0.20) 68%,
+    rgba(4, 27, 36, 0) 88%
+  );
 }
 
-.product-track {
+
+/* =========================
+   HERO CONTENT
+========================= */
+
+.hero-content {
+  position: absolute;
+  z-index: 3;
+
+  left: 7%;
+  top: 50%;
+
+top: 58%;
+  transform: translateY(-50%);  
+
+  width: 570px;
+  max-width: 45%;
+
+  padding-left: 28px;
+
+  color: white;
+}
+
+.hero-content::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 3px;
+
+  width: 4px;
+  height: 92%;
+
+  background: #e63323;
+
+  border-radius: 4px;
+}
+
+
+/* =========================
+   HERO LABEL
+========================= */
+
+.hero-accent {
   display: flex;
-  width: max-content;
-  animation: productScroll 30s linear infinite;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 13px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 17px;
+  font-weight: 600;
+
+  letter-spacing: 1.5px;
+
+  color: white;
 }
 
-.product-track span {
-  font-size: 16px;
+.hero-accent span {
+  width: 28px;
+  height: 3px;
+
+  background: #e63323;
+
+  display: block;
+
+  border-radius: 2px;
+}
+
+
+/* =========================
+   HERO HEADING
+========================= */
+
+.hero-content h1 {
+  margin: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 47px;
+  line-height: 1.13;
+
   font-weight: 700;
-  white-space: nowrap;
-  margin: 0 45px;
+
+  letter-spacing: -1px;
+
+  max-width: 560px;
+
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
 }
 
-@keyframes productScroll {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
+.hero-content h1 strong {
+  color: #ef3827;
 }
 
 
+/* =========================
+   HERO DESCRIPTION
+========================= */
+
+.hero-content p {
+  margin: 22px 0 0;
+
+  max-width: 510px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 18px;
+  line-height: 1.6;
+
+  color: rgba(255, 255, 255, 0.92);
+
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
 
 
+/* =========================
+   HERO BUTTONS
+========================= */
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+
+  margin-top: 25px;
+}
+
+.hero-actions button {
+  border: none;
+
+  padding: 11px 21px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  border-radius: 3px;
+
+  background: #e63323;
+  color: rgb(255, 255, 255);
+
+  transition: 0.25s ease;
+}
+
+.hero-actions button:hover {
+  background: #c92518;
+  transform: translateY(-2px);
+}
+
+.hero-actions .hero-secondary {
+  background: transparent;
+
+  border: 1px solid rgba(255, 255, 255, 0.75);
+
+  color: white;
+}
+
+.hero-actions .hero-secondary:hover {
+  background: rgb(89, 218, 179);
+  color: #172c38;
+}
+
+
+/* =========================
+   PRODUCT STRIP
+========================= */
 
 .product-strip {
   width: 100%;
+  height: 54px;
+
   overflow: hidden;
-  background: white;
-  padding: 18px 0;
+
+  background: #ffffff;
+
+  display: flex;
+  align-items: center;
+
+  border-bottom: 1px solid #eeeeee;
 }
 
 .product-track {
   display: flex;
+  align-items: center;
+
   width: max-content;
+
+  white-space: nowrap;
+
+  gap: 42px;
+
   animation: productScroll 35s linear infinite;
 }
 
 .product-track span {
-  white-space: nowrap;
-  margin: 0 15px;
-  font-size: 13px;
+  flex: 0 0 auto;
+
+  display: inline-block;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 14px;
   font-weight: 500;
+
+  color: #303030;
 }
+
+
+/* =========================
+   PRODUCT SCROLL
+========================= */
 
 @keyframes productScroll {
   from {
@@ -82,5 +266,95 @@
 
   to {
     transform: translateX(-50%);
+  }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .hero {
+    height: 380px;
+  }
+
+  .hero-content {
+    left: 6%;
+    max-width: 58%;
+  }
+
+  .hero-content h1 {
+    font-size: 34px;
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .hero {
+    height: 390px;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(4, 27, 36, 0.94),
+      rgba(4, 27, 36, 0.60)
+    );
+  }
+
+  .hero-content {
+    left: 6%;
+    right: 6%;
+
+    width: auto;
+    max-width: none;
+
+    padding-left: 20px;
+  }
+
+  .hero-content::before {
+    width: 3px;
+  }
+
+  .hero-accent {
+    font-size: 12px;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .hero-content p {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .hero-actions {
+    margin-top: 20px;
+  }
+
+  .hero-actions button {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  .product-strip {
+    height: 48px;
+  }
+
+  .product-track {
+    gap: 30px;
+  }
+
+  .product-track span {
+    font-size: 13px;
   }
 }
