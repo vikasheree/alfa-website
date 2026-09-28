@@ -24,7 +24,7 @@ public class EnquiryService {
     private final ProductRepository productRepository;
 
     private static final Logger logger =
-        LoggerFactory.getLogger(EnquiryService.class);
+            LoggerFactory.getLogger(EnquiryService.class);
 
     public EnquiryService(
             EnquiryRepository enquiryRepository,
@@ -36,35 +36,43 @@ public class EnquiryService {
         this.productRepository = productRepository;
     }
 
-    
-
     @Transactional
-public EnquiryResponse createEnquiry(EnquiryRequest request) {
+    public EnquiryResponse createEnquiry(EnquiryRequest request) {
 
-    logger.info("Creating new customer enquiry");
+        logger.info("Creating new customer enquiry");
 
-    Enquiry enquiry = EnquiryMapper.toEntity(request);
+        Enquiry enquiry = EnquiryMapper.toEntity(request);
 
-       Enquiry savedEnquiry = enquiryRepository.save(enquiry);
+        enquiry.setEnquiryType(
+        request.enquiryType() == null || request.enquiryType().isBlank()
+                ? "PRODUCT_ENQUIRY"
+                : request.enquiryType()
+);
 
-logger.info("Enquiry created successfully with id: {}", savedEnquiry.getId());
+        Enquiry savedEnquiry = enquiryRepository.save(enquiry);
+
+        logger.info(
+                "Enquiry created successfully with id: {}",
+                savedEnquiry.getId()
+        );
 
         if (request.items() != null) {
 
             for (EnquiryItemRequest itemRequest : request.items()) {
 
-                Product product = productRepository.findById(itemRequest.productId())
-                       .orElseThrow(() -> {
+                Product product = productRepository.findById(
+                        itemRequest.productId()
+                ).orElseThrow(() -> {
 
-    logger.warn(
-            "Product not found while creating enquiry: {}",
-            itemRequest.productId()
-    );
+                    logger.warn(
+                            "Product not found while creating enquiry: {}",
+                            itemRequest.productId()
+                    );
 
-    return new ResourceNotFoundException(
-            "Product not found: " + itemRequest.productId()
-    );
-});
+                    return new ResourceNotFoundException(
+                            "Product not found: " + itemRequest.productId()
+                    );
+                });
 
                 EnquiryItem enquiryItem = new EnquiryItem();
 
@@ -74,11 +82,7 @@ logger.info("Enquiry created successfully with id: {}", savedEnquiry.getId());
 
                 enquiryItemRepository.save(enquiryItem);
             }
-            
-            
         }
-        
-        
 
         return EnquiryMapper.toResponse(savedEnquiry);
     }

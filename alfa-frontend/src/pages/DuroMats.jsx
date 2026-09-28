@@ -3,6 +3,8 @@ import { useSearchParams } from 'react-router-dom'
 import './DuroMats.css'
 import duroBanner from '../assets/DURO/Duro Banner.png'
 import duroBannerMobile from '../assets/DURO/Duro Banner R.png'
+import { useEnquiry } from '../context/EnquiryContext'
+import RequestQuoteModal from '../components/RequestQuoteModal'
 
 const duroImageFiles = import.meta.glob(
   '../assets/DURO/**/*.{webp,png,jpg,jpeg}',
@@ -13,6 +15,8 @@ const duroImageFiles = import.meta.glob(
 )
 
 function DuroMats() {
+  const [showQuoteForm, setShowQuoteForm] = useState(false)
+  const { addToEnquiry } = useEnquiry()
 const getDuroImage = (imageUrl) => {
   const imagePath = Object.keys(duroImageFiles).find(
     path => path.endsWith(`/DURO/${imageUrl}`)
@@ -65,6 +69,7 @@ useEffect(() => {
 const backendProducts = selectedCategoryData?.products || []
 
 const duroProducts = backendProducts.map(product => ({
+  id: product.id,
   name: product.name,
 
   images: (product.images || [])
@@ -116,7 +121,8 @@ duroData?.categories?.forEach((category) => {
     urlCategory = category.name
 
     urlProduct = {
-      name: product.name,
+  id: product.id,
+  name: product.name,
 
       images: (product.images || [])
         .sort((a, b) => a.displayOrder - b.displayOrder)
@@ -460,19 +466,22 @@ duroData?.categories?.forEach((category) => {
                 <div className="duro-detail-buttons">
 
 
-                  <button className="duro-quote-button">
+                 <button
+  type="button"
+  className="duro-quote-button"
+  onClick={() => setShowQuoteForm(true)}
+>
+  Request a Quote
+</button>
 
-                    Request a Quote
 
-                  </button>
-
-
-
-                  <button className="duro-enquiry-button">
-
-                    Add to Enquiry
-
-                  </button>
+                  <button
+  type="button"
+  className="duro-enquiry-button"
+  onClick={() => addToEnquiry(currentProduct, 1)}
+>
+  Add to Enquiry
+</button>
 
 
                 </div>
@@ -542,14 +551,19 @@ duroData?.categories?.forEach((category) => {
         )}
 
 
-      </section>
+            </section>
 
+      <RequestQuoteModal
+        isOpen={showQuoteForm}
+        product={currentProduct}
+        onClose={() => setShowQuoteForm(false)}
+        theme="blue"
+      />
 
     </div>
 
   )
 
 }
-
 
 export default DuroMats

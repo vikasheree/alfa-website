@@ -6,6 +6,8 @@ import { getProductImage } from '../utils/productImageMap'
 import './IndustrialAutomation.css'
 import industrialBanner from '../assets/INDUSTRIAL/Industrial Banner.png'
 import industrialBannerMobile from '../assets/INDUSTRIAL/Industrial Banner R.png'
+import { useEnquiry } from '../context/EnquiryContext'
+import RequestQuoteModal from '../components/RequestQuoteModal'
 
 
 function IndustrialAutomation() {
@@ -21,6 +23,7 @@ const [showEnquiryForm, setShowEnquiryForm] = useState(false);
 const [loadingCategories, setLoadingCategories] = useState(true)
 const [categoryError, setCategoryError] = useState('')
 const [categoryData, setCategoryData] = useState([])
+const { addToEnquiry } = useEnquiry()
 
 
 
@@ -81,7 +84,8 @@ categoryData.forEach(category => {
     .filter(product => product.isActive)
     .sort((a, b) => a.displayOrder - b.displayOrder)
     .map(product => ({
-      name: product.name,
+  id: product.id,
+  name: product.name,
 
       images: (product.images || [])
         .sort((a, b) => a.displayOrder - b.displayOrder)
@@ -337,8 +341,7 @@ categoryData.forEach(category => {
         
 
 
-        {/* Buttons */}
-        <div className="industrial-detail-buttons">
+       <div className="industrial-detail-buttons">
   <button
     className="industrial-quote-button"
     onClick={() => setShowQuoteForm(true)}
@@ -348,7 +351,7 @@ categoryData.forEach(category => {
 
   <button
     className="industrial-enquiry-button"
-    onClick={() => setShowEnquiryForm(true)}
+    onClick={() => addToEnquiry(currentProduct, 1)}
   >
     Add to Enquiry
   </button>
@@ -396,136 +399,15 @@ categoryData.forEach(category => {
     
 
   </div>
+  
 )}
+<RequestQuoteModal
+  isOpen={showQuoteForm}
+  product={currentProduct}
+  onClose={() => setShowQuoteForm(false)}
+  theme="green"
+/>
 
-
-{/* =========================
-    REQUEST A QUOTE POPUP
-========================= */}
-
-{showQuoteForm && (
-  <div className="industrial-modal-overlay">
-    <div className="industrial-modal">
-
-      <button
-        className="industrial-modal-close"
-        onClick={() => setShowQuoteForm(false)}
-      >
-        ×
-      </button>
-
-      <h2>Request a Quote</h2>
-
-      <p className="industrial-modal-product">
-        {currentProduct.name}
-      </p>
-
-      <form
-        onSubmit={(e) => {
-          e.preventDefault()
-          alert("Quote request submitted!")
-          setShowQuoteForm(false)
-        }}
-      >
-
-        <input
-          type="text"
-          placeholder="Your Name"
-          required
-        />
-
-        <input
-          type="text"
-          placeholder="Company Name"
-          required
-        />
-
-        <input
-          type="email"
-          placeholder="Email Address"
-          required
-        />
-
-        <input
-          type="tel"
-          placeholder="Phone Number"
-          required
-        />
-
-        <input
-          type="number"
-          placeholder="Quantity"
-          min="1"
-          required
-        />
-
-        <textarea
-          placeholder="Message"
-          rows="4"
-        />
-
-        <button type="submit">
-          Submit Quote Request
-        </button>
-
-      </form>
-
-    </div>
-  </div>
-)}
-
-
-{/* =========================
-    ADD TO ENQUIRY POPUP
-========================= */}
-
-{showEnquiryForm && (
-  <div className="industrial-modal-overlay">
-    <div className="industrial-modal">
-
-     <button
- onClick={() => setShowEnquiryForm(true)}
->
-  Add to Enquiry
-</button>
-
-      <p className="industrial-modal-product">
-        {currentProduct.name}
-      </p>
-
-      <form
-        onSubmit={(e) => {
-          e.preventDefault()
-          alert("Product added to enquiry!")
-          setShowEnquiryForm(false)
-        }}
-      >
-
-        <input
-          type="number"
-          placeholder="Quantity"
-          min="1"
-          defaultValue="1"
-          required
-        />
-
-        <textarea
-          placeholder="Additional requirements"
-          rows="4"
-        />
-
-        <button type="submit">
-          Add to Enquiry
-        </button>
-
-      </form>
-
-    </div>
-  </div>
-)}
-
-
-    
       </section>
 
     </div>

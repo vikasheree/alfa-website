@@ -14,11 +14,14 @@ import HeatingSolutions from './pages/HeatingSolutions'
 import DuroMats from "./pages/DuroMats"
 import SolarEquipments from "./pages/SolarEquipments"
 
+import EnquiryCart from './components/EnquiryCart'
+
 function App() {
   return (
     <BrowserRouter>
       <AppContent />
     </BrowserRouter>
+    
     
   )
 }
@@ -98,6 +101,8 @@ function AppContent() {
   <FaWhatsapp className="whatsapp-icon" />
   Let's Chat!
 </a>
+
+<EnquiryCart />
 
     </>
   )

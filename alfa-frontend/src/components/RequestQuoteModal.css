@@ -1,0 +1,351 @@
+/* =========================================
+   REQUEST QUOTE MODAL
+========================================= */
+
+.quote-modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(10, 15, 20, 0.62);
+  backdrop-filter: blur(4px);
+
+  z-index: 999999;
+}
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+.quote-modal {
+  position: relative;
+
+  width: 100%;
+  max-width: 500px;
+
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+
+  background: #ffffff;
+
+  border-radius: 18px;
+
+  padding: 34px;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.25);
+
+  animation: quoteModalIn 0.2s ease-out;
+}
+
+@keyframes quoteModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* =========================================
+   CLOSE BUTTON
+========================================= */
+
+.quote-modal-close {
+  position: absolute;
+
+  top: 16px;
+  right: 16px;
+
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #f3f4f6;
+  color: #333;
+
+  font-size: 24px;
+  font-weight: 400;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.quote-modal-close:hover {
+  background: #e5e7eb;
+  transform: rotate(90deg);
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.quote-modal h2 {
+  margin: 0;
+
+  padding-right: 40px;
+
+  font-size: 28px;
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  color: #171717;
+}
+
+.quote-modal-product {
+  margin: 9px 0 0;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  line-height: 1.5;
+
+  color: #555;
+}
+
+.quote-modal-code {
+  margin: 4px 0 25px;
+
+  font-size: 13px;
+
+  color: #888;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.quote-modal form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+
+/* =========================================
+   INPUTS
+========================================= */
+
+.quote-modal input,
+.quote-modal textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 13px 15px;
+
+  border: 1px solid #d9d9d9;
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  color: #222;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.quote-modal input {
+  height: 47px;
+}
+
+.quote-modal textarea {
+  min-height: 105px;
+
+  resize: vertical;
+}
+
+
+/* Placeholder */
+
+.quote-modal input::placeholder,
+.quote-modal textarea::placeholder {
+  color: #9a9a9a;
+}
+
+
+/* Focus */
+
+.quote-modal input:focus,
+.quote-modal textarea:focus {
+  border-color: #999;
+
+  box-shadow:
+    0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+
+/* =========================================
+   SUBMIT BUTTON
+========================================= */
+
+.quote-submit-button {
+  width: 100%;
+
+  min-height: 48px;
+
+  margin-top: 4px;
+
+  border: none;
+  border-radius: 9px;
+
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.quote-submit-button:hover {
+  opacity: 0.93;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.16);
+}
+
+.quote-submit-button:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================
+   INDUSTRIAL — GREEN
+========================================= */
+
+.quote-modal-overlay.green
+.quote-submit-button {
+  background: #159447;
+}
+
+.quote-modal-overlay.green
+.quote-modal-close:hover {
+  color: #159447;
+}
+
+
+/* =========================================
+   HEATING — ORANGE
+========================================= */
+
+.quote-modal-overlay.orange
+.quote-submit-button {
+  background: #f26a21;
+}
+
+.quote-modal-overlay.orange
+.quote-modal-close:hover {
+  color: #f26a21;
+}
+
+
+/* =========================================
+   DURO MATS — BLUE
+========================================= */
+
+.quote-modal-overlay.blue
+.quote-submit-button {
+  background: #3048e8;
+}
+
+.quote-modal-overlay.blue
+.quote-modal-close:hover {
+  color: #3048e8;
+}
+
+
+/* =========================================
+   SOLAR — YELLOW
+========================================= */
+
+.quote-modal-overlay.yellow
+.quote-submit-button {
+  background: #e3a900;
+}
+
+.quote-modal-overlay.yellow
+.quote-modal-close:hover {
+  color: #c28f00;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .quote-modal-overlay {
+    padding: 12px;
+  }
+
+  .quote-modal {
+    max-width: 100%;
+
+    max-height: calc(100vh - 24px);
+
+    padding: 28px 18px 20px;
+
+    border-radius: 15px;
+  }
+
+  .quote-modal h2 {
+    font-size: 24px;
+  }
+
+  .quote-modal-product {
+    font-size: 14px;
+  }
+
+  .quote-modal input {
+    height: 45px;
+  }
+
+  .quote-modal textarea {
+    min-height: 90px;
+  }
+
+  .quote-submit-button {
+    min-height: 46px;
+  }
+}

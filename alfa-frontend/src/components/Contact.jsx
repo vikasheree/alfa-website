@@ -1,33 +1,104 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Contact.css'
+import { createEnquiry } from '../api/enquiryApi'
+import { getCompanyInfo } from '../api/companyInfoApi'
 
 function Contact() {
-  const [submitted, setSubmitted] = useState(false)
+  const [formData, setFormData] = useState({
+    customerName: '',
+    companyName: '',
+    phone: '',
+    email: '',
+    message: '',
+  })
 
-  const handleSubmit = (e) => {
+  const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [companyInfo, setCompanyInfo] = useState(null)
+
+  useEffect(() => {
+    const loadCompanyInfo = async () => {
+      try {
+        const data = await getCompanyInfo()
+
+        if (data && data.length > 0) {
+          setCompanyInfo(data[0])
+        }
+      } catch (error) {
+        console.error('Failed to load company information:', error)
+      }
+    }
+
+    loadCompanyInfo()
+  }, [])
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+
+    setFormData((current) => ({
+      ...current,
+      [name]: value,
+    }))
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubmitted(true)
+
+    console.log('Contact form submitted')
+    console.log('Sending data:', formData)
+
+    setIsSubmitting(true)
+    setSubmitted(false)
+
+    try {
+      const response = await createEnquiry({
+        customerName: formData.customerName,
+        companyName: formData.companyName,
+        phone: formData.phone,
+        email: formData.email,
+        message: formData.message,
+        enquiryType: 'CONTACT_MESSAGE',
+        items: [],
+      })
+
+      console.log('Contact enquiry created successfully:', response)
+
+      setSubmitted(true)
+
+      setFormData({
+        customerName: '',
+        companyName: '',
+        phone: '',
+        email: '',
+        message: '',
+      })
+    } catch (error) {
+      console.error('Contact enquiry failed:', error)
+
+      alert('Something went wrong. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
     <section id="contact" className="contact">
 
-      {/* HEADING */}
       <div className="contact-heading">
         <h2>Contact Us</h2>
+
         <p>
           We're here to help! Reach out to us for any queries or assistance.
         </p>
       </div>
 
-      {/* MAIN CONTACT AREA */}
       <div className="contact-container">
 
-        {/* LEFT - FORM */}
         <div className="contact-form-box">
 
           <div className="contact-box-title">
             <span>✉</span>
+
             <div>
               <h3>Send Us a Message</h3>
               <div className="contact-title-line"></div>
@@ -40,18 +111,26 @@ function Contact() {
 
               <div className="form-field">
                 <label>Your Name *</label>
+
                 <input
                   type="text"
+                  name="customerName"
                   placeholder="Your full name"
+                  value={formData.customerName}
+                  onChange={handleChange}
                   required
                 />
               </div>
 
               <div className="form-field">
                 <label>Your Company Name</label>
+
                 <input
                   type="text"
+                  name="companyName"
                   placeholder="Your company name"
+                  value={formData.companyName}
+                  onChange={handleChange}
                 />
               </div>
 
@@ -61,17 +140,26 @@ function Contact() {
 
               <div className="form-field">
                 <label>Your Mobile No. *</label>
+
                 <input
                   type="tel"
+                  name="phone"
                   placeholder="Your mobile number"
+                  value={formData.phone}
+                  onChange={handleChange}
                   required
                 />
               </div>
 
               <div className="form-field message-field">
                 <label>Type Your Message Here... *</label>
+
                 <textarea
+                  name="message"
                   placeholder="Write your message..."
+                  rows="4"
+                  value={formData.message}
+                  onChange={handleChange}
                   required
                 ></textarea>
               </div>
@@ -82,22 +170,29 @@ function Contact() {
 
               <div className="form-field">
                 <label>Your Email *</label>
+
                 <input
                   type="email"
+                  name="email"
                   placeholder="Your email address"
+                  value={formData.email}
+                  onChange={handleChange}
                   required
                 />
               </div>
 
             </div>
 
-            <button className="submit-button" type="submit">
-              ➤ &nbsp; Submit
+            <button
+              className="submit-button"
+              type="submit"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Submitting...' : '➤  Submit'}
             </button>
 
           </form>
 
-          {/* SUCCESS MESSAGE */}
           {submitted && (
             <p className="success-message">
               ✓ Thank you! Your message has been submitted successfully.
@@ -110,59 +205,60 @@ function Contact() {
 
         </div>
 
-
-        {/* RIGHT - COMPANY DETAILS */}
         <div className="contact-info-box">
 
           <h3>🏢 &nbsp; Corporate Office & Works</h3>
 
           <div className="contact-detail">
             <span>☎</span>
+
             <p>
-              73070 - 40254<br />
-              96435 - 01868<br />
-              84272 - 40089
+              {companyInfo?.phone1}<br />
+              {companyInfo?.phone2}<br />
+              {companyInfo?.phone3}
             </p>
           </div>
 
           <div className="contact-detail">
             <span>✉</span>
+
             <p>
-              info@alfacontrolsystems.com<br />
-              alpha_control03@yahoo.com
+              {companyInfo?.email1}<br />
+              {companyInfo?.email2}
             </p>
           </div>
 
           <div className="contact-detail">
             <span>📍</span>
+
             <p>
-              SCO 27, 1st Floor,<br />
-              Royal Plaza Market, Sector 117,<br />
-              Mohali (Pb) - 140301
+              {companyInfo?.address}
             </p>
           </div>
 
-          {/* MAP */}
           <div className="contact-map">
-            <iframe
-              title="Alfa Control Systems Location"
-              src="https://www.google.com/maps?q=Royal%20Plaza%20Market%20Sector%20117%20Mohali&output=embed"
-              loading="lazy"
-            ></iframe>
+            {companyInfo?.googleMapsUrl && (
+              <iframe
+                title="Alfa Control Systems Location"
+                src={`${companyInfo.googleMapsUrl}&output=embed`}
+                loading="lazy"
+                allowFullScreen
+              ></iframe>
+            )}
           </div>
 
         </div>
 
       </div>
 
-
-      {/* BOTTOM FEATURES */}
       <div className="contact-features">
 
         <div>
           <span>◷</span>
+
           <div>
             <strong>Quick Response</strong>
+
             <p>
               We reply to all inquiries<br />
               within 24 hours.
@@ -172,8 +268,10 @@ function Contact() {
 
         <div>
           <span>✓</span>
+
           <div>
             <strong>Trusted Support</strong>
+
             <p>
               Our team is here to<br />
               assist you.
@@ -183,8 +281,10 @@ function Contact() {
 
         <div>
           <span>🤝</span>
+
           <div>
             <strong>Reliable Solutions</strong>
+
             <p>
               Quality products and<br />
               dependable service.
@@ -194,8 +294,10 @@ function Contact() {
 
         <div>
           <span>👥</span>
+
           <div>
             <strong>Customer First</strong>
+
             <p>
               Your satisfaction is<br />
               our priority.

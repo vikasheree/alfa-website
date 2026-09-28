@@ -6,6 +6,9 @@ import alfa_backend.entity.Enquiry;
 
 public class EnquiryMapper {
 
+    private EnquiryMapper() {
+    }
+
     public static Enquiry toEntity(EnquiryRequest request) {
 
         Enquiry enquiry = new Enquiry();
@@ -15,6 +18,13 @@ public class EnquiryMapper {
         enquiry.setPhone(request.phone());
         enquiry.setCompanyName(request.companyName());
         enquiry.setMessage(request.message());
+
+        if (request.enquiryType() != null && !request.enquiryType().isBlank()) {
+            enquiry.setEnquiryType(request.enquiryType());
+        } else {
+            enquiry.setEnquiryType("PRODUCT_ENQUIRY");
+        }
+
         enquiry.setStatus("NEW");
 
         return enquiry;
@@ -23,14 +33,14 @@ public class EnquiryMapper {
     public static EnquiryResponse toResponse(Enquiry enquiry) {
 
         return new EnquiryResponse(
-        enquiry.getId(),
-        enquiry.getCustomerName(),
-        enquiry.getEmail(),
-        enquiry.getPhone(),
-        enquiry.getCompanyName(),
-        enquiry.getMessage(),
-        enquiry.getStatus(),
-        enquiry.getCreatedAt()
-);
+                enquiry.getId(),
+                enquiry.getCustomerName(),
+                enquiry.getEmail(),
+                enquiry.getPhone(),
+                enquiry.getCompanyName(),
+                enquiry.getMessage(),
+                enquiry.getStatus(),
+                enquiry.getCreatedAt()
+        );
     }
 }

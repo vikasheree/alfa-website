@@ -18,6 +18,17 @@ public class Enquiry extends BaseEntity {
 
     private String phone;
 
+    @Column(name = "company_name")
+    private String companyName;
+
+    private String message;
+
+    @Column(nullable = false)
+    private String status;
+
+    @Column(name = "enquiry_type", nullable = false)
+    private String enquiryType = "PRODUCT_ENQUIRY";
+
     public Long getId() {
         return id;
     }
@@ -74,13 +85,11 @@ public class Enquiry extends BaseEntity {
         this.status = status;
     }
 
-    @Column(name = "company_name")
-    private String companyName;
+    public String getEnquiryType() {
+        return enquiryType;
+    }
 
-    private String message;
-
-    @Column(nullable = false)
-    private String status;
-
-    // Getters and Setters
+    public void setEnquiryType(String enquiryType) {
+        this.enquiryType = enquiryType;
+    }
 }

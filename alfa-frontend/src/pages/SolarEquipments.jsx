@@ -3,6 +3,8 @@ import { useSearchParams } from 'react-router-dom'
 import './SolarEquipments.css'
 import solarBanner from '../assets/SOLAR/Solar Banner.png'
 import solarBannerMobile from '../assets/SOLAR/Solar Banner R.png'
+import { useEnquiry } from '../context/EnquiryContext'
+import RequestQuoteModal from '../components/RequestQuoteModal'
 
 
 const solarImageFiles = import.meta.glob(
@@ -14,6 +16,9 @@ const solarImageFiles = import.meta.glob(
 )
 
 function SolarEquipments() {
+  const [showQuoteForm, setShowQuoteForm] = useState(false)
+
+  const { addToEnquiry } = useEnquiry()
 
   const [selectedCategory, setSelectedCategory] = useState('LED Flood Light')
   const [selectedProduct, setSelectedProduct] = useState(null)
@@ -454,19 +459,23 @@ solarData?.categories?.forEach((category) => {
                 <div className="solar-detail-buttons">
 
 
-                  <button className="solar-quote-button">
+                  <button
+  type="button"
+  className="solar-quote-button"
+  onClick={() => setShowQuoteForm(true)}
+>
+  Request a Quote
+</button>
 
-                    Request a Quote
-
-                  </button>
 
 
-
-                  <button className="solar-enquiry-button">
-
-                    Add to Enquiry
-
-                  </button>
+                  <button
+  type="button"
+  className="solar-enquiry-button"
+  onClick={() => addToEnquiry(currentProduct, 1)}
+>
+  Add to Enquiry
+</button>
 
 
                 </div>
@@ -532,14 +541,19 @@ solarData?.categories?.forEach((category) => {
         )}
 
 
-      </section>
+            </section>
 
+      <RequestQuoteModal
+        isOpen={showQuoteForm}
+        product={currentProduct}
+        onClose={() => setShowQuoteForm(false)}
+        theme="yellow"
+      />
 
     </div>
 
   )
 
 }
-
 
 export default SolarEquipments

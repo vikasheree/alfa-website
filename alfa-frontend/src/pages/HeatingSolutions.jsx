@@ -3,6 +3,9 @@ import { useSearchParams } from 'react-router-dom'
 import './HeatingSolutions.css'
 import heatingBanner from '../assets/HEATER/Heating Banner.png'
 import heatingBannerMobile from '../assets/HEATER/Heating Banner R.png'
+import { useEnquiry } from '../context/EnquiryContext'
+import RequestQuoteModal from '../components/RequestQuoteModal'
+
 
 
 
@@ -21,6 +24,8 @@ function HeatingSolutions() {
   const [selectedImage, setSelectedImage] = useState(0)
   const [heatingData, setHeatingData] = useState(null)
   const [searchParams, setSearchParams] = useSearchParams()
+  const { addToEnquiry } = useEnquiry()
+  const [showQuoteForm, setShowQuoteForm] = useState(false)
 
 useEffect(() => {
   async function loadHeatingData() {
@@ -66,6 +71,7 @@ const selectedCategoryData = heatingData?.categories?.find(
 const backendProducts = selectedCategoryData?.products || []
 
 const heatingProducts = backendProducts.map(product => ({
+  id: product.id,
   slug: product.slug,
   name: product.name,
 
@@ -110,7 +116,9 @@ heatingData?.categories?.forEach((category) => {
     urlCategory = category.name
 
     urlProduct = {
-      name: product.name,
+  id: product.id,
+  slug: product.slug,
+  name: product.name,
 
       images: (product.images || [])
         .sort((a, b) => a.displayOrder - b.displayOrder)
@@ -237,7 +245,7 @@ heatingData?.categories?.forEach((category) => {
                 <div
                   className="heating-product-card"
 
-                  key={product.name}
+                 key={product.id} 
 
                   onClick={() => {
 
@@ -449,22 +457,23 @@ heatingData?.categories?.forEach((category) => {
                 <div className="heating-detail-buttons">
 
 
-                  <button className="heating-quote-button">
+                  <button
+  type="button"
+  className="heating-quote-button"
+  onClick={() => setShowQuoteForm(true)}
+>
+  Request a Quote
+</button>
 
-                    Request a Quote
-
-                  </button>
 
 
-
-                  <button className="heating-enquiry-button">
-                    onClick={() => {
-  alert('Product added to enquiry!')
-}}
-
-                    Add to Enquiry
-
-                  </button>
+                 <button
+  type="button"
+  className="heating-enquiry-button"
+  onClick={() => addToEnquiry(currentProduct, 1)}
+>
+  Add to Enquiry
+</button>
 
 
                 </div>
@@ -532,7 +541,12 @@ heatingData?.categories?.forEach((category) => {
 
       </section>
 
-
+<RequestQuoteModal
+  isOpen={showQuoteForm}
+  product={currentProduct}
+  onClose={() => setShowQuoteForm(false)}
+  theme="orange"
+/>
     </div>
 
   )

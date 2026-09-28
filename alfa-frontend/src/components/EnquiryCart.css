@@ -1,0 +1,447 @@
+/* =====================================================
+   ENQUIRY CART
+===================================================== */
+
+.enquiry-cart {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+
+  width: 380px;
+  max-width: calc(100vw - 32px);
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+
+  z-index: 99999;
+
+  overflow: hidden;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.enquiry-cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 20px;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.enquiry-cart-header h3 {
+  margin: 0;
+
+  font-size: 21px;
+  font-weight: 700;
+
+  color: #111827;
+}
+
+.enquiry-cart-header span {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 13px;
+
+  color: #6b7280;
+}
+
+.enquiry-cart-close {
+  width: 32px;
+  height: 32px;
+
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  font-size: 24px;
+  line-height: 1;
+
+  color: #111827;
+
+  cursor: pointer;
+}
+
+.enquiry-cart-close:hover {
+  color: #dc2626;
+}
+
+
+/* =====================================================
+   PRODUCTS
+===================================================== */
+
+.enquiry-cart-items {
+  max-height: 300px;
+
+  overflow-y: auto;
+}
+
+.enquiry-cart-item {
+  padding: 16px 20px;
+
+  border-bottom: 1px solid #eeeeee;
+}
+
+.enquiry-cart-product {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+}
+
+.enquiry-cart-product img {
+  width: 56px;
+  height: 56px;
+
+  object-fit: contain;
+
+  border-radius: 6px;
+
+  flex-shrink: 0;
+}
+
+.enquiry-cart-product h4 {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 1.25;
+
+  color: #111827;
+}
+
+.enquiry-cart-product p {
+  margin: 5px 0 0;
+
+  font-size: 12px;
+
+  color: #6b7280;
+}
+
+
+/* =====================================================
+   QUANTITY + REMOVE
+===================================================== */
+
+.enquiry-cart-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 12px;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.quantity-control button {
+  width: 30px;
+  height: 30px;
+
+  padding: 0;
+
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+
+  background: #ffffff;
+
+  cursor: pointer;
+
+  font-size: 18px;
+  line-height: 1;
+}
+
+.quantity-control button:hover {
+  background: #f3f4f6;
+}
+
+.quantity-control span {
+  min-width: 18px;
+
+  text-align: center;
+
+  font-size: 14px;
+
+  color: #111827;
+}
+
+.remove-enquiry-item {
+  border: none;
+
+  background: transparent;
+
+  color: #dc2626;
+
+  cursor: pointer;
+
+  font-size: 13px;
+}
+
+.remove-enquiry-item:hover {
+  text-decoration: underline;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.enquiry-cart-footer {
+  display: flex;
+
+  gap: 10px;
+
+  padding: 16px 20px;
+
+  background: #fafafa;
+}
+
+.clear-enquiry-button,
+.submit-enquiry-button {
+  min-height: 46px;
+
+  border-radius: 7px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+.clear-enquiry-button {
+  flex: 1;
+
+  border: 1px solid #d1d5db;
+
+  background: #ffffff;
+
+  color: #111827;
+}
+
+.clear-enquiry-button:hover {
+  background: #f3f4f6;
+}
+
+.submit-enquiry-button {
+  flex: 1.5;
+
+  border: none;
+
+  background: #159447;
+
+  color: #ffffff;
+
+  padding: 0 12px;
+}
+
+.submit-enquiry-button:hover {
+  background: #117a3a;
+}
+
+
+/* =====================================================
+   FLOATING ENQUIRY BUTTON
+===================================================== */
+
+.enquiry-floating-button {
+  position: fixed;
+
+  right: 24px;
+  bottom: 85px;
+
+  z-index: 999999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  height: 48px;
+
+  padding: 0 16px;
+
+  border: none;
+  border-radius: 28px;
+
+  background: #dc2626;
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.25);
+
+  white-space: nowrap;
+}
+
+.enquiry-floating-button:hover {
+  background: #b91c1c;
+
+  transform: translateY(-2px);
+}
+
+.enquiry-floating-icon {
+  font-size: 17px;
+}
+
+.enquiry-floating-text {
+  white-space: nowrap;
+}
+
+.enquiry-floating-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 22px;
+  height: 22px;
+
+  padding: 0 5px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  color: #dc2626;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .enquiry-cart {
+    right: 10px;
+    left: 10px;
+    bottom: 10px;
+
+    width: auto;
+    max-width: none;
+
+    border-radius: 12px;
+  }
+
+  .enquiry-cart-header {
+    padding: 15px 16px;
+  }
+
+  .enquiry-cart-header h3 {
+    font-size: 19px;
+  }
+
+  .enquiry-cart-items {
+    max-height: 45vh;
+  }
+
+  .enquiry-cart-item {
+    padding: 14px 16px;
+  }
+
+  .enquiry-cart-product {
+    gap: 10px;
+  }
+
+  .enquiry-cart-product img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .enquiry-cart-product h4 {
+    font-size: 13px;
+  }
+
+  .enquiry-cart-actions {
+    margin-top: 10px;
+  }
+
+  .enquiry-cart-footer {
+    padding: 12px 16px;
+  }
+
+  .clear-enquiry-button,
+  .submit-enquiry-button {
+    min-height: 44px;
+
+    font-size: 13px;
+  }
+
+  .submit-enquiry-button {
+    line-height: 1.2;
+  }
+
+  .enquiry-floating-button {
+    right: 12px;
+    bottom: 82px;
+
+    height: 44px;
+
+    padding: 0 13px;
+
+    font-size: 13px;
+  }
+
+  .enquiry-floating-icon {
+    font-size: 16px;
+  }
+
+  .enquiry-floating-count {
+    min-width: 21px;
+    height: 21px;
+
+    font-size: 11px;
+  }
+}
+
+
+/* =====================================================
+   VERY SMALL PHONES
+===================================================== */
+
+@media (max-width: 400px) {
+
+  .enquiry-cart {
+    right: 6px;
+    left: 6px;
+    bottom: 6px;
+  }
+
+  .enquiry-cart-footer {
+    flex-direction: column;
+  }
+
+  .clear-enquiry-button,
+  .submit-enquiry-button {
+    width: 100%;
+  }
+
+  .enquiry-floating-button {
+    right: 10px;
+    bottom: 70px;
+  }
+}

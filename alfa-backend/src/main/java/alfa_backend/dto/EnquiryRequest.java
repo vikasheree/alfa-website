@@ -26,6 +26,8 @@ public record EnquiryRequest(
 
         String message,
 
+        String enquiryType,
+
         @Valid
         List<EnquiryItemRequest> items
 ) {
