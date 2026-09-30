@@ -5,6 +5,7 @@ import duroBanner from '../assets/DURO/Duro Banner.png'
 import duroBannerMobile from '../assets/DURO/Duro Banner R.png'
 import { useEnquiry } from '../context/EnquiryContext'
 import RequestQuoteModal from '../components/RequestQuoteModal'
+import { getDivisionById } from '../api/divisionApi'
 
 const duroImageFiles = import.meta.glob(
   '../assets/DURO/**/*.{webp,png,jpg,jpeg}',
@@ -35,15 +36,7 @@ const getDuroImage = (imageUrl) => {
 useEffect(() => {
   async function loadDuroData() {
     try {
-      const response = await fetch(
-        'http://localhost:8080/api/divisions/3'
-      )
-
-      if (!response.ok) {
-        throw new Error('Failed to load Duro Mats')
-      }
-
-      const data = await response.json()
+      const data = await getDivisionById(3)
 
       console.log('DURO DIVISION:', data)
 

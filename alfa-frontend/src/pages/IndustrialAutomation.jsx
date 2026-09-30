@@ -8,6 +8,7 @@ import industrialBanner from '../assets/INDUSTRIAL/Industrial Banner.png'
 import industrialBannerMobile from '../assets/INDUSTRIAL/Industrial Banner R.png'
 import { useEnquiry } from '../context/EnquiryContext'
 import RequestQuoteModal from '../components/RequestQuoteModal'
+import { getDivisionById } from '../api/divisionApi'
 
 
 function IndustrialAutomation() {
@@ -15,7 +16,6 @@ function IndustrialAutomation() {
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [selectedImage, setSelectedImage] = useState(0)
   const [showQuoteForm, setShowQuoteForm] = useState(false);
-const [showEnquiryForm, setShowEnquiryForm] = useState(false);
 
   const [searchParams, setSearchParams] = useSearchParams()
 
@@ -33,13 +33,7 @@ useEffect(() => {
       setLoadingCategories(true)
       setCategoryError('')
 
-      const response = await fetch('http://localhost:8080/api/divisions/1')
-
-      if (!response.ok) {
-        throw new Error('Failed to load Industrial Automation')
-      }
-
-      const division = await response.json()
+      const division = await getDivisionById(1)
 
       console.log("INDUSTRIAL DIVISION:", division)
 

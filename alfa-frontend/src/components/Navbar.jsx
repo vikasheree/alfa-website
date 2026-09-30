@@ -5,6 +5,8 @@ import serviceLogo from '../assets/HOME/24 year service png.png'
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 
+import { getDivisionById } from '../api/divisionApi'
+
 function Navbar() {
 
   const [menuOpen, setMenuOpen] = useState(false)
@@ -25,23 +27,9 @@ function Navbar() {
 
         const divisionIds = [1, 2, 3, 4]
 
-        const responses = await Promise.all(
-          divisionIds.map(id =>
-            fetch(`http://localhost:8080/api/divisions/${id}`)
-          )
-        )
-
         const divisions = await Promise.all(
-          responses.map(response => {
-
-            if (!response.ok) {
-              throw new Error('Failed to load products')
-            }
-
-            return response.json()
-
-          })
-        )
+  divisionIds.map(id => getDivisionById(id))
+)
 
         const allProducts = []
 

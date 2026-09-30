@@ -5,7 +5,7 @@ import solarBanner from '../assets/SOLAR/Solar Banner.png'
 import solarBannerMobile from '../assets/SOLAR/Solar Banner R.png'
 import { useEnquiry } from '../context/EnquiryContext'
 import RequestQuoteModal from '../components/RequestQuoteModal'
-
+import { getDivisionById } from '../api/divisionApi'
 
 const solarImageFiles = import.meta.glob(
   '../assets/SOLAR/**/*.{webp,png,jpg,jpeg}',
@@ -32,15 +32,7 @@ function SolarEquipments() {
   useEffect(() => {
   async function loadSolarData() {
     try {
-      const response = await fetch(
-        'http://localhost:8080/api/divisions/4'
-      )
-
-      if (!response.ok) {
-        throw new Error('Failed to load Solar Equipments')
-      }
-
-      const data = await response.json()
+     const data = await getDivisionById(4)
 
       console.log('SOLAR DIVISION:', data)
 

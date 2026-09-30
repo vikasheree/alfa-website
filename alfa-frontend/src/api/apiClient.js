@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:8080/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8081/api";
 
 async function apiClient(endpoint, options = {}) {
   const response = await fetch(`${API_BASE_URL}${endpoint}`, {
@@ -22,7 +22,6 @@ async function apiClient(endpoint, options = {}) {
     throw new Error(errorMessage);
   }
 
-  // Handle responses with no body
   if (response.status === 204) {
     return null;
   }

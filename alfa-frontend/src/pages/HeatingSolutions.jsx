@@ -5,7 +5,7 @@ import heatingBanner from '../assets/HEATER/Heating Banner.png'
 import heatingBannerMobile from '../assets/HEATER/Heating Banner R.png'
 import { useEnquiry } from '../context/EnquiryContext'
 import RequestQuoteModal from '../components/RequestQuoteModal'
-
+import { getDivisionById } from '../api/divisionApi'
 
 
 
@@ -30,15 +30,7 @@ function HeatingSolutions() {
 useEffect(() => {
   async function loadHeatingData() {
     try {
-      const response = await fetch(
-        'http://localhost:8080/api/divisions/2'
-      )
-
-      if (!response.ok) {
-        throw new Error('Failed to load Heating Solutions')
-      }
-
-      const data = await response.json()
+      const data = await getDivisionById(2)
 
       console.log('HEATING DIVISION:', data)
 
