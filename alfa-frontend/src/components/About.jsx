@@ -5,6 +5,8 @@ import aboutImage from '../assets/HOME/About Us.png'
 
 import Hriday from '../assets/HOME/hriday pfp.png'
 import vinod from '../assets/HOME/vinod pfp.png'
+import srijan from '../assets/HOME/srijan pfp.png'
+import rakesh from '../assets/HOME/rakesh pfp.png'
 
 
 function About() {
@@ -117,7 +119,7 @@ function About() {
 
             {/* TEAM 1 */}
             <div className="team-card">
-              <img src={vinod} alt="vinod" />
+              <img src={rakesh} alt="rakesh" />
               <h3>RAKESH MODGIL</h3>
               <h4>CEO</h4>
               <p>
@@ -150,7 +152,7 @@ function About() {
 
             {/* TEAM 4 */}
             <div className="team-card">
-              <img src={vinod} alt="vinod" />
+              <img src={srijan} alt="srijan" />
               <h3>SRIJAN MODGIL</h3>
               <h4>Operations</h4>
               <p>

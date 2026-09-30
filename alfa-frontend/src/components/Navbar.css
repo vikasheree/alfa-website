@@ -34,228 +34,233 @@
   display: block;
 }
 
+
+/* =========================
+   DESKTOP MENU
+========================= */
+
 .navbar-menu {
   display: flex;
   align-items: center;
   justify-content: center;
+
   gap: 28px;
   flex: 1;
 }
 
 .navbar-menu a {
- font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
+
   font-size: 15px;
   font-weight: 550;
+
   text-decoration: none;
+
   color: #000000;
 
   transition: color 0.2s ease;
 }
 
-/* Home / active page */
+
+/* =========================
+   ACTIVE COLORS
+========================= */
+
 .navbar-menu a.active {
   font-weight: 700;
 }
 
-/* HOME */
 .navbar-menu a.nav-home.active {
   color: #d92716;
 }
 
-/* INDUSTRIAL AUTOMATION */
 .navbar-menu a.nav-industrial.active {
   color: #3f7f45;
 }
 
-/* HEATING SOLUTIONS */
 .navbar-menu a.nav-heating.active {
   color: #ff6812;
 }
 
-/* DURO MATS */
 .navbar-menu a.nav-duro.active {
   color: #3488d1;
 }
 
-/* SOLAR EQUIPMENTS */
 .navbar-menu a.nav-solar.active {
   color: #f5c400;
 }
 
-/* Hover */
+
 /* =========================
    HOVER COLORS
 ========================= */
 
-/* HOME */
 .navbar-menu a.nav-home:hover {
   color: #d92716;
 }
 
-/* INDUSTRIAL AUTOMATION */
 .navbar-menu a.nav-industrial:hover {
   color: #3f7f45;
 }
 
-/* HEATING SOLUTIONS */
 .navbar-menu a.nav-heating:hover {
   color: #ff6812;
 }
 
-/* DURO MATS */
 .navbar-menu a.nav-duro:hover {
   color: #3488d1;
 }
 
-/* SOLAR EQUIPMENTS */
 .navbar-menu a.nav-solar:hover {
   color: #f5c400;
 }
 
+
+/* =========================
+   SEARCH
+========================= */
+
 .navbar-search {
+  position: relative;
+
   display: flex;
   align-items: center;
-  border: 1px solid #dddddd;
+
   height: 30px;
+
+  border: 1px solid #dddddd;
+
   flex-shrink: 0;
+
+  background: #ffffff;
 }
 
 .navbar-search input {
   width: 155px;
+  height: 100%;
+
   border: none;
   outline: none;
+
   padding: 0 8px;
+
   font-size: 13px;
+
+  box-sizing: border-box;
 }
 
 .navbar-search button {
   width: 35px;
   height: 100%;
+
+  padding: 0;
+
   border: none;
-  background: white;
+
+  background: #ffffff;
+
   cursor: pointer;
 }
+
+
+/* =========================
+   SEARCH RESULTS
+========================= */
+
+.navbar-search-results {
+  position: absolute;
+
+  top: calc(100% + 5px);
+  left: 0;
+
+  width: 100%;
+  min-width: 100%;
+
+  max-height: 300px;
+
+  overflow-y: auto;
+
+  background: #ffffff;
+
+  border: 1px solid #dddddd;
+
+  box-sizing: border-box;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+
+  z-index: 2000;
+}
+
+.navbar-search .navbar-search-result {
+  display: block;
+
+  width: 100%;
+  min-height: 38px;
+
+  margin: 0;
+  padding: 9px 12px;
+
+  border: none;
+  border-bottom: 1px solid #eeeeee;
+
+  background: #ffffff;
+
+  box-sizing: border-box;
+
+  text-align: left;
+
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+
+  line-height: 20px;
+
+  color: #222222;
+
+  cursor: pointer;
+
+  white-space: normal;
+}
+
+.navbar-search .navbar-search-result:hover {
+  background: #f5f5f5;
+}
+
+.navbar-search .navbar-search-result:last-child {
+  border-bottom: none;
+}
+
+.navbar-search-no-results {
+  padding: 10px 12px;
+
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+
+  color: #777777;
+
+  background: #ffffff;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   SERVICE LOGO
+========================= */
 
 .navbar-service {
   display: flex;
   align-items: center;
+
   flex-shrink: 0;
 }
 
 .navbar-service img {
   width: 75px;
   height: 75px;
+
   object-fit: contain;
 }
-
-/* =========================
-   RESPONSIVE NAVBAR
-========================= */
-
-/* TABLET */
-@media (max-width: 1100px) {
-
-  .navbar-container {
-    width: min(100% - 30px, 1440px);
-    gap: 20px;
-  }
-
-  .navbar-logo img {
-    width: 165px;
-  }
-
-  .navbar-menu {
-    gap: 18px;
-  }
-
-  .navbar-menu a {
-    font-size: 14px;
-  }
-
-  .navbar-search input {
-    width: 120px;
-  }
-
-  .navbar-service img {
-    width: 65px;
-    height: 65px;
-  }
-}
-
-
-/* SMALL TABLET */
-@media (max-width: 900px) {
-
-  .navbar-container {
-    min-height: 70px;
-  }
-
-  .navbar-logo img {
-    width: 155px;
-  }
-
-  .navbar-menu,
-  .navbar-search,
-  .navbar-service {
-    display: none;
-  }
-
-  .navbar-menu-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 42px;
-    height: 42px;
-
-    background: none;
-    border: 1px solid #dddddd;
-    border-radius: 6px;
-
-    font-size: 24px;
-    cursor: pointer;
-  }
-}
-
-
-/* MOBILE */
-@media (max-width: 600px) {
-
-  .navbar-container {
-    width: calc(100% - 30px);
-    min-height: 65px;
-  }
-
-  .navbar-logo img {
-    width: 140px;
-  }
-
-  .navbar-menu-toggle {
-    width: 40px;
-    height: 40px;
-    font-size: 22px;
-  }
-}
-
-
-/* VERY SMALL PHONES */
-@media (max-width: 380px) {
-
-  .navbar-container {
-    width: calc(100% - 24px);
-  }
-
-  .navbar-logo img {
-    width: 125px;
-  }
-
-  .navbar-menu-toggle {
-    width: 38px;
-    height: 38px;
-    font-size: 20px;
-  }
-}
-
 
 
 /* =========================
@@ -274,10 +279,13 @@
   padding: 0;
 
   background: #ffffff;
-  border: 1px solid #dddddd;
-  border-radius: 6px;
+
+  border: 2px solid #e5a900;
+  border-radius: 7px;
 
   font-size: 24px;
+  line-height: 1;
+
   cursor: pointer;
 }
 
@@ -299,6 +307,7 @@
 
   .navbar-container {
     width: min(100% - 30px, 1440px);
+
     gap: 20px;
   }
 
@@ -333,27 +342,75 @@
 
   .navbar-container {
     width: calc(100% - 30px);
+
     min-height: 70px;
+
+    gap: 10px;
   }
+
+
+  /* LOGO */
 
   .navbar-logo img {
     width: 155px;
   }
 
-  /* Hide desktop items */
+
+  /* HIDE DESKTOP MENU */
+
   .navbar-menu,
-  .navbar-search,
   .navbar-service {
     display: none;
   }
 
-  /* Show hamburger */
-  .navbar-menu-toggle {
+
+  /* SHOW SEARCH */
+
+  .navbar-search {
     display: flex;
+
+    margin-left: auto;
+    margin-right: 2px;
+
+    height: 30px;
+  }
+
+  .navbar-search input {
+    width: 100px;
+
+    font-size: 12px;
+  }
+
+  .navbar-search button {
+    width: 30px;
   }
 
 
-  /* MOBILE DROPDOWN */
+  /* SEARCH RESULTS */
+
+  .navbar-search-results {
+    top: calc(100% + 5px);
+
+    left: auto;
+    right: 0;
+
+    width: 280px;
+    min-width: 280px;
+
+    max-height: 300px;
+  }
+
+
+  /* HAMBURGER */
+
+  .navbar-menu-toggle {
+    display: flex;
+
+    flex-shrink: 0;
+  }
+
+
+  /* MOBILE MENU */
 
   .navbar-mobile-menu {
     display: none;
@@ -368,6 +425,8 @@
     border-bottom: 1px solid #dddddd;
 
     box-sizing: border-box;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   }
 
   .navbar-mobile-menu.open {
@@ -378,15 +437,20 @@
   /* MOBILE LINKS */
 
   .navbar-mobile-menu a {
-    display: block;
+    display: flex;
+
+    align-items: center;
 
     width: 100%;
 
-    padding: 15px 20px;
+    min-height: 55px;
+
+    padding: 0 20px;
 
     box-sizing: border-box;
 
     font-family: 'Poppins', sans-serif;
+
     font-size: 14px;
     font-weight: 600;
 
@@ -396,7 +460,6 @@
 
     border-bottom: 1px solid #eeeeee;
   }
-
 
   .navbar-mobile-menu a:last-child {
     border-bottom: none;
@@ -434,22 +497,64 @@
 @media (max-width: 600px) {
 
   .navbar-container {
-    width: calc(100% - 30px);
+    width: calc(100% - 24px);
+
     min-height: 65px;
+
+    gap: 8px;
   }
 
   .navbar-logo img {
     width: 140px;
   }
 
+
+  /* SEARCH */
+
+  .navbar-search {
+    height: 30px;
+
+    margin-right: 2px;
+  }
+
+  .navbar-search input {
+    width: 75px;
+
+    padding: 0 6px;
+
+    font-size: 11px;
+  }
+
+  .navbar-search button {
+    width: 28px;
+  }
+
+
+  /* SEARCH RESULTS */
+
+  .navbar-search-results {
+    width: 280px;
+    min-width: 280px;
+  }
+
+
+  /* HAMBURGER */
+
   .navbar-menu-toggle {
     width: 40px;
     height: 40px;
+
     font-size: 22px;
   }
 
+
+  /* MOBILE LINKS */
+
   .navbar-mobile-menu a {
-    padding: 14px 16px;
+    min-height: 52px;
+
+    padding: 0 16px;
+
     font-size: 13px;
   }
 }
@@ -462,16 +567,41 @@
 @media (max-width: 380px) {
 
   .navbar-container {
-    width: calc(100% - 24px);
+    width: calc(100% - 20px);
+
+    gap: 6px;
   }
 
   .navbar-logo img {
     width: 125px;
   }
 
+
+  .navbar-search {
+    height: 29px;
+  }
+
+  .navbar-search input {
+    width: 65px;
+
+    font-size: 10px;
+  }
+
+  .navbar-search button {
+    width: 27px;
+  }
+
+
+  .navbar-search-results {
+    width: 270px;
+    min-width: 270px;
+  }
+
+
   .navbar-menu-toggle {
     width: 38px;
     height: 38px;
+
     font-size: 20px;
   }
 }

@@ -16,6 +16,8 @@ import SolarEquipments from "./pages/SolarEquipments"
 
 import EnquiryCart from './components/EnquiryCart'
 
+
+
 function App() {
   return (
     <BrowserRouter>
