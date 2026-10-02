@@ -10,9 +10,10 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/api/**")
-                .allowedOrigins(
+                .allowedOriginPatterns(
                         "http://localhost:5173",
-                        "http://localhost:5174"
+                        "http://localhost:5174",
+                        "http://3.110.129.51:5174"
                 )
                 .allowedMethods(
                         "GET",
@@ -21,6 +22,8 @@ public class CorsConfig implements WebMvcConfigurer {
                         "DELETE",
                         "OPTIONS"
                 )
-                .allowedHeaders("*");
+                .allowedHeaders("*")
+                .allowCredentials(false)
+                .maxAge(3600);
     }
 }
