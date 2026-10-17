@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 
 import { getDivisions } from '../api/divisionApi'
 
-import industrialImage from '../assets/INDUSTRIAL/industrial product card.png'
-import heaterImage from '../assets/HEATER/heating product card.png'
-import duroImage from '../assets/DURO/duro product card.png'
-import solarImage from '../assets/SOLAR/solar product card.png'
+import industrialImage from '../assets-optimized/INDUSTRIAL/industrial product card.webp'
+import heaterImage from '../assets-optimized/HEATER/heating product card.webp'
+import duroImage from '../assets-optimized/DURO/duro product card.webp'
+import solarImage from '../assets-optimized/SOLAR/solar product card.webp'
 
 
 function Solutions() {

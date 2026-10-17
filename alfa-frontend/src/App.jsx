@@ -7,12 +7,16 @@ import Contact from './components/Contact'
 import CoreValues from './components/CoreValues'
 
 import { FaWhatsapp } from 'react-icons/fa'
+import { WHATSAPP_NUMBER } from './config/contact'
 
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
-import IndustrialAutomation from './pages/IndustrialAutomation'
-import HeatingSolutions from './pages/HeatingSolutions'
-import DuroMats from "./pages/DuroMats"
-import SolarEquipments from "./pages/SolarEquipments"
+import { BrowserRouter, Routes, Route, Link, useLocation, useNavigationType } from 'react-router-dom'
+import { lazy, Suspense, useLayoutEffect } from 'react'
+import SeoManager from './components/SeoManager'
+
+const IndustrialAutomation = lazy(() => import('./pages/IndustrialAutomation'))
+const HeatingSolutions = lazy(() => import('./pages/HeatingSolutions'))
+const DuroMats = lazy(() => import('./pages/DuroMats'))
+const SolarEquipments = lazy(() => import('./pages/SolarEquipments'))
 
 import EnquiryCart from './components/EnquiryCart'
 
@@ -30,11 +34,61 @@ function App() {
 
 function AppContent() {
   const location = useLocation()
+  const navigationType = useNavigationType()
+  const preserveScroll = location.state?.preserveScroll
+
+  useLayoutEffect(() => {
+    if (navigationType === 'POP' || preserveScroll) return
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+  }, [location.pathname, location.key, navigationType, preserveScroll])
+  useLayoutEffect(() => {
+    const productSlug = new URLSearchParams(location.search).get('product')
+    if (!productSlug || navigationType === 'POP') return
+
+    const productDetailSelector = [
+      '.industrial-product-detail',
+      '.duro-product-detail',
+      '.heating-product-detail',
+      '.solar-product-detail',
+    ].join(', ')
+
+    let observer
+    let timeoutId
+
+    const scrollToProduct = () => {
+      const productDetail = document.querySelector(productDetailSelector)
+      if (!productDetail) return false
+
+      const navbarHeight = document.querySelector('.navbar')?.getBoundingClientRect().height ?? 0
+      const top = window.scrollY + productDetail.getBoundingClientRect().top - navbarHeight - 12
+      window.scrollTo({ top: Math.max(0, top), left: 0, behavior: 'instant' })
+      return true
+    }
+
+    if (scrollToProduct()) return
+
+    observer = new MutationObserver(() => {
+      if (scrollToProduct()) {
+        observer.disconnect()
+        window.clearTimeout(timeoutId)
+      }
+    })
+    observer.observe(document.body, { childList: true, subtree: true })
+    timeoutId = window.setTimeout(() => observer.disconnect(), 10000)
+
+    return () => {
+      observer?.disconnect()
+      window.clearTimeout(timeoutId)
+    }
+  }, [location.pathname, location.search, location.key, navigationType])
 
   return (
     <>
       <Navbar />
+      <SeoManager />
 
+      <Suspense fallback={null}>
       <Routes>
 
         {/* HOME */}
@@ -76,7 +130,10 @@ function AppContent() {
           element={<SolarEquipments />}
         />
 
+        <Route path="*" element={<main className="not-found-page"><h1>Page not found</h1><p>The page you requested is unavailable.</p><Link to="/">Return to the home page</Link></main>} />
+
       </Routes>
+      </Suspense>
 
       {/* Partners on all pages except Home */}
 {location.pathname !== '/' && <Partners />}
@@ -94,7 +151,7 @@ function AppContent() {
 </a>
 
       <a
-  href="https://wa.me/919877665644"
+  href={`https://wa.me/${WHATSAPP_NUMBER}`}
   className="whatsapp-button"
   aria-label="Let's Chat"
   target="_blank"

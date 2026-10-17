@@ -1,5 +1,7 @@
 import { useState } from 'react'
-import { useEnquiry } from '../context/EnquiryContext'
+import { useEnquiry } from '../context/useEnquiry'
+import { FiClipboard, FiMinus, FiPlus, FiX } from 'react-icons/fi'
+import { WHATSAPP_NUMBER } from '../config/contact'
 import './EnquiryCart.css'
 
 function EnquiryCart() {
@@ -34,10 +36,8 @@ I would like to enquire about the following products:
 
 Thank you.`
 
-    const whatsappNumber = '919877665644'
-
     const whatsappUrl =
-      `https://wa.me/${whatsappNumber}?text=` +
+      `https://wa.me/${WHATSAPP_NUMBER}?text=` +
       encodeURIComponent(message)
 
     window.open(whatsappUrl, '_blank')
@@ -60,9 +60,7 @@ Thank you.`
         onClick={() => setIsOpen(true)}
         aria-label={`Open enquiry list with ${itemCount} items`}
       >
-        <span className="enquiry-floating-icon">
-          📋
-        </span>
+        <span className="enquiry-floating-icon"><FiClipboard aria-hidden="true" /></span>
 
         <span className="enquiry-floating-text">
           Enquiry
@@ -97,7 +95,7 @@ Thank you.`
           title="Close enquiry list"
           aria-label="Close enquiry list"
         >
-          ×
+          <FiX aria-hidden="true" />
         </button>
 
       </div>
@@ -108,7 +106,7 @@ Thank you.`
         {items.map((item) => (
           <div
             className="enquiry-cart-item"
-            key={item.product.id}
+            key={item.productKey}
           >
 
             <div className="enquiry-cart-product">
@@ -140,14 +138,13 @@ Thank you.`
                   type="button"
                   onClick={() =>
                     updateQuantity(
-                      item.product.id,
+                      item.productKey,
                       item.quantity - 1
                     )
                   }
+                  disabled={item.quantity <= 1}
                   aria-label="Decrease quantity"
-                >
-                  −
-                </button>
+                ><FiMinus aria-hidden="true" /></button>
 
                 <span>
                   {item.quantity}
@@ -157,14 +154,12 @@ Thank you.`
                   type="button"
                   onClick={() =>
                     updateQuantity(
-                      item.product.id,
+                      item.productKey,
                       item.quantity + 1
                     )
                   }
                   aria-label="Increase quantity"
-                >
-                  +
-                </button>
+                ><FiPlus aria-hidden="true" /></button>
 
               </div>
 
@@ -172,8 +167,9 @@ Thank you.`
                 type="button"
                 className="remove-enquiry-item"
                 onClick={() =>
-                  removeFromEnquiry(item.product.id)
+                    removeFromEnquiry(item.productKey)
                 }
+                  aria-label={`Remove ${item.product.name} from enquiry`}
               >
                 Remove
               </button>

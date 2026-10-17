@@ -1,12 +1,12 @@
 import './Partners.css'
-import siemensLogo from '../assets/HOME/PARTNER/siemens logo.webp'
-import dwyerLogo from '../assets/HOME/PARTNER/dwyer logo.webp'
-import flukelogo from '../assets/HOME/PARTNER/fluke logo.webp'
-import havellslogo from '../assets/HOME/PARTNER/havells logo.webp'
-import abblogo from '../assets/HOME/PARTNER/abb logo.webp'
-import honeywelllogo from '../assets/HOME/PARTNER/honeywell logo.png'
-import mecologo from '../assets/HOME/PARTNER/meco logo.jfif'
-import omronlogo from '../assets/HOME/PARTNER/omron logo.png'
+import siemensLogo from '../assets-optimized/HOME/PARTNER/siemens logo.webp'
+import dwyerLogo from '../assets-optimized/HOME/PARTNER/dwyer logo.webp'
+import flukelogo from '../assets-optimized/HOME/PARTNER/fluke logo.webp'
+import havellslogo from '../assets-optimized/HOME/PARTNER/havells logo.webp'
+import abblogo from '../assets-optimized/HOME/PARTNER/abb logo.webp'
+import honeywelllogo from '../assets-optimized/HOME/PARTNER/honeywell logo.webp'
+import mecologo from '../assets-optimized/HOME/PARTNER/meco logo.webp'
+import omronlogo from '../assets-optimized/HOME/PARTNER/omron logo.webp'
 
 function Partners() {
   return (

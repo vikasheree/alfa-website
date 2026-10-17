@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import './Hero.css'
 
-import banner1 from '../assets/HOME/Home Banner 1.png'
-import banner2 from '../assets/HOME/Home Banner 2.png'
+import banner1 from '../assets-optimized/HOME/Home Banner 1.webp'
+import banner2 from '../assets-optimized/HOME/Home Banner 2.webp'
 
 function Hero() {
   const banners = [banner1, banner2, banner1]

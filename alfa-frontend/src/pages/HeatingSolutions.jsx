@@ -1,16 +1,18 @@
 import { useEffect, useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { FiSettings } from 'react-icons/fi'
+import { Link, useSearchParams } from 'react-router-dom'
 import './HeatingSolutions.css'
-import heatingBanner from '../assets/HEATER/Heating Banner.png'
-import heatingBannerMobile from '../assets/HEATER/Heating Banner R.png'
-import { useEnquiry } from '../context/EnquiryContext'
+import heatingBanner from '../assets-optimized/HEATER/Heating Banner.webp'
+import heatingBannerMobile from '../assets-optimized/HEATER/Heating Banner R.webp'
+import { useEnquiry } from '../context/useEnquiry'
 import RequestQuoteModal from '../components/RequestQuoteModal'
+import { ProductStructuredData } from '../components/SeoManager'
 import { getDivisionById } from '../api/divisionApi'
 
 
 
 const heatingImageFiles = import.meta.glob(
-  '../assets/HEATER/**/*.{webp,png,jpg,jpeg}',
+  '../assets-optimized/HEATER/**/*.webp',
   {
     eager: true,
     import: 'default'
@@ -44,8 +46,16 @@ useEffect(() => {
 }, [])
 
 const getHeatingImage = (imageUrl) => {
+  if (!imageUrl) return ''
+
+  const normalizedPath = imageUrl
+    .replace(/\\/g, '/')
+    .replace(/^.*\/HEATER\//i, '')
+    .replace(/^\/+/, '')
+    .replace(/\.(png|jpe?g|jfif|webp)$/i, '.webp')
+
   const imagePath = Object.keys(heatingImageFiles).find(
-    path => path.endsWith(`/HEATER/${imageUrl}`)
+    path => path.endsWith(`/HEATER/${normalizedPath}`)
   )
 
   return imagePath ? heatingImageFiles[imagePath] : ''
@@ -144,6 +154,7 @@ heatingData?.categories?.forEach((category) => {
 
   return (
     <div className="heating-page">
+      <ProductStructuredData product={currentProduct} />
 
 
       {/* =========================
@@ -159,7 +170,7 @@ heatingData?.categories?.forEach((category) => {
 
     <img
       src={heatingBanner}
-      alt="Heating Solutions"
+      alt="Industrial heating solutions and process heaters"
     />
   </picture>
 </section>
@@ -202,7 +213,7 @@ heatingData?.categories?.forEach((category) => {
 
                 setSelectedProduct(null)
 
-                setSearchParams({})
+                setSearchParams({}, { state: { preserveScroll: true } })
 
               }}
 
@@ -234,21 +245,11 @@ heatingData?.categories?.forEach((category) => {
 
               {heatingProducts.map((product) => (
 
-                <div
+                <Link
                   className="heating-product-card"
-
-                 key={product.id} 
-
-                  onClick={() => {
-
-                    setSearchParams({
-  product: product.slug
-})
-
-                    setSelectedImage(0)
-
-                  }}
-
+                  key={product.id}
+                  to={`?product=${encodeURIComponent(product.slug)}`}
+                  onClick={() => setSelectedImage(0)}
                 >
 
 
@@ -257,6 +258,8 @@ heatingData?.categories?.forEach((category) => {
                   <div className="heating-product-image">
 
                     <img
+                      loading="lazy"
+                      decoding="async"
                       src={product.images[0]}
                       alt={product.name}
                     />
@@ -288,7 +291,7 @@ heatingData?.categories?.forEach((category) => {
                   </div>
 
 
-                </div>
+                </Link>
 
               ))}
 
@@ -480,9 +483,7 @@ heatingData?.categories?.forEach((category) => {
 
 
                   <h3>
-
-                    ⚙ Technical Specifications
-
+                    <><FiSettings aria-hidden="true" /> Technical Specifications</>
                   </h3>
 
 

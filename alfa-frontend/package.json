@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/generate-seo-files.mjs",
     "lint": "eslint .",
+    "verify:cart-solar": "node scripts/verify-cart-solar.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -25,6 +26,7 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.3",
     "globals": "^17.7.0",
+    "sharp": "^0.35.5",
     "vite": "^8.2.0"
   }
 }

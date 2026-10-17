@@ -177,19 +177,25 @@
 ========================= */
 
 .submit-button {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
 
+  min-height: 48px;
+  min-width: 148px;
   margin: 14px auto 8px;
 
-  padding: 8px 25px;
+  padding: 0 24px;
 
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
 
   background: #005c55;
   color: #fff;
 
-  font-size: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
   font-weight: 700;
 
   cursor: pointer;
@@ -200,6 +206,48 @@
 .submit-button:hover {
   background: #00776d;
   transform: translateY(-1px);
+}
+
+.submit-button:focus-visible {
+  outline: 3px solid #f5c400;
+  outline-offset: 3px;
+}
+
+.submit-button:active {
+  background: #004a45;
+  transform: translateY(0);
+}
+
+.submit-button:disabled {
+  cursor: wait;
+  opacity: 0.75;
+  transform: none;
+}
+
+.submit-button svg,
+.contact-box-title svg,
+.contact-office-title svg,
+.contact-detail svg,
+.contact-features svg,
+.form-note svg,
+.success-message svg {
+  display: block;
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+}
+
+.submit-button .contact-submit-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: contact-submit-spin 0.7s linear infinite;
+}
+
+@keyframes contact-submit-spin {
+  to { transform: rotate(360deg); }
 }
 
 
@@ -222,6 +270,9 @@
 ========================= */
 
 .contact-info-box h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin: 1px 0 9px;
 
   font-family: 'Montserrat', sans-serif;
@@ -258,6 +309,13 @@
   justify-content: center;
 
   font-size: 11px;
+}
+
+.contact-detail span svg,
+.contact-features > div > span svg,
+.contact-box-title > span svg {
+  width: 15px;
+  height: 15px;
 }
 
 .contact-detail p {
@@ -400,22 +458,66 @@
     grid-template-columns: 1fr;
   }
 
+  .submit-button {
+    width: 100%;
+    min-height: 50px;
+  }
+
   .message-field {
     grid-row: auto;
   }
 
   .contact-features {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 10px;
+    background: transparent;
   }
 
   .contact-features > div {
-    border-right: none;
-    border-bottom: 1px solid #ddd;
-    padding: 9px;
+    min-width: 0;
+    height: clamp(96px, 32vw, 114px);
+    min-height: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 4px;
+    padding: 6px 5px;
+    border: 1px solid #d7dfde;
+    border-radius: 6px;
+    background: #fff;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .contact-features > div:nth-child(2) {
+    border-right: 1px solid #d7dfde;
   }
 
   .contact-features > div:last-child {
-    border-bottom: none;
+    border-bottom: 1px solid #d7dfde;
+  }
+
+  .contact-features > div > span {
+    flex: 0 0 26px;
+    width: 26px;
+    height: 26px;
+  }
+
+  .contact-features strong {
+    min-height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10.5px;
+    line-height: 1.1;
+  }
+
+  .contact-features p {
+    margin-top: 0;
+    max-width: 100%;
+    font-size: 9px;
+    line-height: 1.15;
+    overflow-wrap: anywhere;
   }
 }
 

@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { FiSettings } from 'react-icons/fi'
+import { Link, useSearchParams } from 'react-router-dom'
 import './DuroMats.css'
-import duroBanner from '../assets/DURO/Duro Banner.png'
-import duroBannerMobile from '../assets/DURO/Duro Banner R.png'
-import { useEnquiry } from '../context/EnquiryContext'
+import duroBanner from '../assets-optimized/DURO/Duro Banner.webp'
+import duroBannerMobile from '../assets-optimized/DURO/Duro Banner R.webp'
+import { useEnquiry } from '../context/useEnquiry'
 import RequestQuoteModal from '../components/RequestQuoteModal'
+import { ProductStructuredData } from '../components/SeoManager'
 import { getDivisionById } from '../api/divisionApi'
 
 const duroImageFiles = import.meta.glob(
-  '../assets/DURO/**/*.{webp,png,jpg,jpeg}',
+  '../assets-optimized/DURO/**/*.webp',
   {
     eager: true,
     import: 'default'
@@ -18,13 +20,23 @@ const duroImageFiles = import.meta.glob(
 function DuroMats() {
   const [showQuoteForm, setShowQuoteForm] = useState(false)
   const { addToEnquiry } = useEnquiry()
+
 const getDuroImage = (imageUrl) => {
+  if (!imageUrl) return ''
+
+  const filename = imageUrl
+    .split(/[\\/]/)
+    .pop()
+    .replace(/\.(png|jpe?g|jfif|webp)$/i, '.webp')
+
   const imagePath = Object.keys(duroImageFiles).find(
-    path => path.endsWith(`/DURO/${imageUrl}`)
+    path => path.endsWith(`/${filename}`)
   )
 
   return imagePath ? duroImageFiles[imagePath] : ''
 }
+
+
   const [selectedCategory, setSelectedCategory] = useState('DURO FLOOR MATS')
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [selectedImage, setSelectedImage] = useState(0)
@@ -63,6 +75,7 @@ const backendProducts = selectedCategoryData?.products || []
 
 const duroProducts = backendProducts.map(product => ({
   id: product.id,
+  slug: product.slug,
   name: product.name,
 
   images: (product.images || [])
@@ -107,7 +120,7 @@ let urlCategory = null
 duroData?.categories?.forEach((category) => {
 
   const product = category.products?.find(
-    item => item.slug === productSlug
+    item => item.slug === productSlug || createSlug(item.name) === productSlug
   )
 
   if (product) {
@@ -153,6 +166,7 @@ duroData?.categories?.forEach((category) => {
   return (
 
     <div className="duro-page">
+      <ProductStructuredData product={currentProduct} />
 
 
       {/* =========================
@@ -168,7 +182,7 @@ duroData?.categories?.forEach((category) => {
 
     <img
       src={duroBanner}
-      alt="Duro Mats"
+      alt="Duro industrial floor mats"
     />
   </picture>
 </section>
@@ -211,7 +225,7 @@ duroData?.categories?.forEach((category) => {
 
                 setSelectedProduct(null)
 
-                setSearchParams({})
+                setSearchParams({}, { state: { preserveScroll: true } })
 
               }}
 
@@ -243,21 +257,11 @@ duroData?.categories?.forEach((category) => {
 
               {duroProducts.map((product) => (
 
-                <div
+                <Link
                   className="duro-product-card"
-
                   key={product.name}
-
-                  onClick={() => {
-
-                    setSearchParams({
-                      product: createSlug(product.name)
-                    })
-
-                    setSelectedImage(0)
-
-                  }}
-
+                  to={`?product=${encodeURIComponent(product.slug || createSlug(product.name))}`}
+                  onClick={() => setSelectedImage(0)}
                 >
 
 
@@ -266,6 +270,8 @@ duroData?.categories?.forEach((category) => {
                   <div className="duro-product-image">
 
                     <img
+                      loading="lazy"
+                      decoding="async"
                       src={product.images[0]}
                       alt={product.name}
                     />
@@ -298,7 +304,7 @@ duroData?.categories?.forEach((category) => {
                   </div>
 
 
-                </div>
+                </Link>
 
               ))}
 
@@ -490,9 +496,7 @@ duroData?.categories?.forEach((category) => {
 
 
                   <h3>
-
-                    ⚙ Technical Specifications
-
+                    <><FiSettings aria-hidden="true" /> Technical Specifications</>
                   </h3>
 
 

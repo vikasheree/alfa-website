@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import './About.css'
+import { FiAward, FiArrowRight, FiCheckCircle, FiTruck, FiUsers } from 'react-icons/fi'
 
-import aboutImage from '../assets/HOME/About Us.png'
+import aboutImage from '../assets-optimized/HOME/About Us.webp'
 
-import Hriday from '../assets/HOME/hriday pfp.png'
-import vinod from '../assets/HOME/vinod pfp.png'
-import srijan from '../assets/HOME/srijan pfp.png'
-import rakesh from '../assets/HOME/rakesh pfp.png'
+import Hriday from '../assets-optimized/HOME/hriday pfp.webp'
+import vinod from '../assets-optimized/HOME/vinod pfp.webp'
+import srijan from '../assets-optimized/HOME/srijan pfp.webp'
+import rakesh from '../assets-optimized/HOME/rakesh pfp.webp'
 
 
 function About() {
@@ -64,34 +65,33 @@ function About() {
           <div className="about-features">
 
             <div>
-              <strong>♧</strong>
+              <strong><FiAward aria-hidden="true" /></strong>
               <span>Quality<br />Products</span>
             </div>
 
             <div>
-              <strong>✓</strong>
+              <strong><FiCheckCircle aria-hidden="true" /></strong>
               <span>Reliable<br />Performance</span>
             </div>
 
             <div>
-              <strong>♧</strong>
+              <strong><FiUsers aria-hidden="true" /></strong>
               <span>Customer<br />Focused</span>
             </div>
 
             <div>
-              <strong>→</strong>
+              <strong><FiTruck aria-hidden="true" /></strong>
               <span>Timely<br />Delivery</span>
             </div>
 
           </div>
-
           {/* OUR TEAM BUTTON */}
           <div className="team-dropdown">
             <button
               className="about-link team-button"
               onClick={() => setShowTeam(!showTeam)}
             >
-              Our Team →
+              Our Team <FiArrowRight aria-hidden="true" />
             </button>
           </div>
 
@@ -113,15 +113,15 @@ function About() {
       {showTeam && (
         <section className={`team-section ${showTeam ? 'team-open' : ''}`}>
 
-          <h2>Our Team</h2>
+          <h2>Our Team <FiArrowRight aria-hidden="true" /></h2>
 
           <div className="team-grid">
 
             {/* TEAM 1 */}
             <div className="team-card">
-              <img src={rakesh} alt="rakesh" />
+              <img src={rakesh} alt="Rakesh Modgil, Founder" />
               <h3>RAKESH MODGIL</h3>
-              <h4>CEO</h4>
+              <h4>FOUNDER</h4>
               <p>
                 Oversees operations and ensures excellence.
               </p>
@@ -130,7 +130,7 @@ function About() {
 
             {/* TEAM 2 */}
             <div className="team-card">
-              <img src={vinod} alt="vinod" />
+              <img src={vinod} alt="Vinod Modgil, Managing Director" />
               <h3>VINOD MODGIL</h3>
               <h4> Managing Director </h4>
               <p>
@@ -141,7 +141,7 @@ function About() {
 
             {/* TEAM 3 */}
             <div className="team-card">
-              <img src={Hriday} alt="Hriday" />
+              <img src={Hriday} alt="Hriday Modgil, Marketing" />
               <h3>HRIDAY MODGIL</h3>
               <h4>Marketing</h4>
               <p>
@@ -152,7 +152,7 @@ function About() {
 
             {/* TEAM 4 */}
             <div className="team-card">
-              <img src={srijan} alt="srijan" />
+              <img src={srijan} alt="Srijan Modgil, Operations" />
               <h3>SRIJAN MODGIL</h3>
               <h4>Operations</h4>
               <p>

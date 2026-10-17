@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './Contact.css'
 import { createEnquiry } from '../api/enquiryApi'
 import { getCompanyInfo } from '../api/companyInfoApi'
+import { FiBriefcase, FiCheckCircle, FiClock, FiHeadphones, FiLock, FiMail, FiMapPin, FiPhone, FiSend, FiUsers } from 'react-icons/fi'
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -97,7 +98,7 @@ function Contact() {
         <div className="contact-form-box">
 
           <div className="contact-box-title">
-            <span>✉</span>
+            <span><FiMail aria-hidden="true" /></span>
 
             <div>
               <h3>Send Us a Message</h3>
@@ -187,40 +188,36 @@ function Contact() {
               className="submit-button"
               type="submit"
               disabled={isSubmitting}
+              aria-busy={isSubmitting}
             >
-              {isSubmitting ? 'Submitting...' : '➤  Submit'}
+              {isSubmitting ? <><span className="contact-submit-spinner" aria-hidden="true" />Submitting...</> : <><FiSend aria-hidden="true" />Submit</>}
             </button>
 
           </form>
 
           {submitted && (
-            <p className="success-message">
-              ✓ Thank you! Your message has been submitted successfully.
-            </p>
+            <p className="success-message"><FiCheckCircle aria-hidden="true" /> Thank you! Your message has been submitted successfully.</p>
           )}
 
-          <p className="form-note">
-            🔒 Your information is safe with us. We never share your details.
-          </p>
+          <p className="form-note"><FiLock aria-hidden="true" /> Your information is safe with us. We never share your details.</p>
 
         </div>
 
         <div className="contact-info-box">
-
-          <h3>🏢 &nbsp; Corporate Office & Works</h3>
+          <h3 className="contact-office-title"><FiBriefcase aria-hidden="true" /> Corporate Office &amp; Works</h3>
 
           <div className="contact-detail">
-            <span>☎</span>
+            <span><FiPhone aria-hidden="true" /></span>
 
             <p>
               {companyInfo?.phone1}<br />
               {companyInfo?.phone2}<br />
-              {companyInfo?.phone3}
+              {companyInfo?.phone3 || '84272-40089'}
             </p>
           </div>
 
           <div className="contact-detail">
-            <span>✉</span>
+            <span><FiMail aria-hidden="true" /></span>
 
             <p>
               {companyInfo?.email1}<br />
@@ -229,7 +226,7 @@ function Contact() {
           </div>
 
           <div className="contact-detail">
-            <span>📍</span>
+            <span><FiMapPin aria-hidden="true" /></span>
 
             <p>
               {companyInfo?.address}
@@ -254,7 +251,7 @@ function Contact() {
       <div className="contact-features">
 
         <div>
-          <span>◷</span>
+          <span><FiClock aria-hidden="true" /></span>
 
           <div>
             <strong>Quick Response</strong>
@@ -267,7 +264,7 @@ function Contact() {
         </div>
 
         <div>
-          <span>✓</span>
+          <span><FiHeadphones aria-hidden="true" /></span>
 
           <div>
             <strong>Trusted Support</strong>
@@ -280,7 +277,7 @@ function Contact() {
         </div>
 
         <div>
-          <span>🤝</span>
+          <span><FiCheckCircle aria-hidden="true" /></span>
 
           <div>
             <strong>Reliable Solutions</strong>
@@ -293,7 +290,7 @@ function Contact() {
         </div>
 
         <div>
-          <span>👥</span>
+          <span><FiUsers aria-hidden="true" /></span>
 
           <div>
             <strong>Customer First</strong>

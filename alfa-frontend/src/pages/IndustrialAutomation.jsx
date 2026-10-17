@@ -1,13 +1,15 @@
-import { useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
+import { FiSettings } from 'react-icons/fi'
 
 import { useEffect, useState } from 'react'
 import { getProductImage } from '../utils/productImageMap'
 
 import './IndustrialAutomation.css'
-import industrialBanner from '../assets/INDUSTRIAL/Industrial Banner.png'
-import industrialBannerMobile from '../assets/INDUSTRIAL/Industrial Banner R.png'
-import { useEnquiry } from '../context/EnquiryContext'
+import industrialBanner from '../assets-optimized/INDUSTRIAL/Industrial Banner.webp'
+import industrialBannerMobile from '../assets-optimized/INDUSTRIAL/Industrial Banner R.webp'
+import { useEnquiry } from '../context/useEnquiry'
 import RequestQuoteModal from '../components/RequestQuoteModal'
+import { ProductStructuredData } from '../components/SeoManager'
 import { getDivisionById } from '../api/divisionApi'
 
 
@@ -79,6 +81,7 @@ categoryData.forEach(category => {
     .sort((a, b) => a.displayOrder - b.displayOrder)
     .map(product => ({
   id: product.id,
+  slug: product.slug,
   name: product.name,
 
       images: (product.images || [])
@@ -122,8 +125,8 @@ categoryData.forEach(category => {
 
   Object.entries(products).forEach(([category, categoryProducts]) => {
 
-    const product = categoryProducts.find(
-      item => createSlug(item.name) === productSlug
+  const product = categoryProducts.find(
+      item => item.slug === productSlug || createSlug(item.name) === productSlug
     )
 
     if (product) {
@@ -138,6 +141,7 @@ categoryData.forEach(category => {
 
   return (
     <div className="industrial-page">
+      <ProductStructuredData product={currentProduct} />
 
      {/* Industrial Automation Banner */}
 <section className="industrial-banner">
@@ -149,7 +153,7 @@ categoryData.forEach(category => {
 
     <img
       src={industrialBanner}
-      alt="Industrial Automation"
+      alt="Industrial automation products and control systems"
     />
   </picture>
 </section>
@@ -176,12 +180,12 @@ categoryData.forEach(category => {
     <button
       key={category}
       className={`industrial-category-tab ${
-        (urlCategory || selectedCategory) === category ? 'active' : ''
+        (urlCategory || selectedCategory)?.toUpperCase() === category.toUpperCase() ? 'active' : ''
       }`}
       onClick={() => {
         setSelectedCategory(category)
         setSelectedProduct(null)
-        setSearchParams({})
+        setSearchParams({}, { state: { preserveScroll: true } })
       }}
     >
       {category}
@@ -205,18 +209,16 @@ categoryData.forEach(category => {
         category.name.toUpperCase() === selectedCategory.toUpperCase()
     )
     ?.products?.map((product) => (
-      <div
+      <Link
         className="industrial-product-card"
         key={product.id}
-        onClick={() => {
-          setSearchParams({
-            product: createSlug(product.name),
-          })
-          setSelectedImage(0)
-        }}
+        to={`?product=${encodeURIComponent(product.slug || createSlug(product.name))}`}
+        onClick={() => setSelectedImage(0)}
       >
         <div className="industrial-product-image">
           <img
+            loading="lazy"
+            decoding="async"
             src={
               product.images?.length > 0
                 ? getProductImage(product.images[0].imageUrl)
@@ -239,11 +241,11 @@ categoryData.forEach(category => {
             Product Code: {product.productCode}
           </p>
 
-          <p className="industrial-product-availability">
-            {product.isInStock ? 'In Stock' : 'Out of Stock'}
-          </p>
+          <span className="industrial-read-more">
+            Read More →
+          </span>
         </div>
-      </div>
+      </Link>
     ))}
 </div>
   </>
@@ -359,7 +361,7 @@ categoryData.forEach(category => {
         <div className="industrial-specifications">
 
           <h3>
-            ⚙ Technical Specifications
+                    <><FiSettings aria-hidden="true" /> Technical Specifications</>
           </h3>
 
           {currentProduct.specifications?.map((spec) => (

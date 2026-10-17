@@ -119,6 +119,9 @@
 ========================= */
 
 .heating-product-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
   background: #ffffff;
 
   border: 1px solid #dddddd;

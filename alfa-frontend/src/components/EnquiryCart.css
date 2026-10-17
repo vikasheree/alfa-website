@@ -57,6 +57,9 @@
 }
 
 .enquiry-cart-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 32px;
   height: 32px;
 
@@ -150,6 +153,9 @@
 }
 
 .quantity-control button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 30px;
   height: 30px;
 
@@ -168,6 +174,11 @@
 
 .quantity-control button:hover {
   background: #f3f4f6;
+}
+
+.quantity-control button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
 }
 
 .quantity-control span {
@@ -302,7 +313,18 @@
 }
 
 .enquiry-floating-icon {
-  font-size: 17px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.enquiry-floating-icon svg,
+.enquiry-cart-close svg,
+.quantity-control button svg {
+  display: block;
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
 }
 
 .enquiry-floating-text {
@@ -407,7 +429,7 @@
   }
 
   .enquiry-floating-icon {
-    font-size: 16px;
+    display: inline-flex;
   }
 
   .enquiry-floating-count {

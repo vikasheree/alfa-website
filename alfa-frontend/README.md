@@ -1,5 +1,11 @@
 # React + Vite
 
+## Production SEO URL
+
+Set `VITE_SITE_URL` to the public site origin when building (for example, in the deployment environment or Docker build arguments). The frontend uses it for canonical and social URLs, JSON-LD, `robots.txt`, and `sitemap.xml`. If it is omitted, local builds use `http://localhost:5173`; do not deploy that fallback.
+
+The site is a client-rendered React application. Route metadata and product schema are added after JavaScript runs. Search engines that render JavaScript can process those updates; social crawlers that only read the initial HTML will see the homepage fallback metadata. Full per-route metadata in the initial response requires prerendering or server rendering with the product API available.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

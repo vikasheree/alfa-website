@@ -1,11 +1,12 @@
 import './Navbar.css'
-import logo from '../assets/HOME/Alfa Logo.png'
-import serviceLogo from '../assets/HOME/24 year service png.png'
+import logo from '../assets-optimized/HOME/Alfa Logo.webp'
+import serviceLogo from '../assets-optimized/HOME/24 year service png.webp'
 
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 
 import { getDivisionById } from '../api/divisionApi'
+import { FiMenu, FiSearch, FiX } from 'react-icons/fi'
 
 function Navbar() {
 
@@ -100,7 +101,7 @@ function Navbar() {
 
     const slug = product.slug || createSlug(product.name)
 
-    navigate(`${product.route}?product=${slug}`)
+    navigate(`${product.route}?product=${slug}`, { state: { preserveScroll: true } })
 
     setSearchText('')
     closeMenu()
@@ -181,15 +182,15 @@ function Navbar() {
 
           <button
             type="button"
+            className="navbar-search-button"
+            aria-label="Search products"
             onClick={() => {
-
               if (searchResults.length > 0) {
                 handleProductClick(searchResults[0])
               }
-
             }}
           >
-            ⌕
+            <FiSearch aria-hidden="true" />
           </button>
 
 
@@ -245,7 +246,7 @@ function Navbar() {
           aria-label="Toggle navigation menu"
           aria-expanded={menuOpen}
         >
-          ☰
+          {menuOpen ? <FiX aria-hidden="true" /> : <FiMenu aria-hidden="true" />}
         </button>
 
       </div>

@@ -124,6 +124,9 @@
 ========================= */
 
 .industrial-product-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
   background: #ffffff;
   border: 1px solid #dddddd;
   border-radius: 8px;
@@ -192,6 +195,17 @@
   font-size: 15px;
   font-weight: 700;
   color: #029b02;
+}
+
+.industrial-read-more {
+  display: inline-block;
+  margin-top: 2px;
+  color: rgb(102, 102, 235);
+  font-weight: 600;
+}
+
+.industrial-product-card:hover .industrial-read-more {
+  color: #fa7878;
 }
 
 

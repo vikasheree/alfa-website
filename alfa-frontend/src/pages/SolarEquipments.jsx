@@ -1,19 +1,14 @@
 import { useEffect, useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { FiSettings } from 'react-icons/fi'
+import { Link, useSearchParams } from 'react-router-dom'
 import './SolarEquipments.css'
-import solarBanner from '../assets/SOLAR/Solar Banner.png'
-import solarBannerMobile from '../assets/SOLAR/Solar Banner R.png'
-import { useEnquiry } from '../context/EnquiryContext'
+import solarBanner from '../assets-optimized/SOLAR/Solar Banner.webp'
+import solarBannerMobile from '../assets-optimized/SOLAR/Solar Banner R.webp'
+import { useEnquiry } from '../context/useEnquiry'
 import RequestQuoteModal from '../components/RequestQuoteModal'
+import { ProductStructuredData } from '../components/SeoManager'
 import { getDivisionById } from '../api/divisionApi'
-
-const solarImageFiles = import.meta.glob(
-  '../assets/SOLAR/**/*.{webp,png,jpg,jpeg}',
-  {
-    eager: true,
-    import: 'default'
-  }
-)
+import { getSolarProductImage } from '../utils/productImageMap'
 
 function SolarEquipments() {
   const [showQuoteForm, setShowQuoteForm] = useState(false)
@@ -45,13 +40,6 @@ function SolarEquipments() {
   loadSolarData()
 }, [])
 
-const getSolarImage = (imageUrl) => {
-  const imagePath = Object.keys(solarImageFiles).find(
-    path => path.endsWith(`/SOLAR/${imageUrl}`)
-  )
-
-  return imagePath ? solarImageFiles[imagePath] : ''
-}
  const categories = (solarData?.categories || [])
   .filter(category => category.isActive)
   .sort((a, b) => a.displayOrder - b.displayOrder)
@@ -70,7 +58,7 @@ const solarProducts = backendProducts.map(product => ({
 
   images: (product.images || [])
     .sort((a, b) => a.displayOrder - b.displayOrder)
-    .map(image => getSolarImage(image.imageUrl)),
+    .map(image => getSolarProductImage(image.imageUrl)),
 
   productCode: product.productCode,
 
@@ -96,7 +84,6 @@ const solarProducts = backendProducts.map(product => ({
   const productSlug = searchParams.get('product')
 
 let urlProduct = null
-let urlCategory = null
 
 solarData?.categories?.forEach((category) => {
   const product = category.products?.find(
@@ -104,14 +91,13 @@ solarData?.categories?.forEach((category) => {
   )
 
   if (product) {
-    urlCategory = category.name
 
     urlProduct = {
       name: product.name,
 
       images: (product.images || [])
         .sort((a, b) => a.displayOrder - b.displayOrder)
-        .map(image => getSolarImage(image.imageUrl)),
+        .map(image => getSolarProductImage(image.imageUrl)),
 
       productCode: product.productCode,
 
@@ -143,6 +129,7 @@ solarData?.categories?.forEach((category) => {
   return (
 
     <div className="solar-page">
+      <ProductStructuredData product={currentProduct} />
 
 
       {/* =========================
@@ -158,7 +145,7 @@ solarData?.categories?.forEach((category) => {
 
     <img
       src={solarBanner}
-      alt="Solar Equipment"
+      alt="Solar lighting and equipment"
     />
   </picture>
 </section>
@@ -201,7 +188,7 @@ solarData?.categories?.forEach((category) => {
 
                 setSelectedProduct(null)
 
-                setSearchParams({})
+                setSearchParams({}, { state: { preserveScroll: true } })
 
               }}
 
@@ -231,23 +218,13 @@ solarData?.categories?.forEach((category) => {
 
             <div className="solar-product-grid">
 
-              {solarProducts.map((product, index) => (
+              {solarProducts.map((product) => (
 
-                <div
+                <Link
                   className="solar-product-card"
-
                   key={product.name}
-
-                  onClick={() => {
-
-                    setSearchParams({
-  product: product.slug
-})
-
-                    setSelectedImage(0)
-
-                  }}
-
+                  to={`?product=${encodeURIComponent(product.slug)}`}
+                  onClick={() => setSelectedImage(0)}
                 >
 
 
@@ -256,6 +233,8 @@ solarData?.categories?.forEach((category) => {
                   <div className="solar-product-image">
 
                     <img
+                      loading="lazy"
+                      decoding="async"
                       src={product.images[0]}
                       alt={product.name}
                     />
@@ -289,7 +268,7 @@ solarData?.categories?.forEach((category) => {
                   </div>
 
 
-                </div>
+                </Link>
 
               ))}
 
@@ -482,9 +461,7 @@ solarData?.categories?.forEach((category) => {
 
 
                   <h3>
-
-                    ⚙ Technical Specifications
-
+                    <><FiSettings aria-hidden="true" /> Technical Specifications</>
                   </h3>
 
 
