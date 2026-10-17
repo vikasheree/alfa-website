@@ -1,0 +1,60 @@
+name: Backend CI
+
+on:
+  push:
+    branches:
+      - develop-v2
+  pull_request:
+    branches:
+      - develop-v2
+
+permissions:
+  contents: read
+
+concurrency:
+  group: backend-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Test and Build Backend
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: alfa_ci
+          POSTGRES_USER: alfa_ci
+          POSTGRES_PASSWORD: ci_test_password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U alfa_ci -d alfa_ci"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      DB_URL: jdbc:postgresql://localhost:5432/alfa_ci
+      DB_USERNAME: alfa_ci
+      DB_PASSWORD: ci_test_password
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7.0.1
+
+      - name: Set up Java
+        uses: actions/setup-java@v6.1.0
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+          cache-dependency-path: |
+            alfa-backend/pom.xml
+            alfa-backend/.mvn/wrapper/maven-wrapper.properties
+
+      - name: Run tests and build
+        working-directory: alfa-backend
+        run: bash mvnw --batch-mode verify
