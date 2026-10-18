@@ -1,0 +1,24 @@
+services:
+  backend:
+    image: alfa-backend:v2-43b22cd
+    container_name: alfa-v2-backend
+    environment:
+      DB_URL: ${DB_URL:?DB_URL must be set}
+      DB_USERNAME: ${DB_USERNAME:?DB_USERNAME must be set}
+      DB_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD must be set}
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./alfa-frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: /api
+        VITE_SITE_URL: https://alfacontrolsystems.in
+    image: alfa-frontend:v2-43b22cd
+    container_name: alfa-v2-frontend
+    ports:
+      - "127.0.0.1:5175:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
