@@ -1,4 +1,4 @@
-name: Publish ARM64 Docker Images
+name: Publish Multi-Architecture Docker Images
 
 on:
   workflow_dispatch:
@@ -13,7 +13,7 @@ concurrency:
 
 jobs:
   publish:
-    name: Build and Publish ARM64 Images
+    name: Build and Publish Multi-Architecture Images
     runs-on: ubuntu-latest
 
     steps:
@@ -47,24 +47,24 @@ jobs:
         with:
           context: ./alfa-backend
           file: ./alfa-backend/Dockerfile
-          platforms: linux/arm64
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: |
             ghcr.io/${{ steps.images.outputs.owner }}/alfa-backend:${{ steps.images.outputs.sha_short }}
-          cache-from: type=gha,scope=backend-arm64
-          cache-to: type=gha,mode=max,scope=backend-arm64
+          cache-from: type=gha,scope=backend-multiarch
+          cache-to: type=gha,mode=max,scope=backend-multiarch
 
       - name: Build and publish frontend
         uses: docker/build-push-action@v6
         with:
           context: ./alfa-frontend
           file: ./alfa-frontend/Dockerfile
-          platforms: linux/arm64
+          platforms: linux/amd64,linux/arm64
           push: true
           build-args: |
             VITE_API_BASE_URL=/api
             VITE_SITE_URL=https://alfacontrolsystems.in
           tags: |
             ghcr.io/${{ steps.images.outputs.owner }}/alfa-frontend:${{ steps.images.outputs.sha_short }}
-          cache-from: type=gha,scope=frontend-arm64
-          cache-to: type=gha,mode=max,scope=frontend-arm64
+          cache-from: type=gha,scope=frontend-multiarch
+          cache-to: type=gha,mode=max,scope=frontend-multiarch
